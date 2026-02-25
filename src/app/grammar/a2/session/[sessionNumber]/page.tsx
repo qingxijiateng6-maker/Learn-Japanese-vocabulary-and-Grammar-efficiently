@@ -5,9 +5,9 @@ import { StudyTimerMount } from "@/shared/components/StudyTimerMount";
 import { PageScaffold } from "@/shared/components/PageScaffold";
 
 type GrammarSessionPageProps = {
-  params: {
+  params: Promise<{
     sessionNumber: string;
-  };
+  }>;
 };
 
 function renderMarkdownText(markdown: string) {
@@ -22,7 +22,7 @@ function renderMarkdownText(markdown: string) {
 }
 
 export default async function GrammarSessionPage({ params }: GrammarSessionPageProps) {
-  const { sessionNumber } = params;
+  const { sessionNumber } = await params;
   const parsedSessionNumber = Number.parseInt(sessionNumber, 10);
   const { sessions, warnings } = await loadA2GrammarSessions();
   const session = sessions.find((item) => item.sessionNumber === parsedSessionNumber);
@@ -34,13 +34,6 @@ export default async function GrammarSessionPage({ params }: GrammarSessionPageP
     <PageScaffold
       title={`Grammar A2 • Session ${sessionNumber}`}
       description="Explanation placeholder page with a next step to practice. Safe to render with no content data."
-      actions={[
-        {
-          href: `/grammar/a2/session/${sessionNumber}/practice`,
-          label: "Go to Practice",
-          primary: true,
-        },
-      ]}
     >
       <StudyTimerMount />
       <StudySettingsPanel />

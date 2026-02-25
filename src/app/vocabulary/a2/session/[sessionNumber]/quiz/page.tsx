@@ -6,13 +6,13 @@ import { StudyTimerMount } from "@/shared/components/StudyTimerMount";
 import { PageScaffold } from "@/shared/components/PageScaffold";
 
 type VocabularyQuizPageProps = {
-  params: {
+  params: Promise<{
     sessionNumber: string;
-  };
+  }>;
 };
 
 export default async function VocabularyQuizPage({ params }: VocabularyQuizPageProps) {
-  const { sessionNumber } = params;
+  const { sessionNumber } = await params;
   const parsedSessionNumber = Number.parseInt(sessionNumber, 10);
   const { sessions, warnings } = await loadA2VocabularySessions();
   const session = sessions.find((item) => item.sessionNumber === parsedSessionNumber);
