@@ -8,6 +8,7 @@ import {
   type VocabGrade,
   type VocabQuizAttempt,
 } from "@/repo/progressRepo";
+import { getWeekRange } from "@/domain/progress/calc";
 
 type StorageLike = Pick<Storage, "getItem" | "setItem" | "removeItem">;
 
@@ -170,6 +171,9 @@ function sanitizeUserProgress(value: unknown): UserProgress {
 
   return {
     weeklyGoalMinutes: Math.max(0, Math.round(toNonNegativeNumber(value.weeklyGoalMinutes, 120))),
+    ...(typeof value.weeklyGoalLockedWeekStartISO === "string"
+      ? { weeklyGoalLockedWeekStartISO: value.weeklyGoalLockedWeekStartISO }
+      : {}),
     weeklyTimeLog: sanitizeTimeLog(value.weeklyTimeLog),
     vocabGrades: sanitizeVocabGrades(value.vocabGrades),
     vocabSessionCompletion: sanitizeVocabSessionCompletion(value.vocabSessionCompletion),
@@ -219,10 +223,26 @@ export class LocalProgressRepo implements ProgressRepo {
   }
 
   async setWeeklyGoalMinutes(minutes: number): Promise<UserProgress> {
-    const next = await this.update((progress) => ({
-      ...progress,
-      weeklyGoalMinutes: Math.max(0, Math.round(minutes)),
-    }));
+    const nextGoal = Math.max(0, Math.round(minutes));
+    const currentWeekStartISO = getWeekRange(this.now(), true).startISO;
+
+    const next = await this.update((progress) => {
+      const isLockedForCurrentWeek =
+        progress.weeklyGoalLockedWeekStartISO === currentWeekStartISO;
+
+      if (isLockedForCurrentWeek) {
+        if (progress.weeklyGoalMinutes === nextGoal) {
+          return progress;
+        }
+        throw new Error("Weekly goal is locked for this week.");
+      }
+
+      return {
+        ...progress,
+        weeklyGoalMinutes: nextGoal,
+        weeklyGoalLockedWeekStartISO: currentWeekStartISO,
+      };
+    });
     return next;
   }
 

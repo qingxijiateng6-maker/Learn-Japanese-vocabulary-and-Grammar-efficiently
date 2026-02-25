@@ -86,6 +86,8 @@ export function HomeDashboard({
   const derived = useMemo(() => {
     const weekRange = getWeekRange(new Date(), true);
     const weeklyGoalMinutes = progress?.weeklyGoalMinutes ?? 0;
+    const isGoalLockedForCurrentWeek =
+      progress?.weeklyGoalLockedWeekStartISO === weekRange.startISO;
     const weeklyTimeSeconds = calcWeeklyTimeSeconds(progress?.weeklyTimeLog ?? [], weekRange);
     const timeProgressPercent =
       weeklyGoalMinutes <= 0
@@ -102,6 +104,7 @@ export function HomeDashboard({
     return {
       weekRange,
       weeklyGoalMinutes,
+      isGoalLockedForCurrentWeek,
       weeklyTimeSeconds,
       timeProgressPercent,
       weeklyContent,
@@ -109,8 +112,20 @@ export function HomeDashboard({
   }, [availableGrammarSessionKeys, availableVocabSessionKeys, progress]);
 
   const handleSaveGoal = () => {
+    if (derived.isGoalLockedForCurrentWeek) {
+      setSaveMessage("This week's goal is already locked. You can change it next week.");
+      return;
+    }
+
     const parsed = Number.parseInt(goalInput, 10);
     const nextGoal = Number.isFinite(parsed) ? Math.max(0, parsed) : 0;
+    const confirmed = window.confirm(
+      `Are you sure this is the goal time you want for this week? (${nextGoal} minutes)`,
+    );
+
+    if (!confirmed) {
+      return;
+    }
 
     startSaving(() => {
       void (async () => {
@@ -119,7 +134,11 @@ export function HomeDashboard({
           setProgress(next);
           setGoalInput(String(next.weeklyGoalMinutes));
           setSaveMessage("Weekly goal saved.");
-        } catch {
+        } catch (error) {
+          if (error instanceof Error && error.message.includes("locked")) {
+            setSaveMessage("This week's goal is already locked. You can change it next week.");
+            return;
+          }
           setSaveMessage("Could not save weekly goal.");
         }
       })();
@@ -143,6 +162,10 @@ export function HomeDashboard({
         <p className="page-subtitle">
           Set your study time goal in minutes for this week.
         </p>
+        <p className="muted-note">
+          Week runs from Monday to Sunday. Once you save this week's goal, it cannot be changed
+          until next week.
+        </p>
         <div className="goal-form">
           <label className="goal-form__label" htmlFor="weekly-goal-minutes">
             Weekly goal (minutes)
@@ -159,16 +182,22 @@ export function HomeDashboard({
               setGoalInput(event.target.value);
               setSaveMessage(null);
             }}
+            disabled={derived.isGoalLockedForCurrentWeek}
           />
           <button
             type="button"
             className="button-link button-link--primary"
             onClick={handleSaveGoal}
-            disabled={isSaving}
+            disabled={isSaving || derived.isGoalLockedForCurrentWeek}
           >
-            {isSaving ? "Saving..." : "Save goal"}
+            {isSaving ? "Saving..." : derived.isGoalLockedForCurrentWeek ? "Goal locked" : "Save goal"}
           </button>
         </div>
+        {derived.isGoalLockedForCurrentWeek ? (
+          <p className="muted-note">
+            This week's goal is locked. You can update it after Sunday (starting next Monday).
+          </p>
+        ) : null}
         {derived.weeklyGoalMinutes <= 0 ? (
           <p className="muted-note">Set a weekly goal to start tracking Time Progress %.</p>
         ) : null}

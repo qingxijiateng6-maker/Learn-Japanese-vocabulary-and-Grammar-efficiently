@@ -35,6 +35,25 @@ export async function runProgressRepoSelfTests(): Promise<void> {
   const initial = await repo.getProgress();
   assert(initial.weeklyGoalMinutes > 0, "default weekly goal should be initialized");
   assert(initial.weeklyTimeLog.length === 0, "initial weeklyTimeLog should be empty");
+  assert(
+    initial.weeklyGoalLockedWeekStartISO === undefined,
+    "initial weekly goal should not be locked",
+  );
+
+  const afterGoalSave = await repo.setWeeklyGoalMinutes(180);
+  assert(afterGoalSave.weeklyGoalMinutes === 180, "weekly goal should update on first save");
+  assert(
+    typeof afterGoalSave.weeklyGoalLockedWeekStartISO === "string",
+    "weekly goal lock week should be stored after first save",
+  );
+
+  let rejectedSecondGoalChange = false;
+  try {
+    await repo.setWeeklyGoalMinutes(200);
+  } catch {
+    rejectedSecondGoalChange = true;
+  }
+  assert(rejectedSecondGoalChange, "weekly goal should not be changeable twice in the same week");
 
   await repo.addWeeklyTimeLog(90, fixedNow);
   const afterTime = await repo.getProgress();

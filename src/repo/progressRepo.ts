@@ -32,6 +32,7 @@ export type GrammarSessionCompletionRecord = {
 
 export type UserProgress = {
   weeklyGoalMinutes: number;
+  weeklyGoalLockedWeekStartISO?: string;
   weeklyTimeLog: TimeLogEntry[];
   vocabGrades: Record<string, VocabGrade>;
   vocabSessionCompletion: Record<string, VocabSessionCompletionRecord>;
@@ -72,6 +73,7 @@ export function createEmptyUserProgress(
 ): UserProgress {
   return {
     weeklyGoalMinutes,
+    weeklyGoalLockedWeekStartISO: undefined,
     weeklyTimeLog: [],
     vocabGrades: {},
     vocabSessionCompletion: {},
