@@ -222,15 +222,17 @@ export function HomeDashboard({
       </section>
 
       <section className="page-card">
-        <h2 className="page-title">Quick Links</h2>
-        <div className="button-row">
-          <Link className="button-link" href="/vocabulary">
+        <div className="home-nav-grid" aria-label="Quick navigation">
+          <Link className="home-nav-button home-nav-button--home" href="/">
+            Home
+          </Link>
+          <Link className="home-nav-button home-nav-button--vocabulary" href="/vocabulary">
             Vocabulary
           </Link>
-          <Link className="button-link" href="/grammar">
+          <Link className="home-nav-button home-nav-button--grammar" href="/grammar">
             Grammar
           </Link>
-          <Link className="button-link" href="/history">
+          <Link className="home-nav-button home-nav-button--history" href="/history">
             History
           </Link>
         </div>

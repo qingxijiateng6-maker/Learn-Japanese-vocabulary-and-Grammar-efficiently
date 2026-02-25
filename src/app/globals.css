@@ -525,10 +525,61 @@ button {
   transition: width 180ms ease;
 }
 
+.home-nav-grid {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.home-nav-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 64px;
+  border-radius: 14px;
+  border: 1px solid transparent;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  box-shadow: 0 8px 18px rgba(18, 32, 66, 0.08);
+  transition: transform 120ms ease, box-shadow 120ms ease, filter 120ms ease;
+}
+
+.home-nav-button:hover,
+.home-nav-button:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(18, 32, 66, 0.12);
+  filter: saturate(1.05);
+  outline: none;
+}
+
+.home-nav-button--home {
+  background: linear-gradient(180deg, #e9f3ff, #d8eaff);
+  border-color: #a8c8f2;
+  color: #103f77;
+}
+
+.home-nav-button--vocabulary {
+  background: linear-gradient(180deg, #eafaf2, #d8f3e4);
+  border-color: #9ed8b2;
+  color: #0f5d38;
+}
+
+.home-nav-button--grammar {
+  background: linear-gradient(180deg, #fff3e7, #ffe3c6);
+  border-color: #efbe82;
+  color: #8a4300;
+}
+
+.home-nav-button--history {
+  background: linear-gradient(180deg, #f3eeff, #e2d8ff);
+  border-color: #bba8ef;
+  color: #48298c;
+}
+
 @media (min-width: 640px) {
   .site-header__inner {
     display: grid;
-    grid-template-columns: auto 1fr auto;
+    grid-template-columns: auto 1fr;
     align-items: center;
     gap: 0.75rem;
   }
@@ -560,5 +611,9 @@ button {
 
   .history-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .home-nav-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }

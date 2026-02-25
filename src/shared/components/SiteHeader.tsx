@@ -3,13 +3,6 @@
 import Link from "next/link";
 import { GoogleSignInButton, useGoogleAuth } from "@/auth/googleAuth";
 
-const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/vocabulary", label: "Vocabulary" },
-  { href: "/grammar", label: "Grammar" },
-  { href: "/history", label: "History" },
-];
-
 export function SiteHeader() {
   const { user, signOut, isConfigured, configError } = useGoogleAuth();
 
@@ -19,13 +12,6 @@ export function SiteHeader() {
         <Link href="/" className="site-header__brand">
           Japanese Learning App
         </Link>
-        <nav aria-label="Main navigation" className="site-nav">
-          {navLinks.map((link) => (
-            <Link key={link.href} href={link.href} className="site-nav__link">
-              {link.label}
-            </Link>
-          ))}
-        </nav>
         <div className="auth-controls" aria-label="Authentication">
           {user ? (
             <>
