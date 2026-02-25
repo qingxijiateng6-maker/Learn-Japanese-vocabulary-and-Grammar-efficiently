@@ -4,6 +4,7 @@ import {
   createContext,
   type PropsWithChildren,
   useContext,
+  useMemo,
 } from "react";
 import {
   createLocalProgressRepo,
@@ -20,19 +21,26 @@ const ProgressRepoContext = createContext<ProgressRepo | null>(null);
 
 let defaultProgressRepo: ProgressRepo | null = null;
 
-function getDefaultProgressRepo(localOptions?: LocalProgressRepoOptions): ProgressRepo {
-  if (!defaultProgressRepo) {
-    defaultProgressRepo = createLocalProgressRepo(localOptions);
-  }
-  return defaultProgressRepo;
-}
-
 export function ProgressRepoProvider({
   children,
   repo,
   localOptions,
 }: ProgressRepoProviderProps) {
-  const value = repo ?? getDefaultProgressRepo(localOptions);
+  const value = useMemo(() => {
+    if (repo) {
+      return repo;
+    }
+
+    if (localOptions) {
+      return createLocalProgressRepo(localOptions);
+    }
+
+    if (!defaultProgressRepo) {
+      defaultProgressRepo = createLocalProgressRepo();
+    }
+
+    return defaultProgressRepo;
+  }, [localOptions, repo]);
 
   return (
     <ProgressRepoContext.Provider value={value}>
