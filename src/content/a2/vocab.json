@@ -1,0 +1,42 @@
+[
+  {
+    "id": "a2-s1-001",
+    "level": "A2",
+    "sessionNumber": 1,
+    "wordJP": "駅",
+    "readingKana": "えき",
+    "meaningEN": "station",
+    "exampleJP": "駅で友だちに会います。",
+    "exampleEN": "I will meet my friend at the station."
+  },
+  {
+    "id": "a2-s1-002",
+    "level": "A2",
+    "sessionNumber": 1,
+    "wordJP": "案内",
+    "readingKana": "あんない",
+    "meaningEN": "guidance / information",
+    "exampleJP": "駅で案内を聞きました。",
+    "exampleEN": "I asked for information at the station."
+  },
+  {
+    "id": "a2-s1-003",
+    "level": "A2",
+    "sessionNumber": 1,
+    "wordJP": "改札",
+    "readingKana": "かいさつ",
+    "meaningEN": "ticket gate",
+    "exampleJP": "改札の前で待ってください。",
+    "exampleEN": "Please wait in front of the ticket gate."
+  },
+  {
+    "id": "a2-s2-001",
+    "level": "A2",
+    "sessionNumber": 2,
+    "wordJP": "地図",
+    "readingKana": "ちず",
+    "meaningEN": "map",
+    "exampleJP": "地図を見て道を確認します。",
+    "exampleEN": "I check the route by looking at the map."
+  }
+]

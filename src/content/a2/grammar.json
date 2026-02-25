@@ -1,0 +1,58 @@
+[
+  {
+    "id": "a2-g-s1-001",
+    "level": "A2",
+    "sessionNumber": 1,
+    "titleEN": "Expressing intention with つもりです",
+    "explanationMarkdownEN": "Use **つもりです** after a verb dictionary form to say what you intend to do.",
+    "examples": [
+      {
+        "jp": "来週、日本へ行くつもりです。",
+        "en": "I intend to go to Japan next week."
+      },
+      {
+        "jp": "今日は早く寝るつもりです。",
+        "en": "I intend to sleep early today."
+      }
+    ],
+    "questions": [
+      {
+        "id": "a2-g-s1-q1",
+        "promptEN": "Choose the sentence that correctly expresses intention.",
+        "promptJP": "意志を表す正しい文を選んでください。",
+        "choices": [
+          "明日、勉強するつもりです。",
+          "明日、勉強したつもりです。",
+          "明日、勉強するつもりました。",
+          "明日、勉強つもりです。"
+        ],
+        "correctIndex": 0,
+        "explanationEN": "Dictionary form + つもりです is the correct structure."
+      },
+      {
+        "id": "a2-g-s1-q2",
+        "promptEN": "Which sentence means 'I intend to buy a new bag'?",
+        "choices": [
+          "新しいかばんを買うつもりです。",
+          "新しいかばんを買ったつもりです。",
+          "新しいかばんを買うつもりでした。",
+          "新しいかばんは買うです。"
+        ],
+        "correctIndex": 0,
+        "explanationEN": "The dictionary form 買う + つもりです expresses intention."
+      },
+      {
+        "id": "a2-g-s1-q3",
+        "promptEN": "Pick the best grammar explanation for つもりです in this lesson.",
+        "choices": [
+          "It marks possession.",
+          "It expresses a plan or intention.",
+          "It turns a verb into polite past tense.",
+          "It means 'because'."
+        ],
+        "correctIndex": 1,
+        "explanationEN": "In this lesson, つもりです is used to express intention."
+      }
+    ]
+  }
+]
