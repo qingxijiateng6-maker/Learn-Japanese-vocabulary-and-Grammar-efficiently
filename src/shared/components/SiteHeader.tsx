@@ -57,7 +57,9 @@ export function SiteHeader() {
               <GoogleSignInButton />
               {configError ? (
                 <span className="auth-config-hint" title={configError}>
-                  {isConfigured ? "Google login error" : "Google login not configured"}
+                  {isConfigured
+                    ? `Google login error: ${configError}`
+                    : `Google login not configured: ${configError}`}
                 </span>
               ) : null}
             </>

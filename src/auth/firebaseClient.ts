@@ -15,17 +15,20 @@ type FirebaseClientResult =
 
 let cachedBundle: FirebaseClientBundle | null = null;
 
-function readEnv(name: string): string {
-  return (process.env[name] ?? "").trim();
-}
+const firebaseEnv = {
+  apiKey: (process.env.NEXT_PUBLIC_FIREBASE_API_KEY ?? "").trim(),
+  authDomain: (process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN ?? "").trim(),
+  projectId: (process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID ?? "").trim(),
+  appId: (process.env.NEXT_PUBLIC_FIREBASE_APP_ID ?? "").trim(),
+  storageBucket: (process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET ?? "").trim(),
+  messagingSenderId: (process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID ?? "").trim(),
+  measurementId: (process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID ?? "").trim(),
+};
 
 function buildFirebaseConfig():
   | { ok: true; config: FirebaseOptions }
   | { ok: false; error: string } {
-  const apiKey = readEnv("NEXT_PUBLIC_FIREBASE_API_KEY");
-  const authDomain = readEnv("NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN");
-  const projectId = readEnv("NEXT_PUBLIC_FIREBASE_PROJECT_ID");
-  const appId = readEnv("NEXT_PUBLIC_FIREBASE_APP_ID");
+  const { apiKey, authDomain, projectId, appId } = firebaseEnv;
 
   const missing = [
     !apiKey ? "NEXT_PUBLIC_FIREBASE_API_KEY" : null,
@@ -48,9 +51,9 @@ function buildFirebaseConfig():
       authDomain,
       projectId,
       appId,
-      storageBucket: readEnv("NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET") || undefined,
-      messagingSenderId: readEnv("NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID") || undefined,
-      measurementId: readEnv("NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID") || undefined,
+      storageBucket: firebaseEnv.storageBucket || undefined,
+      messagingSenderId: firebaseEnv.messagingSenderId || undefined,
+      measurementId: firebaseEnv.measurementId || undefined,
     },
   };
 }
