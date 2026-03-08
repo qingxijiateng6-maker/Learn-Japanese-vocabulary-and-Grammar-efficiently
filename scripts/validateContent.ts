@@ -22,8 +22,9 @@ async function main() {
   const grammarSessionCount = grammarResult.sessions.length;
   const grammarQuestionsPerSession = grammarResult.sessions.map((session) => ({
     sessionNumber: session.sessionNumber,
-    questionCount: session.items.reduce((count, item) => count + item.questions.length, 0),
-    topicCount: session.items.length,
+    sessionTitle: session.sessionTitle,
+    questionCount: session.questions.length,
+    topicCount: session.topics.length,
   }));
 
   const warnings = [...vocabResult.warnings, ...grammarResult.warnings];
@@ -41,7 +42,7 @@ async function main() {
     console.log("Grammar questions per session:");
     for (const entry of grammarQuestionsPerSession) {
       console.log(
-        `- Session ${entry.sessionNumber}: ${entry.questionCount} questions across ${entry.topicCount} topic(s)`,
+        `- Session ${entry.sessionNumber}: ${entry.questionCount} questions across ${entry.topicCount} topic(s) | ${entry.sessionTitle}`,
       );
     }
   }

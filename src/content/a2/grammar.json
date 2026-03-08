@@ -1,58 +1,229 @@
 [
   {
-    "id": "a2-g-s1-001",
     "level": "A2",
     "sessionNumber": 1,
-    "sessionTitleEN": "Plans and Intentions",
-    "titleEN": "Expressing intention with つもりです",
-    "explanationMarkdownEN": "Use **つもりです** after a verb dictionary form to say what you intend to do.",
-    "examples": [
+    "sessionTitle": "session1(経験・完了：〜たことがある、もう〜た／まだ〜ていない)",
+    "topics": [
       {
-        "jp": "来週、日本へ行くつもりです。",
-        "en": "I intend to go to Japan next week."
-      },
-      {
-        "jp": "今日は早く寝るつもりです。",
-        "en": "I intend to sleep early today."
+        "id": "a2-g-s1-topic-1",
+        "title": "経験: 〜たことがある",
+        "explanationMarkdown": "## Experience with 〜たことがある\n\nIn Japanese, experience is often expressed using the pattern **verb (past form) + ことがある**. This structure indicates that someone has had the experience of doing something at least once in their life. It is commonly used when talking about life experiences rather than specific events with a clear time reference.\n\n### Basic Structure\n\n`Verb (た-form) + ことがある`\n\nThe た-form (past form) of the verb is required because the action must already have happened at some point in the past.\n\n### Negative Form\n\n`Verb (た-form) + ことがない`\n\nUse this form to say that you have never had the experience.\n\n### Asking About Experience\n\nUse the same structure in question form to ask whether someone has had an experience.\n\n### Important Usage Notes\n\n1. Do not use a specific time expression such as \"yesterday\" or \"last year\" with this pattern, because the grammar focuses on general experience.\n2. Frequency can be added with expressions like:\n- 一度 (once)\n- 二回 (twice)\n- 日本へ二回行ったことがあります。 means \"I have been to Japan twice.\"\n\nOverall, **〜たことがある** is one of the most common ways to talk about life experiences in Japanese and is similar to the English present perfect \"have done.\"",
+        "examples": [
+          {
+            "jp": "日本へ行ったことがあります。",
+            "en": "I have been to Japan."
+          },
+          {
+            "jp": "寿司を食べたことがあります。",
+            "en": "I have eaten sushi before."
+          },
+          {
+            "jp": "富士山に登ったことがあります。",
+            "en": "I have climbed Mt. Fuji."
+          },
+          {
+            "jp": "日本へ行ったことがありません。",
+            "en": "I have never been to Japan."
+          },
+          {
+            "jp": "スキーをしたことがありません。",
+            "en": "I have never skied."
+          },
+          {
+            "jp": "日本へ行ったことがありますか。",
+            "en": "Have you ever been to Japan?"
+          },
+          {
+            "jp": "納豆を食べたことがありますか。",
+            "en": "Have you ever eaten natto?"
+          },
+          {
+            "jp": "日本へ二回行ったことがあります。",
+            "en": "I have been to Japan twice."
+          }
+        ]
       }
     ],
     "questions": [
       {
         "id": "a2-g-s1-q1",
-        "promptEN": "Choose the sentence that correctly expresses intention.",
-        "promptJP": "意志を表す正しい文を選んでください。",
-        "choices": [
-          "明日、勉強するつもりです。",
-          "明日、勉強したつもりです。",
-          "明日、勉強するつもりました。",
-          "明日、勉強つもりです。"
-        ],
-        "correctIndex": 0,
-        "explanationEN": "Dictionary form + つもりです is the correct structure."
+        "promptJP": "日本へ（  ）ことがあります。",
+        "choices": ["行って", "行く", "行きます", "行った"],
+        "correctIndex": 3
       },
       {
         "id": "a2-g-s1-q2",
-        "promptEN": "Which sentence means 'I intend to buy a new bag'?",
-        "choices": [
-          "新しいかばんを買うつもりです。",
-          "新しいかばんを買ったつもりです。",
-          "新しいかばんを買うつもりでした。",
-          "新しいかばんは買うです。"
-        ],
-        "correctIndex": 0,
-        "explanationEN": "The dictionary form 買う + つもりです expresses intention."
+        "promptJP": "寿司を（  ）ことがあります。",
+        "choices": ["食べるつもり", "食べます", "食べた", "食べて"],
+        "correctIndex": 2
       },
       {
         "id": "a2-g-s1-q3",
-        "promptEN": "Pick the best grammar explanation for つもりです in this lesson.",
-        "choices": [
-          "It marks possession.",
-          "It expresses a plan or intention.",
-          "It turns a verb into polite past tense.",
-          "It means 'because'."
-        ],
-        "correctIndex": 1,
-        "explanationEN": "In this lesson, つもりです is used to express intention."
+        "promptJP": "富士山に二回（  ）ことがあります。",
+        "choices": ["登る", "登って", "登ります", "登った"],
+        "correctIndex": 3
+      },
+      {
+        "id": "a2-g-s1-q4",
+        "promptJP": "納豆を食べたことが（  ）。",
+        "choices": ["あります", "る予定", "ないます", "あるます"],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s1-q5",
+        "promptJP": "ピアノを（  ）ことがありますか。",
+        "choices": ["弾きて", "弾いた", "弾きます", "弾いて"],
+        "correctIndex": 1
+      },
+      {
+        "id": "a2-g-s1-q6",
+        "promptJP": "英語の映画を字幕なしで（  ）ことがあります。",
+        "choices": ["見", "見た", "見ます", "見て"],
+        "correctIndex": 1
+      },
+      {
+        "id": "a2-g-s1-q7",
+        "promptJP": "子どものころ、海で（  ）ことがあります。",
+        "choices": ["泳いだ", "泳ぐ", "泳いで", "泳ぎます"],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s1-q8",
+        "promptJP": "日本の祭りを（  ）ことがあります。",
+        "choices": ["見る", "見た", "見ます", "見て"],
+        "correctIndex": 1
+      },
+      {
+        "id": "a2-g-s1-q9",
+        "promptJP": "彼と会ったことが（  ）か。",
+        "choices": ["あります", "ないます", "あり", "なし"],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s1-q10",
+        "promptJP": "パリに行ったことが（  ）。",
+        "choices": ["あり", "ないます", "ある", "なし"],
+        "correctIndex": 2
+      },
+      {
+        "id": "a2-g-s1-q11",
+        "promptJP": "スキーをしたことが（  ）。",
+        "choices": ["なし", "あるません", "ある", "ないます"],
+        "correctIndex": 2
+      },
+      {
+        "id": "a2-g-s1-q12",
+        "promptJP": "お寿司を自分で作ったことが（  ）？",
+        "choices": ["ありますか", "ありません", "する", "した"],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s1-q13",
+        "promptJP": "一度も富士山に登ったことが（  ）。",
+        "choices": ["ありません", "あります", "する", "した"],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s1-q14",
+        "promptJP": "この映画を見たことが（  ）。",
+        "choices": ["あります", "あるます", "します", "見る"],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s1-q15",
+        "promptJP": "そのレストランで食べたことが（  ）。",
+        "choices": ["あります", "ないます", "する", "した"],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s1-q16",
+        "promptJP": "あなたはラーメンを食べたことが（  ）か。",
+        "choices": ["あります", "ます", "する", "した"],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s1-q17",
+        "promptJP": "漢字を千字以上書いたことが（  ）。",
+        "choices": ["あります", "するだろう", "した", "する"],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s1-q18",
+        "promptJP": "その山に登ったことが（  ）か。",
+        "choices": ["なし", "ありません", "する", "あり"],
+        "correctIndex": 1
+      },
+      {
+        "id": "a2-g-s1-q19",
+        "promptJP": "一度も日本へ行ったことが（  ）。",
+        "choices": ["あります", "ないません", "ある", "ない"],
+        "correctIndex": 3
+      },
+      {
+        "id": "a2-g-s1-q20",
+        "promptJP": "北海道でスキーをしたことが（  ）。",
+        "choices": ["あります", "しない", "する", "した"],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s1-q21",
+        "promptJP": "納豆を食べたことが（  ）か。",
+        "choices": ["あります", "します", "した", "ない"],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s1-q22",
+        "promptJP": "私はその本を読んだことが（  ）。",
+        "choices": ["あります", "あるます", "する", "した"],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s1-q23",
+        "promptJP": "子どものころ、ピアノを習ったことが（  ）。",
+        "choices": ["する予定", "ありません", "する", "した"],
+        "correctIndex": 1
+      },
+      {
+        "id": "a2-g-s1-q24",
+        "promptJP": "その歌手のコンサートに行ったことが（  ）。",
+        "choices": ["しない", "ないます", "する", "ない"],
+        "correctIndex": 3
+      },
+      {
+        "id": "a2-g-s1-q25",
+        "promptJP": "日本で電車に乗ったことが（  ）か。",
+        "choices": ["あります", "ありません", "ある", "ない"],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s1-q26",
+        "promptJP": "海外で仕事をしたことが（  ）。",
+        "choices": ["あります", "ありません", "する", "した"],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s1-q27",
+        "promptJP": "京都のお寺を見たことが（  ）。",
+        "choices": ["あります", "ないます", "した", "する"],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s1-q28",
+        "promptJP": "温泉に入ったことが（  ）か。",
+        "choices": ["あります", "ありますん", "する", "した"],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s1-q29",
+        "promptJP": "外国人と日本語で話したことが（  ）。",
+        "choices": ["あります", "します", "した", "ない"],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s1-q30",
+        "promptJP": "彼は海外へ行ったことが（  ）。",
+        "choices": ["します", "する", "ある予定", "ない"],
+        "correctIndex": 3
       }
     ]
   }

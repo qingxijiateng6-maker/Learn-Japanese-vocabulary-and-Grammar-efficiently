@@ -18,9 +18,9 @@ export default async function GrammarA2SessionsPage() {
       <GrammarSessionList
         sessions={sessions.map((session) => ({
           sessionNumber: session.sessionNumber,
-          sessionTitleEN: session.sessionTitleEN,
-          topicCount: session.items.length,
-          questionCount: session.items.reduce((count, item) => count + item.questions.length, 0),
+          sessionTitle: session.sessionTitle,
+          topicCount: session.topics.length,
+          questionCount: session.questions.length,
         }))}
         warning={warnings[0]}
       />

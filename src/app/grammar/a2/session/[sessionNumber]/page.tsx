@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { loadA2GrammarSessions } from "@/content/loaders";
+import { GrammarMarkdown } from "@/features/grammar/components/GrammarMarkdown";
 import { StudySettingsPanel } from "@/shared/components/StudySettingsPanel";
 import { StudyTimerMount } from "@/shared/components/StudyTimerMount";
 import { PageScaffold } from "@/shared/components/PageScaffold";
@@ -10,31 +11,13 @@ type GrammarSessionPageProps = {
   }>;
 };
 
-function renderMarkdownText(markdown: string) {
-  return markdown.split(/\n\s*\n/).map((paragraph, paragraphIndex) => {
-    const parts = paragraph.split(/(\*\*[^*]+\*\*)/g);
-
-    return (
-      <p key={`p:${paragraphIndex}`} className="grammar-doc__paragraph">
-        {parts.map((part, partIndex) => {
-          if (part.startsWith("**") && part.endsWith("**")) {
-            return <strong key={`${part}:${partIndex}`}>{part.slice(2, -2)}</strong>;
-          }
-          return <span key={`${part}:${partIndex}`}>{part}</span>;
-        })}
-      </p>
-    );
-  });
-}
-
 export default async function GrammarSessionPage({ params }: GrammarSessionPageProps) {
   const { sessionNumber } = await params;
   const parsedSessionNumber = Number.parseInt(sessionNumber, 10);
   const { sessions, warnings } = await loadA2GrammarSessions();
   const session = sessions.find((item) => item.sessionNumber === parsedSessionNumber);
-  const topicCount = session?.items.length ?? 0;
-  const questionCount =
-    session?.items.reduce((count, item) => count + item.questions.length, 0) ?? 0;
+  const topicCount = session?.topics.length ?? 0;
+  const questionCount = session?.questions.length ?? 0;
 
   return (
     <PageScaffold className="page-main">
@@ -42,7 +25,7 @@ export default async function GrammarSessionPage({ params }: GrammarSessionPageP
       <section className="page-card grammar-session-hero">
         <p className="flashcard-label">Grammar • A2 • Session {sessionNumber}</p>
         <h1 className="grammar-session-hero__title">
-          {session?.sessionTitleEN ?? `Session ${sessionNumber}`}
+          {session?.sessionTitle ?? `session${sessionNumber}`}
         </h1>
         <p className="page-subtitle">
           {session
@@ -62,13 +45,13 @@ export default async function GrammarSessionPage({ params }: GrammarSessionPageP
         </div>
         {session ? (
           <div className="grammar-doc">
-            {session.items.map((topic, topicIndex) => (
+            {session.topics.map((topic, topicIndex) => (
               <article key={topic.id} className="grammar-doc__section">
                 <div className="grammar-doc__header">
                   <p className="grammar-doc__index">Topic {topicIndex + 1}</p>
-                  <h3 className="grammar-doc__title">{topic.titleEN}</h3>
+                  <h3 className="grammar-doc__title">{topic.title}</h3>
                 </div>
-                <div className="grammar-doc__body">{renderMarkdownText(topic.explanationMarkdownEN)}</div>
+                <GrammarMarkdown markdown={topic.explanationMarkdown} />
                 <div className="grammar-example-grid">
                   {topic.examples.map((example, index) => (
                     <section key={`${topic.id}:ex:${index}`} className="grammar-example-card">
