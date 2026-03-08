@@ -8,7 +8,7 @@ import type { UserProgress } from "@/repo/progressRepo";
 
 type GrammarSessionListItem = {
   sessionNumber: number;
-  sessionTitleEN: string;
+  sessionTitle: string;
   topicCount: number;
   questionCount: number;
 };
@@ -65,9 +65,7 @@ export function GrammarSessionList({ sessions, warning }: GrammarSessionListProp
               href={`/grammar/a2/session/${session.sessionNumber}`}
             >
               <div className="stack-row">
-                <strong className="grammar-session-link__title">
-                  Session {session.sessionNumber} ({session.sessionTitleEN})
-                </strong>
+                <strong className="grammar-session-link__title">{session.sessionTitle}</strong>
                 {completed ? <span className="status-badge">Completed</span> : null}
               </div>
               <p className="muted-note">

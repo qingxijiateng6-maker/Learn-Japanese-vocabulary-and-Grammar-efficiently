@@ -1,7 +1,7 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import {
-  type GrammarJsonV1Item,
+  type GrammarSessionJsonV1,
   GrammarJsonV1Schema,
   type LocalizedExample,
   type VocabularyJsonV1Item,
@@ -25,12 +25,7 @@ export type VocabularySession = {
   items: VocabularyItem[];
 };
 
-export type GrammarSession = {
-  level: string;
-  sessionNumber: number;
-  sessionTitleEN: string;
-  items: GrammarJsonV1Item[];
-};
+export type GrammarSession = GrammarSessionJsonV1;
 
 async function readLocalJson(relativePathFromRoot: string): Promise<{
   json: unknown | null;
@@ -42,8 +37,7 @@ async function readLocalJson(relativePathFromRoot: string): Promise<{
     const raw = await readFile(fullPath, "utf8");
     return { json: JSON.parse(raw), warnings: [] };
   } catch (error) {
-    const message =
-      error instanceof Error ? error.message : "Unknown file read error";
+    const message = error instanceof Error ? error.message : "Unknown file read error";
     return {
       json: null,
       warnings: [`Failed to load ${relativePathFromRoot}: ${message}`],
@@ -86,50 +80,7 @@ function normalizeVocabularyItem(item: VocabularyJsonV1Item): VocabularyItem {
   };
 }
 
-function groupGrammarItemsBySession(items: GrammarJsonV1Item[]): SafeLoadResult<GrammarSession> {
-  const groups = new Map<number, GrammarSession>();
-  const warnings: LoaderWarning[] = [];
-  const warnedSessionNumbers = new Set<number>();
-
-  for (const item of items) {
-    const existing = groups.get(item.sessionNumber);
-
-    if (!existing) {
-      groups.set(item.sessionNumber, {
-        level: item.level,
-        sessionNumber: item.sessionNumber,
-        sessionTitleEN: item.sessionTitleEN,
-        items: [item],
-      });
-      continue;
-    }
-
-    if (
-      existing.sessionTitleEN !== item.sessionTitleEN &&
-      !warnedSessionNumbers.has(item.sessionNumber)
-    ) {
-      warnings.push(
-        `Grammar session ${item.sessionNumber} has inconsistent sessionTitleEN values. Using "${existing.sessionTitleEN}".`,
-      );
-      warnedSessionNumbers.add(item.sessionNumber);
-    }
-
-    existing.items.push(item);
-  }
-
-  const sessions = [...groups.values()]
-    .sort((a, b) => a.sessionNumber - b.sessionNumber)
-    .map((session) => ({
-      ...session,
-      items: session.items.sort((a, b) => a.id.localeCompare(b.id)),
-    }));
-
-  return { sessions, warnings };
-}
-
-export async function loadA2VocabularySessions(): Promise<
-  SafeLoadResult<VocabularySession>
-> {
+export async function loadA2VocabularySessions(): Promise<SafeLoadResult<VocabularySession>> {
   const filePath = "src/content/a2/vocab.json";
   const fileResult = await readLocalJson(filePath);
 
@@ -185,10 +136,16 @@ export async function loadA2GrammarSessions(): Promise<SafeLoadResult<GrammarSes
     };
   }
 
-  const grouped = groupGrammarItemsBySession(parsed.data);
+  const sessions = [...parsed.data]
+    .sort((a, b) => a.sessionNumber - b.sessionNumber)
+    .map((session) => ({
+      ...session,
+      topics: [...session.topics].sort((a, b) => a.id.localeCompare(b.id)),
+      questions: [...session.questions].sort((a, b) => a.id.localeCompare(b.id)),
+    }));
 
   return {
-    sessions: grouped.sessions,
-    warnings: [...fileResult.warnings, ...grouped.warnings],
+    sessions,
+    warnings: fileResult.warnings,
   };
 }

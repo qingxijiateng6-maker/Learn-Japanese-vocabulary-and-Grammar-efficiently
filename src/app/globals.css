@@ -800,8 +800,41 @@ input {
   font-size: 1rem;
 }
 
+.grammar-doc__heading {
+  margin: 0;
+  font-size: 1.02rem;
+  line-height: 1.4;
+  color: #f2f6ff;
+}
+
 .grammar-doc__paragraph {
   margin: 0;
+}
+
+.grammar-doc__list {
+  margin: 0;
+  padding-left: 1.2rem;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.grammar-doc__list--ordered {
+  padding-left: 1.35rem;
+}
+
+.grammar-doc__list-item {
+  color: #e6ecf9;
+}
+
+.grammar-doc__body code {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.08rem 0.38rem;
+  border-radius: 999px;
+  background: rgba(63, 140, 255, 0.14);
+  border: 1px solid rgba(94, 162, 255, 0.35);
+  color: #d7e8ff;
+  font-size: 0.92em;
 }
 
 .grammar-example-grid {

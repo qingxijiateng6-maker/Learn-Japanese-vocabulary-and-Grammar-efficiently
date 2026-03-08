@@ -16,8 +16,7 @@ export default async function GrammarPracticePage({ params }: GrammarPracticePag
   const parsedSessionNumber = Number.parseInt(sessionNumber, 10);
   const { sessions, warnings } = await loadA2GrammarSessions();
   const session = sessions.find((item) => item.sessionNumber === parsedSessionNumber);
-  const questionCount =
-    session?.items.reduce((count, item) => count + item.questions.length, 0) ?? 0;
+  const questionCount = session?.questions.length ?? 0;
 
   return (
     <PageScaffold className="page-main">
@@ -25,7 +24,7 @@ export default async function GrammarPracticePage({ params }: GrammarPracticePag
       <section className="page-card grammar-session-hero">
         <p className="flashcard-label">Grammar • A2 • Session {sessionNumber}</p>
         <h1 className="grammar-session-hero__title">
-          {session?.sessionTitleEN ?? `Session ${sessionNumber} Practice`}
+          {session?.sessionTitle ?? `session${sessionNumber}`}
         </h1>
         <p className="page-subtitle">
           Answer one four-choice question at a time. Feedback appears immediately after you tap an
@@ -54,7 +53,7 @@ export default async function GrammarPracticePage({ params }: GrammarPracticePag
         <GrammarPracticeClient
           level={session.level}
           sessionNumber={session.sessionNumber}
-          items={session.items}
+          questions={session.questions}
         />
       ) : null}
     </PageScaffold>
