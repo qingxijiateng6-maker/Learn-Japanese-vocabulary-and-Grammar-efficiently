@@ -172,6 +172,7 @@ export function HomeDashboard({
           </label>
           <input
             id="weekly-goal-minutes"
+            name="weeklyGoalMinutes"
             className="goal-form__input"
             type="number"
             min={0}

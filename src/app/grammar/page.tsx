@@ -1,21 +1,51 @@
 import Link from "next/link";
 import { PageScaffold } from "@/shared/components/PageScaffold";
+import { CEFR_LEVELS } from "@/shared/config/cefrLevels";
 
 export default function GrammarLevelsPage() {
   return (
-    <PageScaffold
-      title="Grammar"
-      description="Choose a level. MVP includes A2 only, with route structure prepared for future levels."
-    >
+    <PageScaffold className="page-main">
       <section className="page-card">
-        <h2 className="page-title">Available levels</h2>
+        <p className="flashcard-label">Grammar Path</p>
+        <h1 className="page-title">Grammar</h1>
         <p className="page-subtitle">
-          A2 is the current placeholder route. Grammar explanations and practice will load later.
+          Choose a CEFR level, then open a session to read the explanation before moving to
+          practice.
         </p>
-        <div className="button-row">
-          <Link className="button-link button-link--primary" href="/grammar/a2">
-            A2 Grammar
-          </Link>
+      </section>
+
+      <section className="page-card">
+        <div className="stack-row">
+          <h2 className="page-title">Available levels</h2>
+          <span className="muted-note">A2 is open now</span>
+        </div>
+        <div className="level-grid">
+          {CEFR_LEVELS.map((level) =>
+            level.available ? (
+              <Link
+                key={level.code}
+                className="level-card level-card--interactive"
+                href={`/grammar/${level.code.toLowerCase()}`}
+              >
+                <p className="level-card__eyebrow">Grammar Level</p>
+                <h3 className="level-card__title">{level.label}</h3>
+                <p className="level-card__body">{level.description}</p>
+                <div className="level-card__footer">
+                  <span className="status-badge">Available</span>
+                  <span className="level-card__cta">Open sessions</span>
+                </div>
+              </Link>
+            ) : (
+              <article key={level.code} className="level-card level-card--disabled">
+                <p className="level-card__eyebrow">Grammar Level</p>
+                <h3 className="level-card__title">{level.label}</h3>
+                <p className="level-card__body">{level.description}</p>
+                <div className="level-card__footer">
+                  <span className="level-card__badge">Coming soon</span>
+                </div>
+              </article>
+            ),
+          )}
         </div>
       </section>
     </PageScaffold>

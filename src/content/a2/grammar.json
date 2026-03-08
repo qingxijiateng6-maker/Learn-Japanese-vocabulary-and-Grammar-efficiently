@@ -1,57 +1,2563 @@
 [
   {
-    "id": "a2-g-s1-001",
     "level": "A2",
     "sessionNumber": 1,
-    "titleEN": "Expressing intention with つもりです",
-    "explanationMarkdownEN": "Use **つもりです** after a verb dictionary form to say what you intend to do.",
-    "examples": [
+    "sessionTitle": "session1(経験・完了：〜たことがある、もう〜た／まだ〜ていない)",
+    "topics": [
       {
-        "jp": "来週、日本へ行くつもりです。",
-        "en": "I intend to go to Japan next week."
-      },
-      {
-        "jp": "今日は早く寝るつもりです。",
-        "en": "I intend to sleep early today."
+        "id": "a2-g-s1-topic-1",
+        "title": "経験: 〜たことがある",
+        "explanationMarkdown": "## Experience with 〜たことがある\n\nIn Japanese, experience is often expressed using the pattern **verb (past form) + ことがある**. This structure indicates that someone has had the experience of doing something at least once in their life. It is commonly used when talking about life experiences rather than specific events with a clear time reference.\n\n### Basic Structure\n\n`Verb (た-form) + ことがある`\n\nThe た-form (past form) of the verb is required because the action must already have happened at some point in the past.\n\n### Negative Form\n\n`Verb (た-form) + ことがない`\n\nUse this form to say that you have never had the experience.\n\n### Asking About Experience\n\nUse the same structure in question form to ask whether someone has had an experience.\n\n### Important Usage Notes\n\n1. Do not use a specific time expression such as \"yesterday\" or \"last year\" with this pattern, because the grammar focuses on general experience.\n2. Frequency can be added with expressions like:\n- 一度 (once)\n- 二回 (twice)\n- 日本へ二回行ったことがあります。 means \"I have been to Japan twice.\"\n\nOverall, **〜たことがある** is one of the most common ways to talk about life experiences in Japanese and is similar to the English present perfect \"have done.\"",
+        "examples": [
+          {
+            "jp": "日本へ行ったことがあります。",
+            "en": "I have been to Japan."
+          },
+          {
+            "jp": "寿司を食べたことがあります。",
+            "en": "I have eaten sushi before."
+          },
+          {
+            "jp": "富士山に登ったことがあります。",
+            "en": "I have climbed Mt. Fuji."
+          },
+          {
+            "jp": "日本へ行ったことがありません。",
+            "en": "I have never been to Japan."
+          },
+          {
+            "jp": "スキーをしたことがありません。",
+            "en": "I have never skied."
+          },
+          {
+            "jp": "日本へ行ったことがありますか。",
+            "en": "Have you ever been to Japan?"
+          },
+          {
+            "jp": "納豆を食べたことがありますか。",
+            "en": "Have you ever eaten natto?"
+          },
+          {
+            "jp": "日本へ二回行ったことがあります。",
+            "en": "I have been to Japan twice."
+          }
+        ]
       }
     ],
     "questions": [
       {
         "id": "a2-g-s1-q1",
-        "promptEN": "Choose the sentence that correctly expresses intention.",
-        "promptJP": "意志を表す正しい文を選んでください。",
+        "promptJP": "日本へ（  ）ことがあります。",
         "choices": [
-          "明日、勉強するつもりです。",
-          "明日、勉強したつもりです。",
-          "明日、勉強するつもりました。",
-          "明日、勉強つもりです。"
+          "行って",
+          "行く",
+          "行きます",
+          "行った"
         ],
-        "correctIndex": 0,
-        "explanationEN": "Dictionary form + つもりです is the correct structure."
+        "correctIndex": 3
       },
       {
         "id": "a2-g-s1-q2",
-        "promptEN": "Which sentence means 'I intend to buy a new bag'?",
+        "promptJP": "寿司を（  ）ことがあります。",
         "choices": [
-          "新しいかばんを買うつもりです。",
-          "新しいかばんを買ったつもりです。",
-          "新しいかばんを買うつもりでした。",
-          "新しいかばんは買うです。"
+          "食べるつもり",
+          "食べます",
+          "食べた",
+          "食べて"
         ],
-        "correctIndex": 0,
-        "explanationEN": "The dictionary form 買う + つもりです expresses intention."
+        "correctIndex": 2
       },
       {
         "id": "a2-g-s1-q3",
-        "promptEN": "Pick the best grammar explanation for つもりです in this lesson.",
+        "promptJP": "富士山に二回（  ）ことがあります。",
         "choices": [
-          "It marks possession.",
-          "It expresses a plan or intention.",
-          "It turns a verb into polite past tense.",
-          "It means 'because'."
+          "登る",
+          "登って",
+          "登ります",
+          "登った"
         ],
-        "correctIndex": 1,
-        "explanationEN": "In this lesson, つもりです is used to express intention."
+        "correctIndex": 3
+      },
+      {
+        "id": "a2-g-s1-q4",
+        "promptJP": "納豆を食べたことが（  ）。",
+        "choices": [
+          "あります",
+          "る予定",
+          "ないます",
+          "あるます"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s1-q5",
+        "promptJP": "ピアノを（  ）ことがありますか。",
+        "choices": [
+          "弾きて",
+          "弾いた",
+          "弾きます",
+          "弾いて"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "a2-g-s1-q6",
+        "promptJP": "英語の映画を字幕なしで（  ）ことがあります。",
+        "choices": [
+          "見",
+          "見た",
+          "見ます",
+          "見て"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "a2-g-s1-q7",
+        "promptJP": "子どものころ、海で（  ）ことがあります。",
+        "choices": [
+          "泳いだ",
+          "泳ぐ",
+          "泳いで",
+          "泳ぎます"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s1-q8",
+        "promptJP": "日本の祭りを（  ）ことがあります。",
+        "choices": [
+          "見る",
+          "見た",
+          "見ます",
+          "見て"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "a2-g-s1-q9",
+        "promptJP": "彼と会ったことが（  ）か。",
+        "choices": [
+          "あります",
+          "ないます",
+          "あり",
+          "なし"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s1-q10",
+        "promptJP": "パリに行ったことが（  ）。",
+        "choices": [
+          "あり",
+          "ないます",
+          "ある",
+          "なし"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "a2-g-s1-q11",
+        "promptJP": "スキーをしたことが（  ）。",
+        "choices": [
+          "なし",
+          "あるません",
+          "ある",
+          "ないます"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "a2-g-s1-q12",
+        "promptJP": "お寿司を自分で作ったことが（  ）？",
+        "choices": [
+          "ありますか",
+          "ありません",
+          "する",
+          "した"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s1-q13",
+        "promptJP": "一度も富士山に登ったことが（  ）。",
+        "choices": [
+          "ありません",
+          "あります",
+          "する",
+          "した"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s1-q14",
+        "promptJP": "この映画を見たことが（  ）。",
+        "choices": [
+          "あります",
+          "あるます",
+          "します",
+          "見る"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s1-q15",
+        "promptJP": "そのレストランで食べたことが（  ）。",
+        "choices": [
+          "あります",
+          "ないます",
+          "する",
+          "した"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s1-q16",
+        "promptJP": "あなたはラーメンを食べたことが（  ）か。",
+        "choices": [
+          "あります",
+          "ます",
+          "する",
+          "した"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s1-q17",
+        "promptJP": "漢字を千字以上書いたことが（  ）。",
+        "choices": [
+          "あります",
+          "するだろう",
+          "した",
+          "する"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s1-q18",
+        "promptJP": "その山に登ったことが（  ）か。",
+        "choices": [
+          "なし",
+          "ありません",
+          "する",
+          "あり"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "a2-g-s1-q19",
+        "promptJP": "一度も日本へ行ったことが（  ）。",
+        "choices": [
+          "あります",
+          "ないません",
+          "ある",
+          "ない"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "a2-g-s1-q20",
+        "promptJP": "北海道でスキーをしたことが（  ）。",
+        "choices": [
+          "あります",
+          "しない",
+          "する",
+          "した"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s1-q21",
+        "promptJP": "納豆を食べたことが（  ）か。",
+        "choices": [
+          "あります",
+          "します",
+          "した",
+          "ない"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s1-q22",
+        "promptJP": "私はその本を読んだことが（  ）。",
+        "choices": [
+          "あります",
+          "あるます",
+          "する",
+          "した"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s1-q23",
+        "promptJP": "子どものころ、ピアノを習ったことが（  ）。",
+        "choices": [
+          "する予定",
+          "ありません",
+          "する",
+          "した"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "a2-g-s1-q24",
+        "promptJP": "その歌手のコンサートに行ったことが（  ）。",
+        "choices": [
+          "しない",
+          "ないます",
+          "する",
+          "ない"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "a2-g-s1-q25",
+        "promptJP": "日本で電車に乗ったことが（  ）か。",
+        "choices": [
+          "あります",
+          "ありません",
+          "ある",
+          "ない"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s1-q26",
+        "promptJP": "海外で仕事をしたことが（  ）。",
+        "choices": [
+          "あります",
+          "ありません",
+          "する",
+          "した"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s1-q27",
+        "promptJP": "京都のお寺を見たことが（  ）。",
+        "choices": [
+          "あります",
+          "ないます",
+          "した",
+          "する"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s1-q28",
+        "promptJP": "温泉に入ったことが（  ）か。",
+        "choices": [
+          "あります",
+          "ありますん",
+          "する",
+          "した"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s1-q29",
+        "promptJP": "外国人と日本語で話したことが（  ）。",
+        "choices": [
+          "あります",
+          "します",
+          "した",
+          "ない"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s1-q30",
+        "promptJP": "彼は海外へ行ったことが（  ）。",
+        "choices": [
+          "します",
+          "する",
+          "ある予定",
+          "ない"
+        ],
+        "correctIndex": 3
+      }
+    ]
+  },
+  {
+    "level": "A2",
+    "sessionNumber": 2,
+    "sessionTitle": "session2(予定・意志：〜つもり、〜（よ）と思う、〜予定)",
+    "topics": [
+      {
+        "id": "a2-g-s2-topic-1",
+        "title": "予定・意志：〜つもり、〜（よ）と思う、〜予定",
+        "explanationMarkdown": "## Plans and Intentions\n\nIn Japanese, future plans and intentions are often expressed with **〜つもりだ**, **〜ようと思う**, and **予定だ**. All three refer to future actions, but they show different levels of certainty and planning.\n\n### 〜つもりだ\n\nUse **〜つもりだ** to express a firm personal intention. It shows that the speaker has already decided to do something. In English, it is close to \"I intend to\" or \"I plan to.\"\n\n### 〜ようと思う\n\nUse **〜ようと思う** for a decision or intention formed by the speaker, often at the moment of speaking or after some thought. It is usually softer and less definite than **〜つもりだ**.\n\n### 予定だ\n\nUse **予定だ** for something that is scheduled or officially planned. This often suggests that the plan has already been arranged and is likely to happen.\n\n### Key Distinction\n\n- **〜ようと思う**: a thought or tentative decision\n- **〜つもりだ**: a clear personal intention\n- **予定だ**: a scheduled or arranged plan\n\nUnderstanding these differences helps learners express future plans more naturally and appropriately in Japanese.",
+        "examples": [
+          {
+            "jp": "来年、日本へ行くつもりです。",
+            "en": "I intend to go to Japan next year."
+          },
+          {
+            "jp": "今日は早く寝ようと思います。",
+            "en": "I think I will go to bed early today."
+          },
+          {
+            "jp": "来週、会議をする予定です。",
+            "en": "We are scheduled to have a meeting next week."
+          }
+        ]
+      }
+    ],
+    "questions": [
+      {
+        "id": "a2-g-s2-q1",
+        "promptJP": "来週、友だちと会う（ ）です。",
+        "choices": [
+          "予定",
+          "予定する",
+          "ようと思う",
+          "こと"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s2-q2",
+        "promptJP": "今日は早く寝（ ）と思います。",
+        "choices": [
+          "よう",
+          "つもり",
+          "予定",
+          "こと"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s2-q3",
+        "promptJP": "明日、クラスでテストをする（ ）です。",
+        "choices": [
+          "✕",
+          "予定",
+          "ようと思う",
+          "だろう"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "a2-g-s2-q4",
+        "promptJP": "今年はもっと日本語を勉強する（ ）です。",
+        "choices": [
+          "ようと思う",
+          "こと",
+          "つもり",
+          "たぶん"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "a2-g-s2-q5",
+        "promptJP": "来年、新しいビルが完成する（ ）です。",
+        "choices": [
+          "だろう",
+          "✕",
+          "予定",
+          "こと"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "a2-g-s2-q6",
+        "promptJP": "今晩、友だちに電話し（ ）と思います。",
+        "choices": [
+          "つもり",
+          "こと",
+          "よう",
+          "予定"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "a2-g-s2-q7",
+        "promptJP": "明日は図書館で勉強する（ ）です。",
+        "choices": [
+          "つもり",
+          "だろう",
+          "こと",
+          "ようと思う"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s2-q8",
+        "promptJP": "今日は早く帰ろ（ ）と思います。",
+        "choices": [
+          "つもり",
+          "予定",
+          "う",
+          "よう"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "a2-g-s2-q9",
+        "promptJP": "来月、新しいパソコンを買う（ ）です。",
+        "choices": [
+          "つもり",
+          "ようと思う",
+          "でしょう",
+          "こと"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s2-q10",
+        "promptJP": "来年、日本へ行く（ ）です。",
+        "choices": [
+          "ようと思う",
+          "つもり",
+          "でしょう",
+          "こと"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "a2-g-s2-q11",
+        "promptJP": "明日、先生に質問し（ ）と思います。",
+        "choices": [
+          "こと",
+          "よう",
+          "つもり",
+          "予定"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "a2-g-s2-q12",
+        "promptJP": "明日、会社で会議がある（ ）です。",
+        "choices": [
+          "だろう",
+          "予定",
+          "✕",
+          "ようと思う"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "a2-g-s2-q13",
+        "promptJP": "来週、会議がある（ ）です。",
+        "choices": [
+          "予定",
+          "でしょう",
+          "だろう",
+          "ようと思う"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s2-q14",
+        "promptJP": "今日は早く寝る（ ）です。",
+        "choices": [
+          "つもり",
+          "ようと思う",
+          "こと",
+          "たぶん"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s2-q15",
+        "promptJP": "来月、日本へ出張する（ ）です。",
+        "choices": [
+          "✕",
+          "予定",
+          "だろう",
+          "ようと思う"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "a2-g-s2-q16",
+        "promptJP": "将来、日本語の先生になる（ ）です。",
+        "choices": [
+          "こと",
+          "つもり",
+          "だろう",
+          "ようと思う"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "a2-g-s2-q17",
+        "promptJP": "来週から毎日運動する（ ）です。",
+        "choices": [
+          "つもり",
+          "ようと思う",
+          "たぶん",
+          "こと"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s2-q18",
+        "promptJP": "来週、先生が日本へ帰る（ ）です。",
+        "choices": [
+          "予定",
+          "でしょう",
+          "ようと思う",
+          "こと"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s2-q19",
+        "promptJP": "次の休みに京都へ行こ（ ）と思います。",
+        "choices": [
+          "う",
+          "こと",
+          "つもり",
+          "予定"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s2-q20",
+        "promptJP": "夏休みにアルバイトをする（ ）です。",
+        "choices": [
+          "こと",
+          "ようと思う",
+          "ことにした",
+          "つもり"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "a2-g-s2-q21",
+        "promptJP": "来週、プロジェクトを始める（ ）です。",
+        "choices": [
+          "予定",
+          "ようと思う",
+          "かもしれない",
+          "こと"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s2-q22",
+        "promptJP": "来月、新しい店がオープンする（ ）です。",
+        "choices": [
+          "予定",
+          "だろう",
+          "つもりではない",
+          "ようと思う"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s2-q23",
+        "promptJP": "明日、テストをする（ ）です。",
+        "choices": [
+          "予定",
+          "✕",
+          "だろう",
+          "こと"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s2-q24",
+        "promptJP": "来年、新しい仕事を探そ（ ）と思います。",
+        "choices": [
+          "こと",
+          "つもり",
+          "予定",
+          "う"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "a2-g-s2-q25",
+        "promptJP": "今日はコーヒーを飲まない（ ）と思います。",
+        "choices": [
+          "つもり",
+          "よう",
+          "こと",
+          "✕"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "a2-g-s2-q26",
+        "promptJP": "大学を卒業したら、日本で働く（ ）です。",
+        "choices": [
+          "つもり",
+          "ようと思う",
+          "だろう",
+          "こと"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s2-q27",
+        "promptJP": "来週、友だちと会う（ ）です。",
+        "choices": [
+          "予定",
+          "予定する",
+          "ようと思う",
+          "こと"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s2-q28",
+        "promptJP": "週末は映画を見に行こ（ ）と思います。",
+        "choices": [
+          "こと",
+          "う",
+          "予定",
+          "よう"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "a2-g-s2-q29",
+        "promptJP": "週末は家でゆっくり休む（ ）です。",
+        "choices": [
+          "たぶん",
+          "つもり",
+          "こと",
+          "ようと思う"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "a2-g-s2-q30",
+        "promptJP": "今度、日本語の本を読も（ ）と思います。",
+        "choices": [
+          "う",
+          "つもり",
+          "こと",
+          "✕"
+        ],
+        "correctIndex": 0
+      }
+    ]
+  },
+  {
+    "level": "A2",
+    "sessionNumber": 3,
+    "sessionTitle": "session3(可能：〜ことができる／可能形（入門〜運用）)",
+    "topics": [
+      {
+        "id": "a2-g-s3-topic-1",
+        "title": "可能：〜ことができる／可能形（入門〜運用）",
+        "explanationMarkdown": "## Ability and Possibility\n\nIn Japanese, potential covers two related ideas: **ability** and **possibility**. For learners, the most frequent patterns are the **potential verb form** and **〜ことができる** for ability, plus **〜かもしれない**, **〜はずだ**, and **可能だ / 可能性がある** for possibility.\n\n### Potential Verb Form\n\nPotential forms express what someone can do. Ru-verbs change from **-る** to **-られる**, u-verbs change the final **-u** sound to an **-e** sound plus **る**, and irregular verbs become **できる** or **来られる**.\n\n### 〜ことができる\n\nUse **verb dictionary form + ことができる** to express ability in a neutral or formal way. This form is useful in writing or formal speech and avoids some ambiguity with the passive form.\n\n### Possibility\n\n- **〜かもしれない**: might / may\n- **〜はずだ**: should / expected to\n- **可能だ / 可能性がある**: it is possible / there is a possibility\n\n### Practical Tips\n\n- Use potential forms for everyday \"can / cannot\" statements.\n- Use **〜ことができる** for formality or when you want to avoid ambiguity.\n- Potential verbs often take **が** instead of **を**.\n\nMastering these patterns lets learners say both \"I can do X\" and \"X might happen\" naturally in Japanese.",
+        "examples": [
+          {
+            "jp": "私は日本語が話せます。",
+            "en": "I can speak Japanese."
+          },
+          {
+            "jp": "食べることができます。",
+            "en": "I can eat / It is possible to eat."
+          },
+          {
+            "jp": "明日は雨かもしれない。",
+            "en": "It might rain tomorrow."
+          },
+          {
+            "jp": "彼は来るはずだ。",
+            "en": "He should come."
+          },
+          {
+            "jp": "この方法は成功する可能性がある。",
+            "en": "This method has a possibility of succeeding."
+          }
+        ]
+      }
+    ],
+    "questions": [
+      {
+        "id": "a2-g-s3-q1",
+        "promptJP": "私は日本語が（ ）。",
+        "choices": [
+          "話せる",
+          "話す",
+          "話した",
+          "話している"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s3-q2",
+        "promptJP": "彼はピアノを（ ）。",
+        "choices": [
+          "弾ける",
+          "弾いて",
+          "弾くない",
+          "弾けるない"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s3-q3",
+        "promptJP": "この漢字は読め（ ）かもしれません。",
+        "choices": [
+          "れる",
+          "ない",
+          "て",
+          "ます"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "a2-g-s3-q4",
+        "promptJP": "明日の仕事は一人で（ ）ますか。",
+        "choices": [
+          "でき",
+          "する",
+          "できる",
+          "できない"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s3-q5",
+        "promptJP": "私は泳ぐことが（ ）。",
+        "choices": [
+          "できて",
+          "する",
+          "した",
+          "できない"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "a2-g-s3-q6",
+        "promptJP": "この魚は生でも（ ）。",
+        "choices": [
+          "食べられる",
+          "食べる",
+          "食べた",
+          "食べている"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s3-q7",
+        "promptJP": "毎朝英語のニュースが聞け（ ）。",
+        "choices": [
+          "ある",
+          "る",
+          "✕",
+          "予定"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "a2-g-s3-q8",
+        "promptJP": "自転車に（ ）ますか。",
+        "choices": [
+          "乗れ",
+          "乗る",
+          "乗った",
+          "乗られる"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s3-q9",
+        "promptJP": "すみません、ここで写真を撮ることは（ ）。",
+        "choices": [
+          "できません",
+          "できる",
+          "した",
+          "する"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s3-q10",
+        "promptJP": "彼女は来週来（ ）と言っていました。",
+        "choices": [
+          "しない",
+          "できる",
+          "られる",
+          "する"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "a2-g-s3-q11",
+        "promptJP": "私はその映画を見（ ）。",
+        "choices": [
+          "ある",
+          "できる",
+          "られる",
+          "した"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "a2-g-s3-q12",
+        "promptJP": "このソフトは日本語を入力することが（ ）。",
+        "choices": [
+          "できる",
+          "する",
+          "した",
+          "られる"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s3-q13",
+        "promptJP": "この魚はよく（ ）。",
+        "choices": [
+          "食べられる",
+          "食べられない",
+          "られる",
+          "食べた"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s3-q14",
+        "promptJP": "彼は英語を話すが、日本語はまだあまり（ ）。",
+        "choices": [
+          "話せない",
+          "話せる",
+          "話す",
+          "話した"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s3-q15",
+        "promptJP": "明日は雨が降る（ ）。",
+        "choices": [
+          "かもしれない",
+          "った",
+          "できる",
+          "られる"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s3-q16",
+        "promptJP": "彼は来（ ）かもしれない。",
+        "choices": [
+          "かもしれない",
+          "はずだ",
+          "できる",
+          "れる"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "a2-g-s3-q17",
+        "promptJP": "彼女は車を運転することが（ ）。",
+        "choices": [
+          "れる",
+          "できる",
+          "しない",
+          "した"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "a2-g-s3-q18",
+        "promptJP": "このドアは子どもでは開け（ ）。",
+        "choices": [
+          "られない",
+          "られる",
+          "る",
+          "た"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s3-q19",
+        "promptJP": "あの計画は実現する（ ）。",
+        "choices": [
+          "可能性がある",
+          "できる",
+          "られる",
+          "れる"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s3-q20",
+        "promptJP": "彼はその本を読めると言ったが、本当に読め（ ）か分からない。",
+        "choices": [
+          "かもしれない",
+          "できる",
+          "る",
+          "られる"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "a2-g-s3-q21",
+        "promptJP": "私は一人で旅行することが（ ）。",
+        "choices": [
+          "かもしれない",
+          "する",
+          "した",
+          "できない"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "a2-g-s3-q22",
+        "promptJP": "英語を（ ）ますか。",
+        "choices": [
+          "話す",
+          "話せる",
+          "話し",
+          "話さない"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "a2-g-s3-q23",
+        "promptJP": "この手術は成功する（ ）。",
+        "choices": [
+          "可能性がある",
+          "できる",
+          "られる",
+          "しない"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s3-q24",
+        "promptJP": "彼に頼めば、やってもらえる（ ）。",
+        "choices": [
+          "かもしれない",
+          "かい",
+          "できる",
+          "いる"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s3-q25",
+        "promptJP": "この問題、君は解け（ ）？",
+        "choices": [
+          "可能性がある",
+          "だろう",
+          "る",
+          "いた"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "a2-g-s3-q26",
+        "promptJP": "私はピアノを弾くことが（ ）ません。",
+        "choices": [
+          "でき",
+          "できる",
+          "できた",
+          "られる"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s3-q27",
+        "promptJP": "来月ここでイベントが開かれる（ ）。",
+        "choices": [
+          "かもしれない",
+          "できる",
+          "する",
+          "られる"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s3-q28",
+        "promptJP": "彼は仕事で英語を使うから、もう英語が（ ）。",
+        "choices": [
+          "話せる",
+          "話す",
+          "話した",
+          "話せない"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s3-q29",
+        "promptJP": "この問題は私たちで解決する（ ）。",
+        "choices": [
+          "ことができる",
+          "する",
+          "られる",
+          "した"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s3-q30",
+        "promptJP": "新しいソフトを入れれば、この機能が使え（ ）。",
+        "choices": [
+          "なる",
+          "る",
+          "できる",
+          "られる"
+        ],
+        "correctIndex": 1
+      }
+    ]
+  },
+  {
+    "level": "A2",
+    "sessionNumber": 4,
+    "sessionTitle": "session4(比較：AはBより〜、いちばん)",
+    "topics": [
+      {
+        "id": "a2-g-s4-topic-1",
+        "title": "比較：AはBより〜、いちばん",
+        "explanationMarkdown": "## Comparison\n\nIn Japanese, comparison is expressed through patterns such as **A は B より …**, **A のほうが …**, and **A は B ほど …ない**. These forms let you compare two things and talk about stronger or weaker qualities.\n\n### A は B より …\n\nThis pattern means **\"A is more ... than B.\"** The particle **より** marks the standard of comparison.\n\n### A のほうが …\n\nThis pattern highlights the item with the stronger quality. It often appears together with **より** when the speaker wants to emphasize which side is greater.\n\n### A は B ほど …ない\n\nUse **ほど …ない** for negative comparison: **\"A is not as ... as B.\"**\n\n### Asking Comparative Questions\n\nJapanese often uses **どちら / どっち** to ask which of two things is better, stronger, or more liked.\n\n### Key Points\n\n- **より** marks the comparison standard\n- **のほうが** highlights the item with the stronger property\n- **ほど …ない** expresses \"not as ... as\"\n- Japanese usually uses adjectives rather than special comparative endings\n\nMastering these patterns makes everyday comparison much more natural.",
+        "examples": [
+          {
+            "jp": "東京は大阪より大きいです。",
+            "en": "Tokyo is bigger than Osaka."
+          },
+          {
+            "jp": "この本はあの本より面白いです。",
+            "en": "This book is more interesting than that book."
+          },
+          {
+            "jp": "日本語と韓国語では、日本語のほうが難しいです。",
+            "en": "Between Japanese and Korean, Japanese is more difficult."
+          },
+          {
+            "jp": "日本語は中国語ほど難しくありません。",
+            "en": "Japanese is not as difficult as Chinese."
+          },
+          {
+            "jp": "コーヒーと紅茶と、どちらが好きですか。",
+            "en": "Which do you like better, coffee or tea?"
+          }
+        ]
+      }
+    ],
+    "questions": [
+      {
+        "id": "a2-g-s4-q1",
+        "promptJP": "東京は大阪（ ）大きいです。",
+        "choices": [
+          "が",
+          "より",
+          "に",
+          "を"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "a2-g-s4-q2",
+        "promptJP": "この本はあの本（ ）面白いです。",
+        "choices": [
+          "に",
+          "を",
+          "より",
+          "が"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "a2-g-s4-q3",
+        "promptJP": "日本語（ ）中国語より簡単です。",
+        "choices": [
+          "を",
+          "のほうが",
+          "に",
+          "まで"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "a2-g-s4-q4",
+        "promptJP": "犬（ ）猫より大きいです。",
+        "choices": [
+          "まで",
+          "に",
+          "を",
+          "のほうが"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "a2-g-s4-q5",
+        "promptJP": "この車はあの車（ ）速いです。",
+        "choices": [
+          "より",
+          "に",
+          "を",
+          "が"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s4-q6",
+        "promptJP": "日本語は中国語（ ）難しくありません。",
+        "choices": [
+          "ぐらい",
+          "ほど",
+          "しか",
+          "まで"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "a2-g-s4-q7",
+        "promptJP": "この町は東京（ ）にぎやかではありません。",
+        "choices": [
+          "しか",
+          "ほど",
+          "まで",
+          "を"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "a2-g-s4-q8",
+        "promptJP": "私のパソコンはあなたの（ ）新しくありません。",
+        "choices": [
+          "だけ",
+          "しか",
+          "ほど",
+          "まで"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "a2-g-s4-q9",
+        "promptJP": "夏は冬（ ）暑いです。",
+        "choices": [
+          "より",
+          "に",
+          "を",
+          "が"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s4-q10",
+        "promptJP": "富士山はこの山（ ）高いです。",
+        "choices": [
+          "が",
+          "に",
+          "を",
+          "より"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "a2-g-s4-q11",
+        "promptJP": "コーヒーと紅茶（ ） 、どちらが好きですか。",
+        "choices": [
+          "と",
+          "が",
+          "を",
+          "に"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s4-q12",
+        "promptJP": "日本語と英語（ ） 、どちらが難しいですか。",
+        "choices": [
+          "に",
+          "を",
+          "と",
+          "が"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "a2-g-s4-q13",
+        "promptJP": "電車はバス（ ）速いです。",
+        "choices": [
+          "を",
+          "に",
+          "より",
+          "が"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "a2-g-s4-q14",
+        "promptJP": "私は数学（ ）英語のほうが好きです。",
+        "choices": [
+          "より",
+          "が",
+          "を",
+          "に"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s4-q15",
+        "promptJP": "この店はあの店（ ）安いです。",
+        "choices": [
+          "を",
+          "が",
+          "より",
+          "に"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "a2-g-s4-q16",
+        "promptJP": "この問題は前の問題（ ）簡単です。",
+        "choices": [
+          "を",
+          "に",
+          "が",
+          "より"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "a2-g-s4-q17",
+        "promptJP": "日本の夏はカナダ（ ）暑いです。",
+        "choices": [
+          "を",
+          "より",
+          "が",
+          "に"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "a2-g-s4-q18",
+        "promptJP": "今日は昨日（ ）寒いです。",
+        "choices": [
+          "を",
+          "に",
+          "より",
+          "が"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "a2-g-s4-q19",
+        "promptJP": "この映画はその映画（ ）長いです。",
+        "choices": [
+          "に",
+          "を",
+          "が",
+          "より"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "a2-g-s4-q20",
+        "promptJP": "この川はあの川（ ）きれいです。",
+        "choices": [
+          "より",
+          "が",
+          "を",
+          "に"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s4-q21",
+        "promptJP": "私の町は東京（ ）静かです。",
+        "choices": [
+          "に",
+          "を",
+          "より",
+          "が"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "a2-g-s4-q22",
+        "promptJP": "英語はフランス語（ ）勉強しやすいです。",
+        "choices": [
+          "を",
+          "に",
+          "が",
+          "より"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "a2-g-s4-q23",
+        "promptJP": "日本語は英語（ ）発音が難しいです。",
+        "choices": [
+          "を",
+          "より",
+          "が",
+          "に"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "a2-g-s4-q24",
+        "promptJP": "このホテルはあのホテル（ ）高いです。",
+        "choices": [
+          "が",
+          "に",
+          "を",
+          "より"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "a2-g-s4-q25",
+        "promptJP": "今日は先週（ ）忙しいです。",
+        "choices": [
+          "より",
+          "が",
+          "を",
+          "に"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s4-q26",
+        "promptJP": "私の家は駅（ ）学校に近いです。",
+        "choices": [
+          "に",
+          "を",
+          "より",
+          "が"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "a2-g-s4-q27",
+        "promptJP": "今年は去年（ ）暑いです。",
+        "choices": [
+          "に",
+          "が",
+          "より",
+          "を"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "a2-g-s4-q28",
+        "promptJP": "このテストは前のテスト（ ）難しいです。",
+        "choices": [
+          "より",
+          "を",
+          "に",
+          "が"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s4-q29",
+        "promptJP": "山田さんは私（ ）背が高いです。",
+        "choices": [
+          "を",
+          "に",
+          "より",
+          "が"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "a2-g-s4-q30",
+        "promptJP": "この料理はあの料理（ ）おいしいです。",
+        "choices": [
+          "が",
+          "を",
+          "に",
+          "より"
+        ],
+        "correctIndex": 3
+      }
+    ]
+  },
+  {
+    "level": "A2",
+    "sessionNumber": 5,
+    "sessionTitle": "session5(理由：〜から、〜ので（丁寧寄り）)",
+    "topics": [
+      {
+        "id": "a2-g-s5-topic-1",
+        "title": "理由：〜から、〜ので（丁寧寄り）",
+        "explanationMarkdown": "## Reasons and Causes\n\nIn Japanese, reasons and causes are often expressed with **から**, **ので**, and sometimes **だから**. These correspond to English expressions like \"because,\" \"since,\" or \"so.\"\n\n### から\n\nUse **sentence + から** to give a reason in everyday conversation. It is common and slightly more direct than some other forms.\n\n### ので\n\nUse **ので** to express a reason in a softer and more polite way. It is often preferred in careful or formal situations. With nouns and な-adjectives, **な** appears before **ので**.\n\n### だから\n\nUse **だから** as a conjunction to show the result of a reason mentioned before. It connects two sentences and emphasizes the result.\n\n### Key Points\n\n- **から** is common in casual speech\n- **ので** sounds more polite and softer\n- **だから** connects two sentences and stresses the result\n\nBy mastering these patterns, learners can explain motivations, decisions, and situations clearly in Japanese conversation.",
+        "examples": [
+          {
+            "jp": "雨が降っているから、出かけません。",
+            "en": "Because it is raining, I will not go out."
+          },
+          {
+            "jp": "忙しいから、今日は行けません。",
+            "en": "Because I am busy, I cannot go today."
+          },
+          {
+            "jp": "雨が降っているので、出かけません。",
+            "en": "Because it is raining, I will not go out."
+          },
+          {
+            "jp": "体調が悪いので、今日は休みます。",
+            "en": "Since I feel sick, I will take the day off today."
+          },
+          {
+            "jp": "雨が降っています。だから、家にいます。",
+            "en": "It is raining. Therefore, I will stay home."
+          }
+        ]
+      }
+    ],
+    "questions": [
+      {
+        "id": "a2-g-s5-q1",
+        "promptJP": "体調が悪い（ ） 、今日は休みます。",
+        "choices": [
+          "を",
+          "から",
+          "と",
+          "が"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "a2-g-s5-q2",
+        "promptJP": "雨が降っています。 （ ） 、出かけません。",
+        "choices": [
+          "を",
+          "に",
+          "しかし",
+          "だから"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "a2-g-s5-q3",
+        "promptJP": "時間がない（ ） 、急ぎましょう。",
+        "choices": [
+          "を",
+          "が",
+          "から",
+          "のに"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "a2-g-s5-q4",
+        "promptJP": "この店は静か（ ） 、勉強しやすいです。",
+        "choices": [
+          "なので",
+          "から",
+          "それで",
+          "が"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s5-q5",
+        "promptJP": "電車が遅れた（ ） 、遅刻しました。",
+        "choices": [
+          "を",
+          "から",
+          "に",
+          "ので"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "a2-g-s5-q6",
+        "promptJP": "お金がない（ ） 、その本は買いません。",
+        "choices": [
+          "を",
+          "そして",
+          "から",
+          "が"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "a2-g-s5-q7",
+        "promptJP": "雨だった（ ） 、家にいました。",
+        "choices": [
+          "を",
+          "は",
+          "に",
+          "ので"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "a2-g-s5-q8",
+        "promptJP": "仕事が終わった（ ） 、飲みに行きましょう。",
+        "choices": [
+          "から",
+          "が",
+          "を",
+          "ため"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s5-q9",
+        "promptJP": "彼は忙しいです。 （ ） 、来られません。",
+        "choices": [
+          "を",
+          "が",
+          "に",
+          "だから"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "a2-g-s5-q10",
+        "promptJP": "風邪をひいた（ ） 、熱があります。",
+        "choices": [
+          "で",
+          "を",
+          "のに",
+          "ので"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "a2-g-s5-q11",
+        "promptJP": "子どもが小さい（ ） 、遠くへ行けません。",
+        "choices": [
+          "本",
+          "ので",
+          "と",
+          "が"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "a2-g-s5-q12",
+        "promptJP": "雨が強い（ ） 、試合は中止です。",
+        "choices": [
+          "が",
+          "ので",
+          "を",
+          "そして"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "a2-g-s5-q13",
+        "promptJP": "今日は早い電車がない（ ） 、遅くなりました。",
+        "choices": [
+          "を",
+          "が",
+          "で",
+          "から"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "a2-g-s5-q14",
+        "promptJP": "彼女は学生です。 （ ） 、学割で買えます。",
+        "choices": [
+          "を",
+          "だから",
+          "が",
+          "に"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "a2-g-s5-q15",
+        "promptJP": "料理ができました（ ） 、食べましょう。",
+        "choices": [
+          "を",
+          "が",
+          "しかし",
+          "から"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "a2-g-s5-q16",
+        "promptJP": "体調が悪いです。 （ ） 、今日は休ませてください。",
+        "choices": [
+          "そして",
+          "が",
+          "を",
+          "なので"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "a2-g-s5-q17",
+        "promptJP": "財布を忘れた（ ） 、帰れません。",
+        "choices": [
+          "が",
+          "を",
+          "そして",
+          "から"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "a2-g-s5-q18",
+        "promptJP": "駅に人が多い（ ） 、電車が遅れています。",
+        "choices": [
+          "を",
+          "で",
+          "ので",
+          "に"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "a2-g-s5-q19",
+        "promptJP": "彼が来ない（ ） 、予定を変えます。",
+        "choices": [
+          "が",
+          "を",
+          "に",
+          "から"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "a2-g-s5-q20",
+        "promptJP": "彼は日本語が上手です。 （ ） 、通訳はいりません。",
+        "choices": [
+          "を",
+          "だから",
+          "が",
+          "に"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "a2-g-s5-q21",
+        "promptJP": "昨日あまり寝ていない（ ） 、今日は眠いです。",
+        "choices": [
+          "を",
+          "が",
+          "に",
+          "ので"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "a2-g-s5-q22",
+        "promptJP": "天気予報で雨と言っていた（ ） 、傘を持って行ってください。",
+        "choices": [
+          "が",
+          "から",
+          "を",
+          "に"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "a2-g-s5-q23",
+        "promptJP": "機械が故障した（ ） 、作業を中止します。",
+        "choices": [
+          "が",
+          "を",
+          "に",
+          "ので"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "a2-g-s5-q24",
+        "promptJP": "仕事が忙しい（ ） 、会議に出られません。",
+        "choices": [
+          "を",
+          "が",
+          "に",
+          "ので"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "a2-g-s5-q25",
+        "promptJP": "電話が切れた（ ） 、もう一度かけてください。",
+        "choices": [
+          "を",
+          "が",
+          "に",
+          "から"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "a2-g-s5-q26",
+        "promptJP": "今日は祝日です。 （ ） 、銀行は休みです。",
+        "choices": [
+          "が",
+          "だから",
+          "を",
+          "に"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "a2-g-s5-q27",
+        "promptJP": "そのレストランは高い（ ） 、あまり行きません。",
+        "choices": [
+          "が",
+          "を",
+          "に",
+          "ので"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "a2-g-s5-q28",
+        "promptJP": "車が故障した（ ） 、タクシーで行きます。",
+        "choices": [
+          "を",
+          "に",
+          "が",
+          "ので"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "a2-g-s5-q29",
+        "promptJP": "彼女は試験に合格した（ ） 、とてもうれしそうです。",
+        "choices": [
+          "を",
+          "に",
+          "が",
+          "から"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "a2-g-s5-q30",
+        "promptJP": "子どもが風邪を引いた（ ） 、今日は学校を休みます。",
+        "choices": [
+          "を",
+          "に",
+          "が",
+          "ので"
+        ],
+        "correctIndex": 3
+      }
+    ]
+  },
+  {
+    "level": "A2",
+    "sessionNumber": 6,
+    "sessionTitle": "session6(条件（基礎）：〜たら（まずは日常的条件）)",
+    "topics": [
+      {
+        "id": "a2-g-s6-topic-1",
+        "title": "条件（基礎）：〜たら（まずは日常的条件）",
+        "explanationMarkdown": "## Conditional (Basic): 〜たら\n\nThe pattern **〜たら** is one of the most common ways to express **\"if\"** in Japanese. It is formed by attaching **ら** to the past form of a verb, adjective, or noun phrase. Although it looks like a past tense form, it expresses a condition: \"if / when something happens.\"\n\n### Formation\n\nMake the predicate past, then add **ら**.\n\n- 行く → 行った → **行ったら**\n- 食べる → 食べた → **食べたら**\n- 高い → 高かった → **高かったら**\n- 静か → 静かだった → **静かだったら**\n- 学生 → 学生だった → **学生だったら**\n\n### Basic Meaning\n\n**Aたら、B** means \"If / When A happens, B will happen.\" The event in the first clause must happen before the result in the second clause.\n\n### If vs. When\n\nDepending on context, **〜たら** can mean either \"if\" or \"when.\"\n\n### Sequential Meaning and Advice\n\nBecause the form uses a past base, **〜たら** often emphasizes that **B happens after A is completed**. It is also common in advice and suggestions.\n\nRemember that **〜たら** expresses a condition that must occur before the result happens, which makes it a very useful beginner conditional.",
+        "examples": [
+          {
+            "jp": "雨が降ったら、家にいます。",
+            "en": "If it rains, I will stay home."
+          },
+          {
+            "jp": "日本に行ったら、寿司を食べたいです。",
+            "en": "When or if I go to Japan, I want to eat sushi."
+          },
+          {
+            "jp": "宿題が終わったら、テレビを見ます。",
+            "en": "After I finish my homework, I will watch TV."
+          },
+          {
+            "jp": "疲れているなら、早く寝たら？",
+            "en": "If you are tired, why do you not go to bed early?"
+          }
+        ]
+      }
+    ],
+    "questions": [
+      {
+        "id": "a2-g-s6-q1",
+        "promptJP": "雨が降っ（ ） 、試合は中止です。",
+        "choices": [
+          "たら",
+          "ても",
+          "たり",
+          "た"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s6-q2",
+        "promptJP": "宿題が終わっ（ ） 、ゲームをしてもいいです。",
+        "choices": [
+          "たり",
+          "たら",
+          "て",
+          "た"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "a2-g-s6-q3",
+        "promptJP": "日本へ行っ（ ） 、京都に行きたいです。",
+        "choices": [
+          "た",
+          "ても",
+          "たら",
+          "たり"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "a2-g-s6-q4",
+        "promptJP": "時間があっ（ ） 、手伝ってください。",
+        "choices": [
+          "たり",
+          "たら",
+          "て",
+          "た"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "a2-g-s6-q5",
+        "promptJP": "駅に着い（ ） 、電話してください。",
+        "choices": [
+          "て",
+          "たり",
+          "た",
+          "たら"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "a2-g-s6-q6",
+        "promptJP": "この薬を飲ん（ ） 、よくなりますよ。",
+        "choices": [
+          "た",
+          "たり",
+          "たら",
+          "て"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "a2-g-s6-q7",
+        "promptJP": "もし暇だっ（ ） 、映画を見に行きませんか。",
+        "choices": [
+          "た",
+          "たら",
+          "たり",
+          "て"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "a2-g-s6-q8",
+        "promptJP": "日本語が上手になっ（ ） 、日本で働きたいです。",
+        "choices": [
+          "たら",
+          "たり",
+          "て",
+          "た"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s6-q9",
+        "promptJP": "ドアを開け（ ） 、猫がいました。",
+        "choices": [
+          "たり",
+          "たら",
+          "て",
+          "た"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "a2-g-s6-q10",
+        "promptJP": "家に帰っ（ ） 、まずシャワーを浴びます。",
+        "choices": [
+          "たり",
+          "て",
+          "た",
+          "たら"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "a2-g-s6-q11",
+        "promptJP": "お金があっ（ ） 、そのカメラを買います。",
+        "choices": [
+          "て",
+          "たり",
+          "たら",
+          "た"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "a2-g-s6-q12",
+        "promptJP": "困っ（ ） 、先生に相談してください。",
+        "choices": [
+          "たり",
+          "た",
+          "たら",
+          "て"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "a2-g-s6-q13",
+        "promptJP": "新しいレストランを見つけ（ ） 、教えてください。",
+        "choices": [
+          "たら",
+          "たり",
+          "て",
+          "た"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s6-q14",
+        "promptJP": "暑かっ（ ） 、エアコンをつけてください。",
+        "choices": [
+          "たり",
+          "たら",
+          "て",
+          "た"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "a2-g-s6-q15",
+        "promptJP": "その本を読ん（ ） 、感想を教えてください。",
+        "choices": [
+          "た",
+          "たり",
+          "て",
+          "たら"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "a2-g-s6-q16",
+        "promptJP": "駅まで歩い（ ）、10分ぐらいです。",
+        "choices": [
+          "て",
+          "たり",
+          "たら",
+          "た"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "a2-g-s6-q17",
+        "promptJP": "疲れてい（ ） 、早く寝たほうがいいですよ。",
+        "choices": [
+          "たり",
+          "たら",
+          "た",
+          "て"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "a2-g-s6-q18",
+        "promptJP": "日本に来（ ） 、富士山を見たいです。",
+        "choices": [
+          "たり",
+          "て",
+          "たら",
+          "た"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "a2-g-s6-q19",
+        "promptJP": "ボタンを押し（ ） 、機械が動きます。",
+        "choices": [
+          "たり",
+          "て",
+          "たら",
+          "た"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "a2-g-s6-q20",
+        "promptJP": "その問題が分からなかっ（ ） 、聞いてください。",
+        "choices": [
+          "て",
+          "たり",
+          "たら",
+          "た"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "a2-g-s6-q21",
+        "promptJP": "春になっ（ ） 、花が咲きます。",
+        "choices": [
+          "たら",
+          "たり",
+          "て",
+          "た"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s6-q22",
+        "promptJP": "この料理を食べ（ ） 、どう思いましたか。",
+        "choices": [
+          "て",
+          "たり",
+          "たら",
+          "た"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "a2-g-s6-q23",
+        "promptJP": "新しいスマホを買っ（ ） 、連絡してください。",
+        "choices": [
+          "て",
+          "たり",
+          "た",
+          "たら"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "a2-g-s6-q24",
+        "promptJP": "分からなかっ（ ） 、もう一度説明します。",
+        "choices": [
+          "たり",
+          "て",
+          "た",
+          "たら"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "a2-g-s6-q25",
+        "promptJP": "雨がやん（ ） 、散歩しましょう。",
+        "choices": [
+          "たら",
+          "たり",
+          "て",
+          "た"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s6-q26",
+        "promptJP": "家に帰っ（ ） 、メールをチェックします。",
+        "choices": [
+          "たり",
+          "て",
+          "たら",
+          "た"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "a2-g-s6-q27",
+        "promptJP": "日本語が上手だっ（ ） 、日本で働けるかもしれません。",
+        "choices": [
+          "たり",
+          "て",
+          "たら",
+          "た"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "a2-g-s6-q28",
+        "promptJP": "電車に乗り遅れ（ ） 、タクシーで行きました。",
+        "choices": [
+          "たり",
+          "て",
+          "たら",
+          "た"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "a2-g-s6-q29",
+        "promptJP": "このボタンを押し（ ） 、ドアが開きます。",
+        "choices": [
+          "て",
+          "たり",
+          "た",
+          "たら"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "a2-g-s6-q30",
+        "promptJP": "もし安かっ（ ） 、買います。",
+        "choices": [
+          "たり",
+          "た",
+          "たら",
+          "て"
+        ],
+        "correctIndex": 2
+      }
+    ]
+  },
+  {
+    "level": "A2",
+    "sessionNumber": 7,
+    "sessionTitle": "session7(伝聞（基礎）：〜そうです（伝聞）)",
+    "topics": [
+      {
+        "id": "a2-g-s7-topic-1",
+        "title": "伝聞（基礎）：〜そうです（伝聞）",
+        "explanationMarkdown": "## Hearsay: 〜そうです\n\nIn Japanese, **〜そうです** in the hearsay sense is used to report information heard from someone else or from another source. It is close to expressions such as \"I heard that...\", \"They say that...\", or \"Apparently...\"\n\n### Basic Structure\n\nAttach **そうです** to the plain form of a sentence. The sentence before **そうです** stays in the plain form, not the polite form.\n\n### Source of Information\n\nYou can optionally mention the source with expressions such as **ニュースによると** or **友だちの話では**, but the source is often omitted if it is obvious or unimportant.\n\n### Nuance and Usage\n\nThe key point is that the speaker did not personally confirm the information. They are simply passing along what they heard, so the sentence often has a neutral or indirect tone.\n\n### Important Contrast\n\nDo not confuse hearsay **〜そうです** with appearance **〜そうです**.\n\n- **雨が降りそうです**: It looks like it will rain.\n- **雨が降るそうです**: I heard it will rain.\n\nIn the appearance form, **そう** attaches to the verb stem. In the hearsay form, it follows the plain sentence.\n\nMastering this structure helps learners report information naturally in Japanese conversations and discussions.",
+        "examples": [
+          {
+            "jp": "明日は雨が降るそうです。",
+            "en": "I heard that it will rain tomorrow."
+          },
+          {
+            "jp": "このレストランはおいしいそうです。",
+            "en": "I heard this restaurant is good."
+          },
+          {
+            "jp": "この町は静かだそうです。",
+            "en": "I heard this town is quiet."
+          },
+          {
+            "jp": "田中さんは先生だそうです。",
+            "en": "I heard that Tanaka is a teacher."
+          },
+          {
+            "jp": "ニュースによると、台風が来るそうです。",
+            "en": "According to the news, a typhoon is coming."
+          }
+        ]
+      }
+    ],
+    "questions": [
+      {
+        "id": "a2-g-s7-q1",
+        "promptJP": "明日は雨が降る（ ）。",
+        "choices": [
+          "そうます",
+          "そうです",
+          "そうた",
+          "そうる"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "a2-g-s7-q2",
+        "promptJP": "田中さんは来ない（ ）。",
+        "choices": [
+          "そうだます",
+          "そうない",
+          "そうです",
+          "そうった"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "a2-g-s7-q3",
+        "promptJP": "この店はおいしい（ ）。",
+        "choices": [
+          "そうる",
+          "そうます",
+          "そうです",
+          "そうたん"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "a2-g-s7-q4",
+        "promptJP": "あの映画は面白い（ ）。",
+        "choices": [
+          "そうった",
+          "そうます",
+          "そうる",
+          "そうです"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "a2-g-s7-q5",
+        "promptJP": "鈴木さんは先生だ（ ）。",
+        "choices": [
+          "そうです",
+          "そうた",
+          "そうません",
+          "そうる"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s7-q6",
+        "promptJP": "明日テストがある（ ）。",
+        "choices": [
+          "そうる",
+          "そうます",
+          "そうない",
+          "そうです"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "a2-g-s7-q7",
+        "promptJP": "この町は静かだ（ ）。",
+        "choices": [
+          "そうます",
+          "そうる",
+          "そうた",
+          "そうです"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "a2-g-s7-q8",
+        "promptJP": "山田さんは日本に行く（ ）。",
+        "choices": [
+          "そうた",
+          "そうです",
+          "そうます",
+          "そうらん"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "a2-g-s7-q9",
+        "promptJP": "来週雪が降る（ ）。",
+        "choices": [
+          "そうます",
+          "そうです",
+          "そうた",
+          "そうる"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "a2-g-s7-q10",
+        "promptJP": "彼は忙しい（ ）。",
+        "choices": [
+          "そうた",
+          "そうます",
+          "そうです",
+          "そうる"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "a2-g-s7-q11",
+        "promptJP": "このレストランは高い（ ）。",
+        "choices": [
+          "そうます",
+          "そうです",
+          "そうる",
+          "そうた"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "a2-g-s7-q12",
+        "promptJP": "彼女は日本語が上手だ（ ）。",
+        "choices": [
+          "そうた",
+          "そうません",
+          "そうです",
+          "そうる"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "a2-g-s7-q13",
+        "promptJP": "明日は寒い（ ）。",
+        "choices": [
+          "そうます",
+          "そうた",
+          "そうる",
+          "そうです"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "a2-g-s7-q14",
+        "promptJP": "あの人は医者だ（ ）。",
+        "choices": [
+          "そうる",
+          "そうた",
+          "そうです",
+          "そうます"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "a2-g-s7-q15",
+        "promptJP": "来年日本へ引っ越す（ ）。",
+        "choices": [
+          "そうます",
+          "そうた",
+          "そうです",
+          "そうる"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "a2-g-s7-q16",
+        "promptJP": "このパソコンは便利だ（ ）。",
+        "choices": [
+          "そうた",
+          "そうです",
+          "そうます",
+          "そうる"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "a2-g-s7-q17",
+        "promptJP": "その本はとても面白い（ ）。",
+        "choices": [
+          "そうます",
+          "そうです",
+          "そうた",
+          "そうる"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "a2-g-s7-q18",
+        "promptJP": "明日は試験がない（ ）。",
+        "choices": [
+          "そうです",
+          "そうます",
+          "そうる",
+          "そうた"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s7-q19",
+        "promptJP": "彼は今日来る（ ）。",
+        "choices": [
+          "そうる",
+          "そうた",
+          "そうます",
+          "そうです"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "a2-g-s7-q20",
+        "promptJP": "そのホテルは有名だ（ ）。",
+        "choices": [
+          "そうた",
+          "そうです",
+          "そうます",
+          "そうる"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "a2-g-s7-q21",
+        "promptJP": "あの映画は長い（ ）。",
+        "choices": [
+          "そういます",
+          "そうた",
+          "そうです",
+          "そうる"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "a2-g-s7-q22",
+        "promptJP": "来週会議がある（ ）。",
+        "choices": [
+          "そうます",
+          "そうる",
+          "そうた",
+          "そうです"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "a2-g-s7-q23",
+        "promptJP": "彼女は忙しい（ ）。",
+        "choices": [
+          "そうた",
+          "そうます",
+          "そうです",
+          "そうる"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "a2-g-s7-q24",
+        "promptJP": "その町はとてもきれいだ（ ）。",
+        "choices": [
+          "そうます",
+          "そうる",
+          "そうです",
+          "そうた"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "a2-g-s7-q25",
+        "promptJP": "明日は晴れる（ ）。",
+        "choices": [
+          "そうです",
+          "そうた",
+          "そうます",
+          "そうる"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s7-q26",
+        "promptJP": "あの店は人気がある（ ）。",
+        "choices": [
+          "そうた",
+          "そうます",
+          "そうです",
+          "そうる"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "a2-g-s7-q27",
+        "promptJP": "彼は来ない（ ）。",
+        "choices": [
+          "そうます",
+          "そうです",
+          "そうた",
+          "そうる"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "a2-g-s7-q28",
+        "promptJP": "この料理は辛い（ ）。",
+        "choices": [
+          "そうです",
+          "そうます",
+          "そうた",
+          "そうる"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "a2-g-s7-q29",
+        "promptJP": "先生は今日休みだ（ ）。",
+        "choices": [
+          "そうた",
+          "そうる",
+          "そうます",
+          "そうです"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "a2-g-s7-q30",
+        "promptJP": "その試験は難しい（ ）。",
+        "choices": [
+          "そうる",
+          "そうます",
+          "そうです",
+          "そうた"
+        ],
+        "correctIndex": 2
       }
     ]
   }

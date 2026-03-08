@@ -8,6 +8,7 @@ import type { UserProgress } from "@/repo/progressRepo";
 
 type GrammarSessionListItem = {
   sessionNumber: number;
+  sessionTitle: string;
   topicCount: number;
   questionCount: number;
 };
@@ -49,7 +50,7 @@ export function GrammarSessionList({ sessions, warning }: GrammarSessionListProp
   return (
     <section className="page-card">
       <h2 className="page-title">A2 Sessions</h2>
-      <ul className="placeholder-list">
+      <div className="grammar-session-list">
         {sessions.map((session) => {
           const sessionKey = `A2:GRAMMAR:${session.sessionNumber}`;
           const bestScore = progress?.grammarBestScoreBySession[sessionKey];
@@ -58,21 +59,29 @@ export function GrammarSessionList({ sessions, warning }: GrammarSessionListProp
             : false;
 
           return (
-            <li key={session.sessionNumber}>
-              <Link href={`/grammar/a2/session/${session.sessionNumber}`}>
-                Session {session.sessionNumber} ({session.topicCount} topic
-                {session.topicCount === 1 ? "" : "s"}, {session.questionCount} questions)
-              </Link>
-              {typeof bestScore === "number" ? (
-                <span className="muted-inline">Best: {Math.round(bestScore)}%</span>
-              ) : (
-                <span className="muted-inline">Best: -</span>
-              )}
-              {completed ? <span className="status-badge">Completed</span> : null}
-            </li>
+            <Link
+              key={session.sessionNumber}
+              className="grammar-session-link"
+              href={`/grammar/a2/session/${session.sessionNumber}`}
+            >
+              <div className="stack-row">
+                <strong className="grammar-session-link__title">{session.sessionTitle}</strong>
+                {completed ? <span className="status-badge">Completed</span> : null}
+              </div>
+              <p className="muted-note">
+                {session.topicCount} topic{session.topicCount === 1 ? "" : "s"} •{" "}
+                {session.questionCount} practice question{session.questionCount === 1 ? "" : "s"}
+              </p>
+              <div className="stack-row">
+                <span className="muted-note">
+                  Best score: {typeof bestScore === "number" ? `${Math.round(bestScore)}%` : "-"}
+                </span>
+                <span className="grammar-session-link__cta">Open explanation</span>
+              </div>
+            </Link>
           );
         })}
-      </ul>
+      </div>
       <p className="muted-note">Completion requires 80%+ (Best score).</p>
       {warning ? <p className="muted-note">Warning: {warning}</p> : null}
     </section>

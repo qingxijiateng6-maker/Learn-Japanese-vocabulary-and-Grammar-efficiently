@@ -18,6 +18,8 @@ export function StudySettingsPanel() {
             <span className="muted-inline"> (JP example sentences only)</span>
           </span>
           <input
+            id="study-setting-furigana"
+            name="studySettingFurigana"
             type="checkbox"
             checked={settings.furiganaEnabled}
             onChange={(event) => setFuriganaEnabled(event.target.checked)}
@@ -29,6 +31,8 @@ export function StudySettingsPanel() {
             <span className="muted-inline"> (flashcard back only)</span>
           </span>
           <input
+            id="study-setting-english-meaning"
+            name="studySettingEnglishMeaning"
             type="checkbox"
             checked={settings.showEnglishMeaning}
             onChange={(event) => setShowEnglishMeaning(event.target.checked)}

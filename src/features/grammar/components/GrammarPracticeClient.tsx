@@ -1,42 +1,28 @@
 "use client";
 
-import { useEffect, useMemo, useState, useTransition } from "react";
+import { useEffect, useState, useTransition } from "react";
 import { updateGrammarBestAndCompletion } from "@/domain/progress/calc";
-import type { GrammarJsonV1Item, GrammarQuestionJsonV1 } from "@/content/schema";
+import type { GrammarQuestionJsonV1 } from "@/content/schema";
 import { getLocalDateISO } from "@/repo/progressRepo";
 import { useProgressRepo } from "@/repo/progressRepoContext";
 
 type GrammarPracticeClientProps = {
   level: string;
   sessionNumber: number;
-  items: GrammarJsonV1Item[];
+  questions: GrammarQuestionJsonV1[];
 };
-
-type FlattenedQuestion = {
-  topicId: string;
-  topicTitleEN: string;
-  question: GrammarQuestionJsonV1;
-};
-
-function flattenQuestions(items: GrammarJsonV1Item[]): FlattenedQuestion[] {
-  return items.flatMap((item) =>
-    item.questions.map((question) => ({
-      topicId: item.id,
-      topicTitleEN: item.titleEN,
-      question,
-    })),
-  );
-}
 
 export function GrammarPracticeClient({
   level,
   sessionNumber,
-  items,
+  questions,
 }: GrammarPracticeClientProps) {
   const progressRepo = useProgressRepo();
   const [isSaving, startSaving] = useTransition();
   const [questionIndex, setQuestionIndex] = useState(0);
-  const [selectedIndexByQuestion, setSelectedIndexByQuestion] = useState<Record<number, number>>({});
+  const [selectedIndexByQuestion, setSelectedIndexByQuestion] = useState<Record<number, number>>(
+    {},
+  );
   const [revealedByQuestion, setRevealedByQuestion] = useState<Record<number, boolean>>({});
   const [attemptSaved, setAttemptSaved] = useState(false);
   const [bestScore, setBestScore] = useState<number | null>(null);
@@ -44,7 +30,6 @@ export function GrammarPracticeClient({
   const [saveMessage, setSaveMessage] = useState<string | null>(null);
 
   const sessionKey = `${level.toUpperCase()}:GRAMMAR:${sessionNumber}`;
-  const questions = useMemo(() => flattenQuestions(items), [items]);
   const current = questions[questionIndex] ?? null;
   const selectedIndex = selectedIndexByQuestion[questionIndex];
   const revealed = revealedByQuestion[questionIndex] === true;
@@ -67,7 +52,7 @@ export function GrammarPracticeClient({
 
   const correctCount = questions.reduce((count, item, index) => {
     const selected = selectedIndexByQuestion[index];
-    return selected === item.question.correctIndex ? count + 1 : count;
+    return selected === item.correctIndex ? count + 1 : count;
   }, 0);
   const totalCount = questions.length;
   const answeredCount = Object.keys(revealedByQuestion).filter(
@@ -131,12 +116,6 @@ export function GrammarPracticeClient({
       return;
     }
     setSelectedIndexByQuestion((previous) => ({ ...previous, [questionIndex]: index }));
-  };
-
-  const checkAnswer = () => {
-    if (selectedIndex === undefined) {
-      return;
-    }
     setRevealedByQuestion((previous) => ({ ...previous, [questionIndex]: true }));
   };
 
@@ -176,6 +155,9 @@ export function GrammarPracticeClient({
         Best score: {bestScore === null ? "-" : `${Math.round(bestScore)}%`} | Current attempt:{" "}
         {finished ? `${scorePercent}%` : `${correctCount}/${totalCount} correct so far`}
       </p>
+      {!finished ? (
+        <p className="muted-note">Tap one answer to reveal correctness and feedback immediately.</p>
+      ) : null}
 
       {finished ? (
         <div className="flashcard-panel">
@@ -204,27 +186,25 @@ export function GrammarPracticeClient({
             <strong>
               Question {questionIndex + 1} / {totalCount}
             </strong>
-            <span className="muted-note">{current.topicTitleEN}</span>
+            <span className="muted-note">Choose the best answer.</span>
           </div>
 
           <div className="flashcard-face">
             <p className="flashcard-label">Prompt</p>
-            <p className="flashcard-example">{current.question.promptEN}</p>
-            {current.question.promptJP ? (
-              <p className="muted-note">JP: {current.question.promptJP}</p>
-            ) : null}
+            <p className="flashcard-word">{current.promptJP}</p>
+            {current.promptEN ? <p className="muted-note">{current.promptEN}</p> : null}
           </div>
 
           <div className="quiz-choices">
-            {current.question.choices.map((choice, index) => {
+            {current.choices.map((choice, index) => {
               const isSelected = selectedIndex === index;
-              const isCorrect = current.question.correctIndex === index;
+              const isCorrect = current.correctIndex === index;
               const showCorrect = revealed && isCorrect;
               const showWrong = revealed && isSelected && !isCorrect;
 
               return (
                 <button
-                  key={`${current.question.id}:${choice}`}
+                  key={`${current.id}:${choice}`}
                   type="button"
                   className={[
                     "quiz-choice",
@@ -247,36 +227,26 @@ export function GrammarPracticeClient({
             <button type="button" className="button-link" onClick={prevQuestion}>
               Previous
             </button>
-            {!revealed ? (
-              <button
-                type="button"
-                className="button-link button-link--primary"
-                onClick={checkAnswer}
-                disabled={selectedIndex === undefined}
-              >
-                Check answer
-              </button>
-            ) : (
+            {revealed ? (
               <button
                 type="button"
                 className="button-link button-link--primary"
                 onClick={nextQuestion}
                 disabled={questionIndex >= totalCount - 1}
               >
-                Next
+                Next question
               </button>
-            )}
+            ) : null}
           </div>
 
           {revealed ? (
             <div className="quiz-explanation">
-              <p className="flashcard-label">Explanation</p>
+              <p className="flashcard-label">Feedback</p>
               <p className="flashcard-example">
-                {selectedIndex === current.question.correctIndex ? "Correct. " : "Incorrect. "}
-                Correct answer:{" "}
-                <strong>{current.question.choices[current.question.correctIndex]}</strong>
+                {selectedIndex === current.correctIndex ? "Correct. " : "Incorrect. "}
+                Correct answer: <strong>{current.choices[current.correctIndex]}</strong>
               </p>
-              <p className="flashcard-example">{current.question.explanationEN}</p>
+              {current.feedback ? <p className="flashcard-example">{current.feedback}</p> : null}
             </div>
           ) : null}
         </div>
