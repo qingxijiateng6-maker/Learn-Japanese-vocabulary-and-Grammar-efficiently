@@ -20,11 +20,22 @@ export default async function GrammarPracticePage({ params }: GrammarPracticePag
     session?.items.reduce((count, item) => count + item.questions.length, 0) ?? 0;
 
   return (
-    <PageScaffold
-      title={`Grammar A2 • Session ${sessionNumber} • Practice`}
-      description="Answer 4-choice questions, review explanations immediately, and improve your best score."
-    >
+    <PageScaffold className="page-main">
       <StudyTimerMount />
+      <section className="page-card grammar-session-hero">
+        <p className="flashcard-label">Grammar • A2 • Session {sessionNumber}</p>
+        <h1 className="grammar-session-hero__title">
+          {session?.sessionTitleEN ?? `Session ${sessionNumber} Practice`}
+        </h1>
+        <p className="page-subtitle">
+          Answer one four-choice question at a time. Feedback appears immediately after you tap an
+          answer.
+        </p>
+        <div className="grammar-session-hero__meta">
+          <span>{questionCount} practice question{questionCount === 1 ? "" : "s"}</span>
+          <span>Best score decides completion</span>
+        </div>
+      </section>
       <StudySettingsPanel />
       <section className="page-card">
         <p className="muted-note">

@@ -131,12 +131,6 @@ export function GrammarPracticeClient({
       return;
     }
     setSelectedIndexByQuestion((previous) => ({ ...previous, [questionIndex]: index }));
-  };
-
-  const checkAnswer = () => {
-    if (selectedIndex === undefined) {
-      return;
-    }
     setRevealedByQuestion((previous) => ({ ...previous, [questionIndex]: true }));
   };
 
@@ -176,6 +170,9 @@ export function GrammarPracticeClient({
         Best score: {bestScore === null ? "-" : `${Math.round(bestScore)}%`} | Current attempt:{" "}
         {finished ? `${scorePercent}%` : `${correctCount}/${totalCount} correct so far`}
       </p>
+      {!finished ? (
+        <p className="muted-note">Tap one answer to reveal correctness and explanation immediately.</p>
+      ) : null}
 
       {finished ? (
         <div className="flashcard-panel">
@@ -247,25 +244,16 @@ export function GrammarPracticeClient({
             <button type="button" className="button-link" onClick={prevQuestion}>
               Previous
             </button>
-            {!revealed ? (
-              <button
-                type="button"
-                className="button-link button-link--primary"
-                onClick={checkAnswer}
-                disabled={selectedIndex === undefined}
-              >
-                Check answer
-              </button>
-            ) : (
+            {revealed ? (
               <button
                 type="button"
                 className="button-link button-link--primary"
                 onClick={nextQuestion}
                 disabled={questionIndex >= totalCount - 1}
               >
-                Next
+                Next question
               </button>
-            )}
+            ) : null}
           </div>
 
           {revealed ? (
