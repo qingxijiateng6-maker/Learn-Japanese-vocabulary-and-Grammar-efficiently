@@ -1,7 +1,7 @@
-import { readFile } from "node:fs/promises";
-import path from "node:path";
+import a2GrammarJson from "@/content/a2/grammar.json";
+import a2VocabularyJson from "@/content/a2/vocab.json";
 import {
-  type GrammarJsonV1Item,
+  type GrammarSessionJsonV1,
   GrammarJsonV1Schema,
   type LocalizedExample,
   type VocabularyPartOfSpeech,
@@ -46,53 +46,7 @@ export type VocabularyLevelGroup = {
   totalItemCount: number;
 };
 
-export type GrammarSession = {
-  level: string;
-  sessionNumber: number;
-  items: GrammarJsonV1Item[];
-};
-
-async function readLocalJson(relativePathFromRoot: string): Promise<{
-  json: unknown | null;
-  warnings: LoaderWarning[];
-}> {
-  const fullPath = path.join(process.cwd(), relativePathFromRoot);
-
-  try {
-    const raw = await readFile(fullPath, "utf8");
-    return { json: JSON.parse(raw), warnings: [] };
-  } catch (error) {
-    const message =
-      error instanceof Error ? error.message : "Unknown file read error";
-    return {
-      json: null,
-      warnings: [`Failed to load ${relativePathFromRoot}: ${message}`],
-    };
-  }
-}
-
-function groupBySessionNumber<T extends { sessionNumber: number; level: string }>(
-  items: T[],
-): Array<{ level: string; sessionNumber: number; items: T[] }> {
-  const groups = new Map<number, { level: string; sessionNumber: number; items: T[] }>();
-
-  for (const item of items) {
-    const existing = groups.get(item.sessionNumber);
-
-    if (existing) {
-      existing.items.push(item);
-      continue;
-    }
-
-    groups.set(item.sessionNumber, {
-      level: item.level,
-      sessionNumber: item.sessionNumber,
-      items: [item],
-    });
-  }
-
-  return [...groups.values()].sort((a, b) => a.sessionNumber - b.sessionNumber);
-}
+export type GrammarSession = GrammarSessionJsonV1;
 
 function groupVocabularyByPartOfSpeechAndSession(
   items: VocabularyItem[],
@@ -174,23 +128,13 @@ function normalizeVocabularyItem(item: VocabularyJsonV1Item): VocabularyItem {
   };
 }
 
-export async function loadA2VocabularySessions(): Promise<
-  SafeLoadResult<VocabularySession>
-> {
-  const filePath = "src/content/a2/vocab.json";
-  const fileResult = await readLocalJson(filePath);
-
-  if (!fileResult.json) {
-    return { sessions: [], warnings: fileResult.warnings };
-  }
-
-  const parsed = VocabularyJsonV1Schema.safeParse(fileResult.json);
+function parseVocabularyJson(json: unknown): SafeLoadResult<VocabularySession> {
+  const parsed = VocabularyJsonV1Schema.safeParse(json);
   if (!parsed.success) {
     return {
       sessions: [],
       warnings: [
-        ...fileResult.warnings,
-        `Invalid vocabulary JSON (${filePath}): ${parsed.error.issues
+        `Invalid vocabulary JSON (src/content/a2/vocab.json): ${parsed.error.issues
           .slice(0, 3)
           .map((issue) => issue.path.join(".") || "root")
           .join(", ")}`,
@@ -206,8 +150,40 @@ export async function loadA2VocabularySessions(): Promise<
 
   return {
     sessions: grouped,
-    warnings: fileResult.warnings,
+    warnings: [],
   };
+}
+
+function parseGrammarJson(json: unknown): SafeLoadResult<GrammarSession> {
+  const parsed = GrammarJsonV1Schema.safeParse(json);
+  if (!parsed.success) {
+    return {
+      sessions: [],
+      warnings: [
+        `Invalid grammar JSON (src/content/a2/grammar.json): ${parsed.error.issues
+          .slice(0, 3)
+          .map((issue) => issue.path.join(".") || "root")
+          .join(", ")}`,
+      ],
+    };
+  }
+
+  const sessions = [...parsed.data]
+    .sort((a, b) => a.sessionNumber - b.sessionNumber)
+    .map((session) => ({
+      ...session,
+      topics: [...session.topics].sort((a, b) => a.id.localeCompare(b.id)),
+      questions: [...session.questions].sort((a, b) => a.id.localeCompare(b.id)),
+    }));
+
+  return {
+    sessions,
+    warnings: [],
+  };
+}
+
+export async function loadA2VocabularySessions(): Promise<SafeLoadResult<VocabularySession>> {
+  return parseVocabularyJson(a2VocabularyJson);
 }
 
 export async function loadA2VocabularyLevelGroup(): Promise<{
@@ -226,34 +202,5 @@ export async function loadA2VocabularyLevelGroup(): Promise<{
 }
 
 export async function loadA2GrammarSessions(): Promise<SafeLoadResult<GrammarSession>> {
-  const filePath = "src/content/a2/grammar.json";
-  const fileResult = await readLocalJson(filePath);
-
-  if (!fileResult.json) {
-    return { sessions: [], warnings: fileResult.warnings };
-  }
-
-  const parsed = GrammarJsonV1Schema.safeParse(fileResult.json);
-  if (!parsed.success) {
-    return {
-      sessions: [],
-      warnings: [
-        ...fileResult.warnings,
-        `Invalid grammar JSON (${filePath}): ${parsed.error.issues
-          .slice(0, 3)
-          .map((issue) => issue.path.join(".") || "root")
-          .join(", ")}`,
-      ],
-    };
-  }
-
-  const grouped = groupBySessionNumber(parsed.data).map((session) => ({
-    ...session,
-    items: session.items.sort((a, b) => a.id.localeCompare(b.id)),
-  }));
-
-  return {
-    sessions: grouped,
-    warnings: fileResult.warnings,
-  };
+  return parseGrammarJson(a2GrammarJson);
 }
