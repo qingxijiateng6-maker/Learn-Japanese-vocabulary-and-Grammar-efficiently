@@ -1,5 +1,6 @@
 # dependencies
 node_modules/
+.venv/
 
 # Next.js
 .next/
@@ -11,5 +12,10 @@ dist/
 # env
 .env
 .env.local
+
+Learn-Japanese-vocabulary-and-Grammar-efficiently/
+jp_app_merge_resolve/
+merge_resolve/
+tmp/
 
 tsconfig.tsbuildinfo
