@@ -47,11 +47,14 @@ export function runProgressCalcTests(): void {
   assertEqual(calcTimeProgressPercent(120, 999999), 100, "Percent should clamp to 100%");
 
   const vocabCompletion: VocabSessionCompletionMap = {
-    "A2:VOCAB:1": { completedAtISO: "2026-02-24T11:00:00.000Z" },
+    "A2:VOCAB:NOUN:1": { completedAtISO: "2026-02-24T11:00:00.000Z" },
   };
-  assert(isVocabSessionCompleted(vocabCompletion, "A2:VOCAB:1"), "Vocab session should be completed");
   assert(
-    !isVocabSessionCompleted(vocabCompletion, "A2:VOCAB:2"),
+    isVocabSessionCompleted(vocabCompletion, "A2:VOCAB:NOUN:1"),
+    "Vocab session should be completed",
+  );
+  assert(
+    !isVocabSessionCompleted(vocabCompletion, "A2:VOCAB:VERB:2"),
     "Missing vocab completion should be false",
   );
 
@@ -132,11 +135,11 @@ export function runProgressCalcTests(): void {
 
   const weeklyContent = calcWeeklyContentProgress({
     weekRange: week,
-    availableVocabSessionKeys: ["A2:VOCAB:1", "A2:VOCAB:2"],
+    availableVocabSessionKeys: ["A2:VOCAB:NOUN:1", "A2:VOCAB:NOUN:2"],
     availableGrammarSessionKeys: ["A2:GRAMMAR:1", "A2:GRAMMAR:2"],
     vocabSessionCompletion: {
-      "A2:VOCAB:1": { completedAtISO: "2026-02-24T11:00:00.000Z" },
-      "A2:VOCAB:2": { completedAtISO: "2026-02-10T11:00:00.000Z" },
+      "A2:VOCAB:NOUN:1": { completedAtISO: "2026-02-24T11:00:00.000Z" },
+      "A2:VOCAB:NOUN:2": { completedAtISO: "2026-02-10T11:00:00.000Z" },
     },
     grammarSessionCompletion: {
       "A2:GRAMMAR:1": { completed: true, completedAtISO: "2026-02-25T09:00:00.000Z" },

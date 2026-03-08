@@ -1,12 +1,23 @@
 import Link from "next/link";
-import { loadA2VocabularySessions } from "@/content/loaders";
+import { notFound } from "next/navigation";
+import {
+  getVocabularyPartOfSpeechLabel,
+  getVocabularySessionHref,
+  normalizeVocabularyPartOfSpeechParam,
+} from "@/domain/vocabulary/meta";
 import { VocabularyFlashcardsClient } from "@/features/vocabulary/components/VocabularyFlashcardsClient";
+import {
+  findVocabularySession,
+  loadVocabularyRouteData,
+} from "@/features/vocabulary/vocabularyRouteData";
 import { StudySettingsPanel } from "@/shared/components/StudySettingsPanel";
 import { StudyTimerMount } from "@/shared/components/StudyTimerMount";
 import { PageScaffold } from "@/shared/components/PageScaffold";
 
 type VocabularyFlashcardsPageProps = {
   params: Promise<{
+    level: string;
+    partOfSpeech: string;
     sessionNumber: string;
   }>;
 };
@@ -14,14 +25,30 @@ type VocabularyFlashcardsPageProps = {
 export default async function VocabularyFlashcardsPage({
   params,
 }: VocabularyFlashcardsPageProps) {
-  const { sessionNumber } = await params;
+  const {
+    level: levelParam,
+    partOfSpeech: partOfSpeechParam,
+    sessionNumber,
+  } = await params;
+  const routeData = await loadVocabularyRouteData(levelParam);
+  const partOfSpeech = normalizeVocabularyPartOfSpeechParam(partOfSpeechParam);
   const parsedSessionNumber = Number.parseInt(sessionNumber, 10);
-  const { sessions, warnings } = await loadA2VocabularySessions();
-  const session = sessions.find((item) => item.sessionNumber === parsedSessionNumber);
+
+  if (!routeData || !partOfSpeech || Number.isNaN(parsedSessionNumber) || parsedSessionNumber < 1) {
+    notFound();
+  }
+
+  const label = getVocabularyPartOfSpeechLabel(partOfSpeech);
+  const session = findVocabularySession(
+    routeData.sessions,
+    partOfSpeech,
+    parsedSessionNumber,
+  );
 
   return (
     <PageScaffold
-      title={`Vocabulary A2 • Session ${sessionNumber} • Flashcards`}
+      className="page-main"
+      title={`Vocabulary • ${routeData.level} • ${label} • Session ${sessionNumber} • Flashcards`}
       description="Study flashcards with grading, review filters, and automatic completion tracking."
     >
       <StudyTimerMount />
@@ -32,9 +59,14 @@ export default async function VocabularyFlashcardsPage({
             ? `${session.items.length} cards loaded from local JSON content for this session.`
             : "Content preparing. Flashcard deck and progress tracking will be loaded from JSON later."}
         </p>
-        {warnings.length > 0 ? <p className="muted-note">Warning: {warnings[0]}</p> : null}
+        {routeData.warnings.length > 0 ? (
+          <p className="muted-note">Warning: {routeData.warnings[0]}</p>
+        ) : null}
         <div className="button-row">
-          <Link className="button-link" href={`/vocabulary/a2/session/${sessionNumber}`}>
+          <Link
+            className="button-link"
+            href={getVocabularySessionHref(routeData.level, partOfSpeech, parsedSessionNumber)}
+          >
             Back to mode select
           </Link>
         </div>
@@ -42,6 +74,7 @@ export default async function VocabularyFlashcardsPage({
       {session ? (
         <VocabularyFlashcardsClient
           level={session.level}
+          partOfSpeech={session.partOfSpeech}
           sessionNumber={session.sessionNumber}
           items={session.items}
         />

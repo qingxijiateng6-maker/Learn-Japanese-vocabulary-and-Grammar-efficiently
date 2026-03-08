@@ -1,12 +1,17 @@
 "use client";
 
-import { Fragment, useEffect, useMemo, useState, useTransition } from "react";
+import { useEffect, useMemo, useState, useTransition } from "react";
 import type { VocabularyItem } from "@/content/loaders";
+import {
+  buildVocabularySessionKey,
+  type VocabularyPartOfSpeech,
+} from "@/domain/vocabulary/meta";
 import { getLocalDateISO } from "@/repo/progressRepo";
 import { useProgressRepo } from "@/repo/progressRepoContext";
 
 type VocabularyQuizClientProps = {
   level: string;
+  partOfSpeech: VocabularyPartOfSpeech;
   sessionNumber: number;
   sessionItems: VocabularyItem[];
   levelItems: VocabularyItem[];
@@ -115,6 +120,7 @@ function buildQuestions(sessionItems: VocabularyItem[], levelItems: VocabularyIt
 
 export function VocabularyQuizClient({
   level,
+  partOfSpeech,
   sessionNumber,
   sessionItems,
   levelItems,
@@ -126,7 +132,7 @@ export function VocabularyQuizClient({
   const [revealedByQuestion, setRevealedByQuestion] = useState<Record<number, boolean>>({});
   const [attemptSaved, setAttemptSaved] = useState(false);
 
-  const sessionKey = `${level.toUpperCase()}:VOCAB:${sessionNumber}`;
+  const sessionKey = buildVocabularySessionKey(level, partOfSpeech, sessionNumber);
   const questions = useMemo(
     () => buildQuestions(sessionItems, levelItems),
     [levelItems, sessionItems],

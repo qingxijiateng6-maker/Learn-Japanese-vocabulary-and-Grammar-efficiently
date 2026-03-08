@@ -2,6 +2,10 @@
 
 import { useEffect, useMemo, useState, useTransition } from "react";
 import { shouldMarkVocabCompleted } from "@/domain/progress/calc";
+import {
+  buildVocabularySessionKey,
+  type VocabularyPartOfSpeech,
+} from "@/domain/vocabulary/meta";
 import { useProgressRepo } from "@/repo/progressRepoContext";
 import type { VocabGrade } from "@/repo/progressRepo";
 import type { VocabularyItem } from "@/content/loaders";
@@ -12,6 +16,7 @@ type ReviewFilter = "all" | "didnt_remember" | "review";
 
 type VocabularyFlashcardsClientProps = {
   level: string;
+  partOfSpeech: VocabularyPartOfSpeech;
   sessionNumber: number;
   items: VocabularyItem[];
 };
@@ -24,12 +29,13 @@ const gradeOrder: Array<{ value: VocabGrade; label: string }> = [
 
 export function VocabularyFlashcardsClient({
   level,
+  partOfSpeech,
   sessionNumber,
   items,
 }: VocabularyFlashcardsClientProps) {
   const progressRepo = useProgressRepo();
   const { settings } = useStudySettings();
-  const sessionKey = `${level.toUpperCase()}:VOCAB:${sessionNumber}`;
+  const sessionKey = buildVocabularySessionKey(level, partOfSpeech, sessionNumber);
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showBack, setShowBack] = useState(false);

@@ -102,13 +102,15 @@ function sanitizeVocabQuizAttempts(value: unknown): UserProgress["vocabQuizAttem
   }
 
   return value
-    .filter(isRecord)
-    .map((attempt) => ({
-      sessionKey:
-        typeof attempt.sessionKey === "string" ? attempt.sessionKey : "UNKNOWN:VOCAB:0",
-      dateISO: typeof attempt.dateISO === "string" ? attempt.dateISO : getLocalDateISO(),
-      correctCount: Math.round(toNonNegativeNumber(attempt.correctCount)),
-      totalCount: Math.max(1, Math.round(toNonNegativeNumber(attempt.totalCount, 1))),
+      .filter(isRecord)
+      .map((attempt) => ({
+        sessionKey:
+          typeof attempt.sessionKey === "string"
+            ? attempt.sessionKey
+            : "UNKNOWN:VOCAB:OTHER:0",
+        dateISO: typeof attempt.dateISO === "string" ? attempt.dateISO : getLocalDateISO(),
+        correctCount: Math.round(toNonNegativeNumber(attempt.correctCount)),
+        totalCount: Math.max(1, Math.round(toNonNegativeNumber(attempt.totalCount, 1))),
       accuracyPercent: clampPercent(toNonNegativeNumber(attempt.accuracyPercent)),
     }));
 }
