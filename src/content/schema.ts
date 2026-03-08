@@ -1,6 +1,8 @@
 import { z } from "zod";
+import { VOCABULARY_PARTS_OF_SPEECH } from "@/domain/vocabulary/meta";
 
 export const ContentLevelSchema = z.string().min(1);
+export const VocabularyPartOfSpeechSchema = z.enum(VOCABULARY_PARTS_OF_SPEECH);
 
 export const LocalizedExampleSchema = z.object({
   jp: z.string().min(1),
@@ -10,6 +12,7 @@ export const LocalizedExampleSchema = z.object({
 export const VocabularyJsonV1ItemSchema = z.object({
   id: z.string().min(1),
   level: ContentLevelSchema,
+  partOfSpeech: VocabularyPartOfSpeechSchema,
   sessionNumber: z.number().int().positive(),
   wordJP: z.string().min(1),
   readingKana: z.string().min(1),
@@ -50,6 +53,7 @@ export const GrammarJsonV1ItemSchema = z.object({
 export const GrammarJsonV1Schema = z.array(GrammarJsonV1ItemSchema);
 
 export type LocalizedExample = z.infer<typeof LocalizedExampleSchema>;
+export type VocabularyPartOfSpeech = z.infer<typeof VocabularyPartOfSpeechSchema>;
 export type VocabularyJsonV1Item = z.infer<typeof VocabularyJsonV1ItemSchema>;
 export type GrammarQuestionJsonV1 = z.infer<typeof GrammarQuestionJsonV1Schema>;
 export type GrammarJsonV1Item = z.infer<typeof GrammarJsonV1ItemSchema>;

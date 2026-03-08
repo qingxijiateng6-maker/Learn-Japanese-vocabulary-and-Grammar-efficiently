@@ -5,6 +5,8 @@ import {
   isGrammarSessionCompleted,
   isVocabSessionCompleted,
 } from "@/domain/progress/calc";
+import { getVocabularyPartOfSpeechLabel } from "@/domain/vocabulary/meta";
+import type { VocabularyPartOfSpeech } from "@/content/schema";
 import { useProgressRepo } from "@/repo/progressRepoContext";
 import type { UserProgress, VocabQuizAttempt } from "@/repo/progressRepo";
 
@@ -12,6 +14,7 @@ type HistorySessionMeta = {
   level: string;
   sessionNumber: number;
   sessionKey: string;
+  partOfSpeech?: VocabularyPartOfSpeech;
 };
 
 type HistoryDashboardProps = {
@@ -24,6 +27,7 @@ type SessionRow = {
   id: string;
   type: "Vocabulary" | "Grammar";
   level: string;
+  partOfSpeechLabel?: string;
   sessionNumber: number;
   completed: boolean;
   grammarBestScore?: number;
@@ -99,6 +103,9 @@ export function HistoryDashboard({
           id: `v:${session.sessionKey}`,
           type: "Vocabulary" as const,
           level,
+          partOfSpeechLabel: session.partOfSpeech
+            ? getVocabularyPartOfSpeechLabel(session.partOfSpeech)
+            : undefined,
           sessionNumber: session.sessionNumber,
           completed: isVocabSessionCompleted(progress.vocabSessionCompletion, session.sessionKey),
           vocabQuizAccuracyLatest: latestAttempt?.accuracyPercent,
@@ -111,6 +118,7 @@ export function HistoryDashboard({
         id: `g:${session.sessionKey}`,
         type: "Grammar" as const,
         level,
+        partOfSpeechLabel: undefined,
         sessionNumber: session.sessionNumber,
         completed: isGrammarSessionCompleted(progress.grammarSessionCompletion, session.sessionKey),
         grammarBestScore: progress.grammarBestScoreBySession[session.sessionKey],
@@ -124,12 +132,15 @@ export function HistoryDashboard({
       if (a.type !== b.type) {
         return a.type.localeCompare(b.type);
       }
+      if ((a.partOfSpeechLabel ?? "") !== (b.partOfSpeechLabel ?? "")) {
+        return (a.partOfSpeechLabel ?? "").localeCompare(b.partOfSpeechLabel ?? "");
+      }
       return a.sessionNumber - b.sessionNumber;
     });
   }, [grammarSessionsByLevel, progress, vocabSessionsByLevel]);
 
   const perLevelProgress = useMemo(() => {
-    const levels = ["A2", "B1", "C1"];
+    const levels = ["A2", "B1", "B2", "C1"];
 
     return levels.map((level) => {
       const vocabSessions = vocabSessionsByLevel[level] ?? [];
@@ -221,6 +232,7 @@ export function HistoryDashboard({
                 <tr>
                   <th>Type</th>
                   <th>Level</th>
+                  <th>Part of speech</th>
                   <th>Session</th>
                   <th>Completed</th>
                   <th>Grammar Best</th>
@@ -232,6 +244,7 @@ export function HistoryDashboard({
                   <tr key={row.id}>
                     <td>{row.type}</td>
                     <td>{row.level}</td>
+                    <td>{row.type === "Vocabulary" ? row.partOfSpeechLabel ?? "-" : "-"}</td>
                     <td>{row.sessionNumber}</td>
                     <td>{row.completed ? "Yes" : "No"}</td>
                     <td>

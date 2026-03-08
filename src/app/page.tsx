@@ -7,9 +7,7 @@ export default async function HomePage() {
     loadA2GrammarSessions(),
   ]);
 
-  const availableVocabSessionKeys = vocabResult.sessions.map(
-    (session) => `A2:VOCAB:${session.sessionNumber}`,
-  );
+  const availableVocabSessionKeys = vocabResult.sessions.map((session) => session.sessionKey);
   const availableGrammarSessionKeys = grammarResult.sessions.map(
     (session) => `A2:GRAMMAR:${session.sessionNumber}`,
   );

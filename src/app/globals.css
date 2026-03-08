@@ -214,6 +214,69 @@ button {
   margin-top: 0.75rem;
 }
 
+.selection-grid {
+  margin-top: 0.9rem;
+  display: grid;
+  gap: 0.85rem;
+}
+
+.selection-card {
+  display: grid;
+  gap: 0.35rem;
+  border-radius: 14px;
+  border: 1px solid #dfe6f2;
+  background: #fbfdff;
+  padding: 1rem;
+  box-shadow: 0 6px 18px rgba(18, 32, 66, 0.04);
+}
+
+.selection-card--interactive {
+  transition: transform 120ms ease, box-shadow 120ms ease, border-color 120ms ease;
+}
+
+.selection-card--interactive:hover,
+.selection-card--interactive:focus-visible {
+  transform: translateY(-1px);
+  border-color: #98b3f3;
+  box-shadow: 0 10px 24px rgba(18, 32, 66, 0.08);
+  outline: none;
+}
+
+.selection-card--disabled {
+  background: #f5f7fb;
+  color: #6d7c91;
+  border-style: dashed;
+  box-shadow: none;
+}
+
+.selection-card__eyebrow {
+  margin: 0;
+  color: #5e6f85;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.selection-card__title {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+.selection-card__description,
+.selection-card__meta {
+  margin: 0;
+  line-height: 1.45;
+}
+
+.selection-card__description {
+  color: #314154;
+}
+
+.selection-card__meta {
+  color: #5e6f85;
+  font-size: 0.9rem;
+}
+
 .button-link {
   display: inline-flex;
   align-items: center;
@@ -614,6 +677,10 @@ button {
   }
 
   .home-nav-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .selection-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }

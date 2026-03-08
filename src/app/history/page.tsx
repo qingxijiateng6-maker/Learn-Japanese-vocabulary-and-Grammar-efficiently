@@ -15,10 +15,12 @@ export default async function HistoryPage() {
       vocabSessionsByLevel={{
         A2: vocabResult.sessions.map((session) => ({
           level: session.level.toUpperCase(),
+          partOfSpeech: session.partOfSpeech,
           sessionNumber: session.sessionNumber,
-          sessionKey: `${session.level.toUpperCase()}:VOCAB:${session.sessionNumber}`,
+          sessionKey: session.sessionKey,
         })),
         B1: [],
+        B2: [],
         C1: [],
       }}
       grammarSessionsByLevel={{
@@ -28,6 +30,7 @@ export default async function HistoryPage() {
           sessionKey: `${session.level.toUpperCase()}:GRAMMAR:${session.sessionNumber}`,
         })),
         B1: [],
+        B2: [],
         C1: [],
       }}
       warnings={[...vocabResult.warnings, ...grammarResult.warnings]}

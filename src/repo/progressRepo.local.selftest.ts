@@ -62,10 +62,13 @@ export async function runProgressRepoSelfTests(): Promise<void> {
   assert(afterTime.weeklyTimeLog[0]?.seconds === 90, "time log seconds mismatch");
 
   await repo.setVocabGrade("a2-s1-001", "remembered");
-  await repo.markVocabSessionCompleted("A2:VOCAB:1", fixedNow);
+  await repo.markVocabSessionCompleted("A2:VOCAB:NOUN:1", fixedNow);
   const afterVocab = await repo.getProgress();
   assert(afterVocab.vocabGrades["a2-s1-001"] === "remembered", "vocab grade not saved");
-  assert(!!afterVocab.vocabSessionCompletion["A2:VOCAB:1"], "vocab completion not saved");
+  assert(
+    !!afterVocab.vocabSessionCompletion["A2:VOCAB:NOUN:1"],
+    "vocab completion not saved",
+  );
 
   await repo.addGrammarAttempt({
     sessionKey: "A2:GRAMMAR:1",

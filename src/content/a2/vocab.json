@@ -2,6 +2,7 @@
   {
     "id": "a2-s1-001",
     "level": "A2",
+    "partOfSpeech": "NOUN",
     "sessionNumber": 1,
     "wordJP": "駅",
     "readingKana": "えき",
@@ -12,6 +13,7 @@
   {
     "id": "a2-s1-002",
     "level": "A2",
+    "partOfSpeech": "NOUN",
     "sessionNumber": 1,
     "wordJP": "案内",
     "readingKana": "あんない",
@@ -22,6 +24,7 @@
   {
     "id": "a2-s1-003",
     "level": "A2",
+    "partOfSpeech": "NOUN",
     "sessionNumber": 1,
     "wordJP": "改札",
     "readingKana": "かいさつ",
@@ -32,6 +35,7 @@
   {
     "id": "a2-s2-001",
     "level": "A2",
+    "partOfSpeech": "NOUN",
     "sessionNumber": 2,
     "wordJP": "地図",
     "readingKana": "ちず",
