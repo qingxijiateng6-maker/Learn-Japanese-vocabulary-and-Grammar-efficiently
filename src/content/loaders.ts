@@ -1,5 +1,5 @@
-import { readFile } from "node:fs/promises";
-import path from "node:path";
+import a2GrammarJson from "@/content/a2/grammar.json";
+import a2VocabularyJson from "@/content/a2/vocab.json";
 import {
   type GrammarSessionJsonV1,
   GrammarJsonV1Schema,
@@ -26,24 +26,6 @@ export type VocabularySession = {
 };
 
 export type GrammarSession = GrammarSessionJsonV1;
-
-async function readLocalJson(relativePathFromRoot: string): Promise<{
-  json: unknown | null;
-  warnings: LoaderWarning[];
-}> {
-  const fullPath = path.join(process.cwd(), relativePathFromRoot);
-
-  try {
-    const raw = await readFile(fullPath, "utf8");
-    return { json: JSON.parse(raw), warnings: [] };
-  } catch (error) {
-    const message = error instanceof Error ? error.message : "Unknown file read error";
-    return {
-      json: null,
-      warnings: [`Failed to load ${relativePathFromRoot}: ${message}`],
-    };
-  }
-}
 
 function groupBySessionNumber<T extends { sessionNumber: number; level: string }>(
   items: T[],
@@ -80,21 +62,13 @@ function normalizeVocabularyItem(item: VocabularyJsonV1Item): VocabularyItem {
   };
 }
 
-export async function loadA2VocabularySessions(): Promise<SafeLoadResult<VocabularySession>> {
-  const filePath = "src/content/a2/vocab.json";
-  const fileResult = await readLocalJson(filePath);
-
-  if (!fileResult.json) {
-    return { sessions: [], warnings: fileResult.warnings };
-  }
-
-  const parsed = VocabularyJsonV1Schema.safeParse(fileResult.json);
+function parseVocabularyJson(json: unknown): SafeLoadResult<VocabularySession> {
+  const parsed = VocabularyJsonV1Schema.safeParse(json);
   if (!parsed.success) {
     return {
       sessions: [],
       warnings: [
-        ...fileResult.warnings,
-        `Invalid vocabulary JSON (${filePath}): ${parsed.error.issues
+        `Invalid vocabulary JSON (src/content/a2/vocab.json): ${parsed.error.issues
           .slice(0, 3)
           .map((issue) => issue.path.join(".") || "root")
           .join(", ")}`,
@@ -110,25 +84,17 @@ export async function loadA2VocabularySessions(): Promise<SafeLoadResult<Vocabul
 
   return {
     sessions: grouped,
-    warnings: fileResult.warnings,
+    warnings: [],
   };
 }
 
-export async function loadA2GrammarSessions(): Promise<SafeLoadResult<GrammarSession>> {
-  const filePath = "src/content/a2/grammar.json";
-  const fileResult = await readLocalJson(filePath);
-
-  if (!fileResult.json) {
-    return { sessions: [], warnings: fileResult.warnings };
-  }
-
-  const parsed = GrammarJsonV1Schema.safeParse(fileResult.json);
+function parseGrammarJson(json: unknown): SafeLoadResult<GrammarSession> {
+  const parsed = GrammarJsonV1Schema.safeParse(json);
   if (!parsed.success) {
     return {
       sessions: [],
       warnings: [
-        ...fileResult.warnings,
-        `Invalid grammar JSON (${filePath}): ${parsed.error.issues
+        `Invalid grammar JSON (src/content/a2/grammar.json): ${parsed.error.issues
           .slice(0, 3)
           .map((issue) => issue.path.join(".") || "root")
           .join(", ")}`,
@@ -146,6 +112,14 @@ export async function loadA2GrammarSessions(): Promise<SafeLoadResult<GrammarSes
 
   return {
     sessions,
-    warnings: fileResult.warnings,
+    warnings: [],
   };
+}
+
+export async function loadA2VocabularySessions(): Promise<SafeLoadResult<VocabularySession>> {
+  return parseVocabularyJson(a2VocabularyJson);
+}
+
+export async function loadA2GrammarSessions(): Promise<SafeLoadResult<GrammarSession>> {
+  return parseGrammarJson(a2GrammarJson);
 }
