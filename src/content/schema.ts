@@ -9,6 +9,18 @@ export const LocalizedExampleSchema = z.object({
   en: z.string().min(1),
 });
 
+export const VocabularyQuizJsonV1Schema = z.object({
+  clozeJP: z.string().min(1),
+  choicesJP: z.tuple([
+    z.string().min(1),
+    z.string().min(1),
+    z.string().min(1),
+    z.string().min(1),
+  ]),
+  answerJP: z.string().min(1),
+  correctOptionIndex: z.number().int().min(0).max(3),
+});
+
 export const VocabularyJsonV1ItemSchema = z.object({
   id: z.string().min(1),
   level: ContentLevelSchema,
@@ -21,6 +33,7 @@ export const VocabularyJsonV1ItemSchema = z.object({
   exampleEN: z.string().min(1),
   // Optional future extension for multiple examples while keeping v1 minimum fields.
   examples: z.array(LocalizedExampleSchema).min(1).optional(),
+  quiz: VocabularyQuizJsonV1Schema.optional(),
 });
 
 export const VocabularyJsonV1Schema = z.array(VocabularyJsonV1ItemSchema);
@@ -54,6 +67,7 @@ export const GrammarJsonV1Schema = z.array(GrammarJsonV1ItemSchema);
 
 export type LocalizedExample = z.infer<typeof LocalizedExampleSchema>;
 export type VocabularyPartOfSpeech = z.infer<typeof VocabularyPartOfSpeechSchema>;
+export type VocabularyQuizJsonV1 = z.infer<typeof VocabularyQuizJsonV1Schema>;
 export type VocabularyJsonV1Item = z.infer<typeof VocabularyJsonV1ItemSchema>;
 export type GrammarQuestionJsonV1 = z.infer<typeof GrammarQuestionJsonV1Schema>;
 export type GrammarJsonV1Item = z.infer<typeof GrammarJsonV1ItemSchema>;
