@@ -50,7 +50,7 @@ export default async function VocabularyQuizPage({
     <PageScaffold
       className="page-main"
       title={`Vocabulary • ${routeData.level} • ${label} • Session ${sessionNumber} • Quiz`}
-      description="Multiple-choice quiz using example sentences with the target word hidden."
+      description="Multiple-choice quiz using curated prompts when available, with hidden target words."
     >
       <StudyTimerMount />
       <StudySettingsPanel />

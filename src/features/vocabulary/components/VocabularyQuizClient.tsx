@@ -19,6 +19,7 @@ type VocabularyQuizClientProps = {
 
 type QuizQuestion = {
   item: VocabularyItem;
+  promptJP: string;
   choices: string[];
   correctIndex: number;
 };
@@ -42,6 +43,20 @@ function buildBlankedExample(exampleJP: string, wordJP: string): string {
   }
 
   return `${exampleJP} (Target: ____ )`;
+}
+
+function buildPromptJP(item: VocabularyItem): string {
+  const sourcePrompt = item.quiz?.clozeJP;
+
+  if (sourcePrompt && sourcePrompt.includes("___")) {
+    return sourcePrompt;
+  }
+
+  if (sourcePrompt) {
+    return buildBlankedExample(sourcePrompt, item.quiz?.answerJP ?? item.wordJP);
+  }
+
+  return buildBlankedExample(item.exampleJP, item.wordJP);
 }
 
 function escapeRegExp(value: string): string {
@@ -85,6 +100,15 @@ function buildQuestions(sessionItems: VocabularyItem[], levelItems: VocabularyIt
   const uniqueLevelItems = Array.from(new Map(levelItems.map((item) => [item.id, item])).values());
 
   return sessionItems.map((item) => {
+    if (item.quiz) {
+      return {
+        item,
+        promptJP: buildPromptJP(item),
+        choices: [...item.quiz.choicesJP],
+        correctIndex: item.quiz.correctOptionIndex,
+      };
+    }
+
     const distractorPool = uniqueLevelItems
       .filter((candidate) => candidate.id !== item.id && candidate.wordJP !== item.wordJP)
       .map((candidate) => candidate.wordJP);
@@ -112,6 +136,7 @@ function buildQuestions(sessionItems: VocabularyItem[], levelItems: VocabularyIt
 
     return {
       item,
+      promptJP: buildPromptJP(item),
       choices,
       correctIndex,
     };
@@ -257,9 +282,7 @@ export function VocabularyQuizClient({
 
           <div className="flashcard-face">
             <p className="flashcard-label">Prompt (JP)</p>
-            <p className="flashcard-example">
-              {buildBlankedExample(currentQuestion.item.exampleJP, currentQuestion.item.wordJP)}
-            </p>
+            <p className="flashcard-example">{currentQuestion.promptJP}</p>
           </div>
 
           <div className="quiz-choices">
