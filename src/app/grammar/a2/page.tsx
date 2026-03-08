@@ -7,20 +7,29 @@ export default async function GrammarA2SessionsPage() {
   const { sessions, warnings } = await loadA2GrammarSessions();
 
   return (
-    <PageScaffold
-      title="Grammar • A2"
-      description="Session list placeholder for A2 grammar. Real explanations and practice items will be loaded from JSON."
-    >
+    <PageScaffold className="page-main">
+      <section className="page-card">
+        <p className="flashcard-label">Grammar Level</p>
+        <h1 className="page-title">Grammar • A2</h1>
+        <p className="page-subtitle">
+          Start with the explanation page for each session, then move to 4-choice practice.
+        </p>
+      </section>
       <GrammarSessionList
         sessions={sessions.map((session) => ({
           sessionNumber: session.sessionNumber,
+          sessionTitleEN: session.sessionTitleEN,
           topicCount: session.items.length,
           questionCount: session.items.reduce((count, item) => count + item.questions.length, 0),
         }))}
         warning={warnings[0]}
       />
       <section className="page-card">
-        <h2 className="page-title">Rule</h2>
+        <h2 className="page-title">Study flow</h2>
+        <p className="muted-note">
+          Open a session, read the explanation, then use practice to answer one question at a time
+          with immediate feedback.
+        </p>
         <p className="muted-note">Completion requires 80%+ (Best score) on Practice.</p>
         <div className="button-row">
           <Link className="button-link" href="/grammar">

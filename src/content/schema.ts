@@ -40,6 +40,7 @@ export const GrammarJsonV1ItemSchema = z.object({
   id: z.string().min(1),
   level: ContentLevelSchema,
   sessionNumber: z.number().int().positive(),
+  sessionTitleEN: z.string().min(1),
   titleEN: z.string().min(1),
   explanationMarkdownEN: z.string().min(1),
   // Array supports multiple examples now/future; minimum one example in MVP content.

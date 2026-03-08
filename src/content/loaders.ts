@@ -28,6 +28,7 @@ export type VocabularySession = {
 export type GrammarSession = {
   level: string;
   sessionNumber: number;
+  sessionTitleEN: string;
   items: GrammarJsonV1Item[];
 };
 
@@ -83,6 +84,47 @@ function normalizeVocabularyItem(item: VocabularyJsonV1Item): VocabularyItem {
     ...item,
     examples: item.examples && item.examples.length > 0 ? item.examples : [fallbackExample],
   };
+}
+
+function groupGrammarItemsBySession(items: GrammarJsonV1Item[]): SafeLoadResult<GrammarSession> {
+  const groups = new Map<number, GrammarSession>();
+  const warnings: LoaderWarning[] = [];
+  const warnedSessionNumbers = new Set<number>();
+
+  for (const item of items) {
+    const existing = groups.get(item.sessionNumber);
+
+    if (!existing) {
+      groups.set(item.sessionNumber, {
+        level: item.level,
+        sessionNumber: item.sessionNumber,
+        sessionTitleEN: item.sessionTitleEN,
+        items: [item],
+      });
+      continue;
+    }
+
+    if (
+      existing.sessionTitleEN !== item.sessionTitleEN &&
+      !warnedSessionNumbers.has(item.sessionNumber)
+    ) {
+      warnings.push(
+        `Grammar session ${item.sessionNumber} has inconsistent sessionTitleEN values. Using "${existing.sessionTitleEN}".`,
+      );
+      warnedSessionNumbers.add(item.sessionNumber);
+    }
+
+    existing.items.push(item);
+  }
+
+  const sessions = [...groups.values()]
+    .sort((a, b) => a.sessionNumber - b.sessionNumber)
+    .map((session) => ({
+      ...session,
+      items: session.items.sort((a, b) => a.id.localeCompare(b.id)),
+    }));
+
+  return { sessions, warnings };
 }
 
 export async function loadA2VocabularySessions(): Promise<
@@ -143,13 +185,10 @@ export async function loadA2GrammarSessions(): Promise<SafeLoadResult<GrammarSes
     };
   }
 
-  const grouped = groupBySessionNumber(parsed.data).map((session) => ({
-    ...session,
-    items: session.items.sort((a, b) => a.id.localeCompare(b.id)),
-  }));
+  const grouped = groupGrammarItemsBySession(parsed.data);
 
   return {
-    sessions: grouped,
-    warnings: fileResult.warnings,
+    sessions: grouped.sessions,
+    warnings: [...fileResult.warnings, ...grouped.warnings],
   };
 }
