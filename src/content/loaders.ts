@@ -1,3 +1,4 @@
+import { cache } from "react";
 import a2GrammarJson from "@/content/a2/grammar.json";
 import a2VocabularyJson from "@/content/a2/vocab.json";
 import {
@@ -182,15 +183,15 @@ function parseGrammarJson(json: unknown): SafeLoadResult<GrammarSession> {
   };
 }
 
-export async function loadA2VocabularySessions(): Promise<SafeLoadResult<VocabularySession>> {
-  return parseVocabularyJson(a2VocabularyJson);
-}
+export const loadA2VocabularySessions = cache(
+  async (): Promise<SafeLoadResult<VocabularySession>> => parseVocabularyJson(a2VocabularyJson),
+);
 
-export async function loadA2VocabularyLevelGroup(): Promise<{
+export const loadA2VocabularyLevelGroup = cache(async (): Promise<{
   level: VocabularyLevelGroup | null;
   sessions: VocabularySession[];
   warnings: LoaderWarning[];
-}> {
+}> => {
   const result = await loadA2VocabularySessions();
 
   return {
@@ -199,10 +200,10 @@ export async function loadA2VocabularyLevelGroup(): Promise<{
     sessions: result.sessions,
     warnings: result.warnings,
   };
-}
+});
 
-export async function loadA2GrammarSessions(): Promise<SafeLoadResult<GrammarSession>> {
-  return parseGrammarJson(a2GrammarJson);
-}
+export const loadA2GrammarSessions = cache(
+  async (): Promise<SafeLoadResult<GrammarSession>> => parseGrammarJson(a2GrammarJson),
+);
 
 

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { getVocabularyLevelStaticParams } from "@/content/staticParams";
 import {
   VOCABULARY_PARTS_OF_SPEECH,
   getVocabularyPartOfSpeechHref,
@@ -13,6 +14,10 @@ type VocabularyPartOfSpeechPageProps = {
     level: string;
   }>;
 };
+
+export function generateStaticParams() {
+  return getVocabularyLevelStaticParams();
+}
 
 export default async function VocabularyLevelPage({
   params,

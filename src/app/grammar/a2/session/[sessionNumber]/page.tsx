@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { getGrammarSessionStaticParams } from "@/content/staticParams";
 import { loadA2GrammarSessions } from "@/content/loaders";
 import { GrammarMarkdown } from "@/features/grammar/components/GrammarMarkdown";
 import { StudyTimerMount } from "@/shared/components/StudyTimerMount";
@@ -9,6 +10,10 @@ type GrammarSessionPageProps = {
     sessionNumber: string;
   }>;
 };
+
+export async function generateStaticParams() {
+  return getGrammarSessionStaticParams();
+}
 
 export default async function GrammarSessionPage({ params }: GrammarSessionPageProps) {
   const { sessionNumber } = await params;

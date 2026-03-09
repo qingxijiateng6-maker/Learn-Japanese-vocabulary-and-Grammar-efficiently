@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { getVocabularySessionStaticParams } from "@/content/staticParams";
 import {
   getVocabularyFlashcardsHref,
   getVocabularyPartOfSpeechHref,
@@ -20,6 +21,10 @@ type VocabularySessionModePageProps = {
     sessionNumber: string;
   }>;
 };
+
+export async function generateStaticParams() {
+  return getVocabularySessionStaticParams();
+}
 
 export default async function VocabularySessionModePage({
   params,

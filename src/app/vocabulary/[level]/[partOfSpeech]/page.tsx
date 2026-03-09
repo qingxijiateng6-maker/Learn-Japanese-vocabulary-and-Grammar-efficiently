@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { getVocabularyPartOfSpeechStaticParams } from "@/content/staticParams";
 import {
   getVocabularyPartOfSpeechLabel,
   normalizeVocabularyPartOfSpeechParam,
@@ -14,6 +15,10 @@ type VocabularySessionsPageProps = {
     partOfSpeech: string;
   }>;
 };
+
+export async function generateStaticParams() {
+  return getVocabularyPartOfSpeechStaticParams();
+}
 
 export default async function VocabularySessionsPage({
   params,

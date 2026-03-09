@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { getGrammarSessionStaticParams } from "@/content/staticParams";
 import { loadA2GrammarSessions } from "@/content/loaders";
 import { GrammarPracticeClient } from "@/features/grammar/components/GrammarPracticeClient";
 import { StudyTimerMount } from "@/shared/components/StudyTimerMount";
@@ -9,6 +10,10 @@ type GrammarPracticePageProps = {
     sessionNumber: string;
   }>;
 };
+
+export async function generateStaticParams() {
+  return getGrammarSessionStaticParams();
+}
 
 export default async function GrammarPracticePage({ params }: GrammarPracticePageProps) {
   const { sessionNumber } = await params;
