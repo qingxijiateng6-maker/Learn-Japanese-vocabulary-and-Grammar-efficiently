@@ -19,6 +19,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <body>
         <AppProviders>
           <div className="app-shell">
+            <div className="app-shell__glow" aria-hidden="true" />
             <SiteHeader />
             {children}
           </div>

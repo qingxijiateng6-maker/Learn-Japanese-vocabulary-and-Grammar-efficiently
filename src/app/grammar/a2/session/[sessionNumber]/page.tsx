@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { loadA2GrammarSessions } from "@/content/loaders";
 import { GrammarMarkdown } from "@/features/grammar/components/GrammarMarkdown";
-import { StudySettingsPanel } from "@/shared/components/StudySettingsPanel";
 import { StudyTimerMount } from "@/shared/components/StudyTimerMount";
 import { PageScaffold } from "@/shared/components/PageScaffold";
 
@@ -37,7 +36,6 @@ export default async function GrammarSessionPage({ params }: GrammarSessionPageP
           <span>{questionCount} practice question{questionCount === 1 ? "" : "s"}</span>
         </div>
       </section>
-      <StudySettingsPanel />
       <section className="page-card">
         <div className="stack-row">
           <h2 className="page-title">Explanation</h2>

@@ -10,7 +10,6 @@ import {
   findVocabularySession,
   loadVocabularyRouteData,
 } from "@/features/vocabulary/vocabularyRouteData";
-import { StudySettingsPanel } from "@/shared/components/StudySettingsPanel";
 import { StudyTimerMount } from "@/shared/components/StudyTimerMount";
 import { PageScaffold } from "@/shared/components/PageScaffold";
 
@@ -53,7 +52,6 @@ export default async function VocabularyQuizPage({
       description="Multiple-choice quiz using curated prompts when available, with hidden target words."
     >
       <StudyTimerMount />
-      <StudySettingsPanel />
       <section className="page-card">
         <p className="muted-note">
           {session

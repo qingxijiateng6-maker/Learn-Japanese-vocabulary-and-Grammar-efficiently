@@ -15,11 +15,17 @@ export function PageScaffold({
   children,
   className,
 }: PageScaffoldProps) {
+  const hasHero = Boolean(title || subtitle || description);
+
   return (
     <main className={className}>
-      {title ? <h1>{title}</h1> : null}
-      {subtitle ? <p>{subtitle}</p> : null}
-      {description ? <p>{description}</p> : null}
+      {hasHero ? (
+        <section className="page-hero">
+          {subtitle ? <p className="page-hero__subtitle">{subtitle}</p> : null}
+          {title ? <h1 className="page-hero__title">{title}</h1> : null}
+          {description ? <p className="page-hero__description">{description}</p> : null}
+        </section>
+      ) : null}
       {children}
     </main>
   );

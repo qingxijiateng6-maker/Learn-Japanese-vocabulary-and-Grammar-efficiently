@@ -5,6 +5,7 @@ import { updateGrammarBestAndCompletion } from "@/domain/progress/calc";
 import type { GrammarQuestionJsonV1 } from "@/content/schema";
 import { getLocalDateISO } from "@/repo/progressRepo";
 import { useProgressRepo } from "@/repo/progressRepoContext";
+import { playStudyFeedbackAudio } from "@/shared/lib/studyFeedbackAudio";
 
 type GrammarPracticeClientProps = {
   level: string;
@@ -115,6 +116,8 @@ export function GrammarPracticeClient({
     if (revealed) {
       return;
     }
+
+    void playStudyFeedbackAudio(index === current?.correctIndex ? "correct" : "wrong");
     setSelectedIndexByQuestion((previous) => ({ ...previous, [questionIndex]: index }));
     setRevealedByQuestion((previous) => ({ ...previous, [questionIndex]: true }));
   };

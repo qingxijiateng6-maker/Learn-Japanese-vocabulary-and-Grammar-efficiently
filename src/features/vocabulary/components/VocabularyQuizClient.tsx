@@ -8,6 +8,7 @@ import {
 } from "@/domain/vocabulary/meta";
 import { getLocalDateISO } from "@/repo/progressRepo";
 import { useProgressRepo } from "@/repo/progressRepoContext";
+import { playStudyFeedbackAudio } from "@/shared/lib/studyFeedbackAudio";
 
 type VocabularyQuizClientProps = {
   level: string;
@@ -214,6 +215,10 @@ export function VocabularyQuizClient({
     if (selectedIndex === undefined) {
       return;
     }
+
+    void playStudyFeedbackAudio(
+      selectedIndex === currentQuestion?.correctIndex ? "correct" : "wrong",
+    );
     setRevealedByQuestion((previous) => ({ ...previous, [questionIndex]: true }));
   };
 
@@ -277,7 +282,6 @@ export function VocabularyQuizClient({
             <strong>
               Question {questionIndex + 1} / {totalCount}
             </strong>
-            <span className="muted-note">{currentQuestion.item.readingKana}</span>
           </div>
 
           <div className="flashcard-face">
@@ -343,7 +347,11 @@ export function VocabularyQuizClient({
               <p className="flashcard-label">Explanation</p>
               <p className="flashcard-example">
                 {selectedIndex === currentQuestion.correctIndex ? "Correct. " : "Incorrect. "}
-                The correct answer is <strong>{currentQuestion.item.wordJP}</strong>.
+                The correct answer is <strong>{currentQuestion.item.wordJP}</strong>
+                {currentQuestion.item.readingKana
+                  ? ` (${currentQuestion.item.readingKana})`
+                  : ""}
+                .
               </p>
               <p className="flashcard-example">
                 <strong>Sentence meaning:</strong>{" "}

@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { loadA2GrammarSessions } from "@/content/loaders";
 import { GrammarPracticeClient } from "@/features/grammar/components/GrammarPracticeClient";
-import { StudySettingsPanel } from "@/shared/components/StudySettingsPanel";
 import { StudyTimerMount } from "@/shared/components/StudyTimerMount";
 import { PageScaffold } from "@/shared/components/PageScaffold";
 
@@ -35,7 +34,6 @@ export default async function GrammarPracticePage({ params }: GrammarPracticePag
           <span>Best score decides completion</span>
         </div>
       </section>
-      <StudySettingsPanel />
       <section className="page-card">
         <p className="muted-note">
           {session

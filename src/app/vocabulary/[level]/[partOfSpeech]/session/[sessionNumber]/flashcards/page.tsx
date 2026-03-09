@@ -10,7 +10,6 @@ import {
   findVocabularySession,
   loadVocabularyRouteData,
 } from "@/features/vocabulary/vocabularyRouteData";
-import { StudySettingsPanel } from "@/shared/components/StudySettingsPanel";
 import { StudyTimerMount } from "@/shared/components/StudyTimerMount";
 import { PageScaffold } from "@/shared/components/PageScaffold";
 
@@ -52,7 +51,6 @@ export default async function VocabularyFlashcardsPage({
       description="Study flashcards with grading, review filters, and automatic completion tracking."
     >
       <StudyTimerMount />
-      <StudySettingsPanel />
       <section className="page-card">
         <p className="muted-note">
           {session

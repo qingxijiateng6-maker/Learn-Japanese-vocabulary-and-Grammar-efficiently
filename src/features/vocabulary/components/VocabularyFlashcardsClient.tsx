@@ -27,6 +27,20 @@ const gradeOrder: Array<{ value: VocabGrade; label: string }> = [
   { value: "didnt_remember", label: "Didn't remember" },
 ];
 
+function FlipCardIcon() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      className="flashcard-flip-button__icon"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <path d="M4 11a8 8 0 1 0 2.34-5.66" />
+      <path d="M4 4v5h5" />
+    </svg>
+  );
+}
+
 export function VocabularyFlashcardsClient({
   level,
   partOfSpeech,
@@ -230,45 +244,52 @@ export function VocabularyFlashcardsClient({
             </button>
           </div>
 
-          <div className="flashcard-face">
-            {!showBack ? (
-              <>
-                <p className="flashcard-label">Front</p>
-                <p className="flashcard-word">{currentCard.wordJP}</p>
-                <p className="muted-note">{currentCard.readingKana}</p>
-              </>
-            ) : (
-              <>
-                <p className="flashcard-label">Back</p>
-                {settings.showEnglishMeaning ? (
-                  <p className="flashcard-meaning">{currentCard.meaningEN}</p>
-                ) : (
-                  <p className="muted-note">
-                    English meaning is hidden by your display setting.
+          <div className={`flashcard-face${showBack ? " flashcard-face--back" : ""}`}>
+            <button
+              type="button"
+              className="flashcard-flip-button"
+              onClick={() => setShowBack((previous) => !previous)}
+              aria-label={showBack ? "Flip card to front side" : "Flip card to back side"}
+              aria-pressed={showBack}
+              title={showBack ? "Flip to front" : "Flip to back"}
+            >
+              <FlipCardIcon />
+              <span className="sr-only">{showBack ? "Flip to front" : "Flip to back"}</span>
+            </button>
+
+            <div className="flashcard-flip-scene" aria-live="polite">
+              <div className={`flashcard-flip-inner${showBack ? " flashcard-flip-inner--flipped" : ""}`}>
+                <div className="flashcard-side flashcard-side--front" aria-hidden={showBack}>
+                  <p className="flashcard-label">Front</p>
+                  <p className="flashcard-word">{currentCard.wordJP}</p>
+                  <p className="muted-note">{currentCard.readingKana}</p>
+                </div>
+
+                <div className="flashcard-side flashcard-side--back" aria-hidden={!showBack}>
+                  <p className="flashcard-label">Back</p>
+                  {settings.showEnglishMeaning ? (
+                    <p className="flashcard-meaning">{currentCard.meaningEN}</p>
+                  ) : (
+                    <p className="muted-note">
+                      English meaning is hidden by your display setting.
+                    </p>
+                  )}
+                  <p className="flashcard-example">
+                    <strong>Example (JP):</strong>{" "}
+                    <JapaneseExampleText
+                      text={currentCard.exampleJP}
+                      furiganaEnabled={settings.furiganaEnabled}
+                    />
                   </p>
-                )}
-                <p className="flashcard-example">
-                  <strong>Example (JP):</strong>{" "}
-                  <JapaneseExampleText
-                    text={currentCard.exampleJP}
-                    furiganaEnabled={settings.furiganaEnabled}
-                  />
-                </p>
-                <p className="flashcard-example">
-                  <strong>Example (EN):</strong> {currentCard.exampleEN}
-                </p>
-              </>
-            )}
+                  <p className="flashcard-example">
+                    <strong>Example (EN):</strong> {currentCard.exampleEN}
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div className="button-row">
-            <button
-              type="button"
-              className="button-link"
-              onClick={() => setShowBack((previous) => !previous)}
-            >
-              {showBack ? "Show front" : "Show back"}
-            </button>
             <button type="button" className="button-link" onClick={() => moveCard(-1)}>
               Previous
             </button>
