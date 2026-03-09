@@ -25,6 +25,22 @@ type PersistedProgressEnvelope = {
 
 const DEFAULT_STORAGE_KEY = "japanese-learning-app.progress.v1";
 
+class MemoryStorage implements StorageLike {
+  private readonly map = new Map<string, string>();
+
+  getItem(key: string): string | null {
+    return this.map.get(key) ?? null;
+  }
+
+  setItem(key: string, value: string): void {
+    this.map.set(key, value);
+  }
+
+  removeItem(key: string): void {
+    this.map.delete(key);
+  }
+}
+
 function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === "object" && value !== null;
 }
@@ -204,7 +220,7 @@ export class LocalProgressRepo implements ProgressRepo {
   private readonly now: () => Date;
 
   constructor(options: LocalProgressRepoOptions = {}) {
-    this.storage = options.storage ?? getBrowserStorage();
+    this.storage = options.storage === undefined ? getBrowserStorage() : options.storage;
     this.storageKey = options.storageKey ?? DEFAULT_STORAGE_KEY;
     this.now = options.now ?? (() => new Date());
   }
@@ -422,6 +438,10 @@ export function createLocalProgressRepo(
   options: LocalProgressRepoOptions = {},
 ): ProgressRepo {
   return new LocalProgressRepo(options);
+}
+
+export function createMemoryStorage(): StorageLike {
+  return new MemoryStorage();
 }
 
 export type { LocalProgressRepoOptions, StorageLike };

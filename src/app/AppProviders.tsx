@@ -1,12 +1,14 @@
 "use client";
 
 import type { PropsWithChildren } from "react";
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import { GoogleAuthProvider, useGoogleAuth } from "@/auth/googleAuth";
+import { createMemoryStorage } from "@/repo/progressRepo.local";
 import { ProgressRepoProvider } from "@/repo/progressRepoContext";
 import { StudySettingsProvider } from "@/shared/settings/studySettings";
 
 const GUEST_PROGRESS_STORAGE_KEY = "japanese-learning-app.progress.v1.guest";
+const guestProgressStorage = createMemoryStorage();
 
 function sanitizeUserIdForStorage(userId: string): string {
   return userId.replace(/[^a-zA-Z0-9_-]/g, "_");
@@ -14,10 +16,35 @@ function sanitizeUserIdForStorage(userId: string): string {
 
 function AuthScopedProgressRepoProvider({ children }: PropsWithChildren) {
   const { user } = useGoogleAuth();
-  const storageKey = user
+  const userStorageKey = user
     ? `japanese-learning-app.progress.v1.google.${sanitizeUserIdForStorage(user.id)}`
+    : null;
+  const storageKey = user
+    ? userStorageKey
     : GUEST_PROGRESS_STORAGE_KEY;
-  const localOptions = useMemo(() => ({ storageKey }), [storageKey]);
+  const localOptions = useMemo(
+    () =>
+      userStorageKey
+        ? { storageKey: userStorageKey }
+        : { storage: guestProgressStorage, storageKey: GUEST_PROGRESS_STORAGE_KEY },
+    [userStorageKey],
+  );
+
+  useEffect(() => {
+    try {
+      window.localStorage.removeItem(GUEST_PROGRESS_STORAGE_KEY);
+    } catch {
+      // Ignore browsers that block localStorage access.
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!userStorageKey) {
+      return;
+    }
+
+    guestProgressStorage.removeItem(GUEST_PROGRESS_STORAGE_KEY);
+  }, [userStorageKey]);
 
   return (
     <ProgressRepoProvider key={storageKey} localOptions={localOptions}>

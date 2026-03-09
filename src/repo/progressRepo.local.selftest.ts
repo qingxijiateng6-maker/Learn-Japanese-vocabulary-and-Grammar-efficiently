@@ -1,21 +1,5 @@
-import { createLocalProgressRepo, type StorageLike } from "@/repo/progressRepo.local";
+import { createLocalProgressRepo, createMemoryStorage } from "@/repo/progressRepo.local";
 import { getLocalDateISO } from "@/repo/progressRepo";
-
-class MemoryStorage implements StorageLike {
-  private readonly map = new Map<string, string>();
-
-  getItem(key: string): string | null {
-    return this.map.get(key) ?? null;
-  }
-
-  setItem(key: string, value: string): void {
-    this.map.set(key, value);
-  }
-
-  removeItem(key: string): void {
-    this.map.delete(key);
-  }
-}
 
 function assert(condition: unknown, message: string): void {
   if (!condition) {
@@ -24,7 +8,7 @@ function assert(condition: unknown, message: string): void {
 }
 
 export async function runProgressRepoSelfTests(): Promise<void> {
-  const storage = new MemoryStorage();
+  const storage = createMemoryStorage();
   const fixedNow = new Date("2026-02-25T10:30:00");
   const repo = createLocalProgressRepo({
     storage,
@@ -96,5 +80,45 @@ export async function runProgressRepoSelfTests(): Promise<void> {
   assert(
     afterCompletion.grammarSessionCompletion["A2:GRAMMAR:1"]?.completed === true,
     "grammar session completion should persist",
+  );
+
+  const guestStorage = createMemoryStorage();
+  const guestRepoA = createLocalProgressRepo({
+    storage: guestStorage,
+    storageKey: "test.progress.guest.v1",
+    now: () => fixedNow,
+  });
+  const guestRepoB = createLocalProgressRepo({
+    storage: guestStorage,
+    storageKey: "test.progress.guest.v1",
+    now: () => fixedNow,
+  });
+
+  await guestRepoA.addWeeklyTimeLog(45, fixedNow);
+  await guestRepoA.setVocabGrade("guest-a2-s1-001", "not_sure");
+  const guestSharedProgress = await guestRepoB.getProgress();
+  assert(
+    guestSharedProgress.weeklyTimeLog[0]?.seconds === 45,
+    "shared memory storage should preserve guest time log for the active tab",
+  );
+  assert(
+    guestSharedProgress.vocabGrades["guest-a2-s1-001"] === "not_sure",
+    "shared memory storage should preserve guest progress for the active tab",
+  );
+
+  const newGuestStorage = createMemoryStorage();
+  const freshGuestRepo = createLocalProgressRepo({
+    storage: newGuestStorage,
+    storageKey: "test.progress.guest.v1",
+    now: () => fixedNow,
+  });
+  const freshGuestProgress = await freshGuestRepo.getProgress();
+  assert(
+    freshGuestProgress.weeklyTimeLog.length === 0,
+    "new guest memory storage should not retain prior time log data",
+  );
+  assert(
+    Object.keys(freshGuestProgress.vocabGrades).length === 0,
+    "new guest memory storage should not retain prior vocab grade data",
   );
 }
