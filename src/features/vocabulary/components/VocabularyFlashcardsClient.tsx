@@ -1,9 +1,14 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useMemo, useState, useTransition } from "react";
-import { shouldMarkVocabCompleted } from "@/domain/progress/calc";
+import {
+  calcVocabFlashcardResultSummary,
+  shouldMarkVocabCompleted,
+} from "@/domain/progress/calc";
 import {
   buildVocabularySessionKey,
+  getVocabularyPartOfSpeechSlug,
   type VocabularyPartOfSpeech,
 } from "@/domain/vocabulary/meta";
 import { useProgressRepo } from "@/repo/progressRepoContext";
@@ -55,10 +60,13 @@ export function VocabularyFlashcardsClient({
   const [showBack, setShowBack] = useState(false);
   const [filter, setFilter] = useState<ReviewFilter>("all");
   const [gradesById, setGradesById] = useState<Record<string, VocabGrade>>({});
+  const [sessionGradesById, setSessionGradesById] = useState<Record<string, VocabGrade>>({});
   const [seenInAllFilter, setSeenInAllFilter] = useState<Set<string>>(new Set());
   const [sessionCompleted, setSessionCompleted] = useState(false);
+  const [showResults, setShowResults] = useState(false);
   const [speechMessage, setSpeechMessage] = useState<string | null>(null);
   const [isSavingGrade, startSavingGrade] = useTransition();
+  const sessionHref = `/vocabulary/${level.toLowerCase()}/${getVocabularyPartOfSpeechSlug(partOfSpeech)}/session/${sessionNumber}`;
 
   useEffect(() => {
     let active = true;
@@ -102,9 +110,18 @@ export function VocabularyFlashcardsClient({
   useEffect(() => {
     setCurrentIndex(0);
     setShowBack(false);
+    setShowResults(false);
   }, [filter]);
 
   const currentCard = filteredItems[currentIndex] ?? null;
+  const sessionResultSummary = useMemo(
+    () =>
+      calcVocabFlashcardResultSummary(
+        items.map((item) => item.id),
+        sessionGradesById,
+      ),
+    [items, sessionGradesById],
+  );
 
   useEffect(() => {
     if (filter !== "all") {
@@ -145,6 +162,7 @@ export function VocabularyFlashcardsClient({
 
     const vocabItemId = currentCard.id;
     setGradesById((previous) => ({ ...previous, [vocabItemId]: grade }));
+    setSessionGradesById((previous) => ({ ...previous, [vocabItemId]: grade }));
 
     startSavingGrade(() => {
       void progressRepo.setVocabGrade(vocabItemId, grade);
@@ -175,6 +193,15 @@ export function VocabularyFlashcardsClient({
     if (filteredItems.length <= 0) {
       return;
     }
+    if (
+      delta > 0 &&
+      filter === "all" &&
+      currentIndex >= filteredItems.length - 1
+    ) {
+      setShowResults(true);
+      setShowBack(false);
+      return;
+    }
     setCurrentIndex((previous) => {
       const nextIndex = previous + delta;
       if (nextIndex < 0) {
@@ -186,6 +213,15 @@ export function VocabularyFlashcardsClient({
       return nextIndex;
     });
     setShowBack(false);
+  };
+
+  const handleRetry = () => {
+    setFilter("all");
+    setCurrentIndex(0);
+    setShowBack(false);
+    setShowResults(false);
+    setSessionGradesById({});
+    setSpeechMessage(null);
   };
 
   const currentGrade = currentCard ? gradesById[currentCard.id] : undefined;
@@ -232,6 +268,60 @@ export function VocabularyFlashcardsClient({
           <p className="muted-note">
             No cards match this filter yet. Grade cards first or switch to All cards.
           </p>
+        </div>
+      ) : showResults ? (
+        <div className="flashcard-panel">
+          <div className="flashcard-face">
+            <p className="flashcard-label">Session results</p>
+            <p className="flashcard-meaning">You reached the end of All cards.</p>
+            <p className="muted-note">
+              Current run graded: {sessionResultSummary.gradedCount}/{sessionResultSummary.totalCount}
+            </p>
+          </div>
+
+          <div className="progress-grid">
+            {gradeOrder.map((option) => (
+              <div key={option.value} className="progress-block">
+                <div className="progress-block__header">
+                  <span>{option.label}</span>
+                  <strong>{sessionResultSummary.percents[option.value]}%</strong>
+                </div>
+                <div
+                  className="progress-bar"
+                  role="progressbar"
+                  aria-valuenow={sessionResultSummary.percents[option.value]}
+                  aria-valuemin={0}
+                  aria-valuemax={100}
+                  aria-label={`${option.label} ratio`}
+                >
+                  <div
+                    className="progress-bar__fill"
+                    style={{ width: `${sessionResultSummary.percents[option.value]}%` }}
+                  />
+                </div>
+                <p className="muted-note">
+                  {sessionResultSummary.counts[option.value]}/{sessionResultSummary.gradedCount} graded cards
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <p className="muted-note">
+            Not graded yet: {sessionResultSummary.ungradedCount} / {sessionResultSummary.totalCount}
+          </p>
+
+          <div className="button-row">
+            <button
+              type="button"
+              className="button-link button-link--primary"
+              onClick={handleRetry}
+            >
+              Try again
+            </button>
+            <Link className="button-link" href={sessionHref}>
+              Back to mode select
+            </Link>
+          </div>
         </div>
       ) : currentCard ? (
         <div className="flashcard-panel">

@@ -10,6 +10,21 @@ import type {
 } from "@/domain/progress/types";
 
 const GRAMMAR_COMPLETION_THRESHOLD_PERCENT = 80;
+const VOCAB_FLASHCARD_GRADES = [
+  "remembered",
+  "not_sure",
+  "didnt_remember",
+] as const;
+
+type VocabFlashcardGrade = (typeof VOCAB_FLASHCARD_GRADES)[number];
+
+type VocabFlashcardResultSummary = {
+  totalCount: number;
+  gradedCount: number;
+  ungradedCount: number;
+  counts: Record<VocabFlashcardGrade, number>;
+  percents: Record<VocabFlashcardGrade, number>;
+};
 
 function clampPercent(value: number): number {
   if (!Number.isFinite(value)) {
@@ -52,6 +67,14 @@ function toLocalDateISOFromTimestamp(timestampISO: string | undefined): string |
   }
 
   return localDateISO(parsed);
+}
+
+function createEmptyVocabFlashcardGradeMap(): Record<VocabFlashcardGrade, number> {
+  return {
+    remembered: 0,
+    not_sure: 0,
+    didnt_remember: 0,
+  };
 }
 
 export function getWeekRange(
@@ -118,6 +141,42 @@ export function shouldMarkVocabCompleted(seenCount: number, totalCards: number):
     return false;
   }
   return seenCount === totalCards;
+}
+
+export function calcVocabFlashcardResultSummary(
+  sessionItemIds: string[],
+  gradesById: Partial<Record<string, VocabFlashcardGrade>>,
+): VocabFlashcardResultSummary {
+  const counts = createEmptyVocabFlashcardGradeMap();
+
+  for (const itemId of sessionItemIds) {
+    const grade = gradesById[itemId];
+    if (!grade) {
+      continue;
+    }
+
+    counts[grade] += 1;
+  }
+
+  const totalCount = sessionItemIds.length;
+  const gradedCount = VOCAB_FLASHCARD_GRADES.reduce(
+    (sum, grade) => sum + counts[grade],
+    0,
+  );
+  const percents = createEmptyVocabFlashcardGradeMap();
+
+  for (const grade of VOCAB_FLASHCARD_GRADES) {
+    percents[grade] =
+      gradedCount > 0 ? clampPercent((counts[grade] / gradedCount) * 100) : 0;
+  }
+
+  return {
+    totalCount,
+    gradedCount,
+    ungradedCount: Math.max(0, totalCount - gradedCount),
+    counts,
+    percents,
+  };
 }
 
 export function updateGrammarBestAndCompletion(

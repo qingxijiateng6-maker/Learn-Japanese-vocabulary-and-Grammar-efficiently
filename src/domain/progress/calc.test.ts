@@ -1,4 +1,5 @@
 import {
+  calcVocabFlashcardResultSummary,
   calcTimeProgressPercent,
   calcWeeklyContentProgress,
   calcWeeklyTimeSeconds,
@@ -78,6 +79,44 @@ export function runProgressCalcTests(): void {
     !shouldMarkVocabCompleted(0, 0),
     "Empty sessions should not auto-complete",
   );
+
+  const mixedFlashcardSummary = calcVocabFlashcardResultSummary(
+    ["a", "b", "c", "d"],
+    {
+      a: "remembered",
+      b: "remembered",
+      c: "not_sure",
+      outside: "didnt_remember",
+    },
+  );
+  assertEqual(mixedFlashcardSummary.totalCount, 4, "Flashcard summary total count should match session size");
+  assertEqual(mixedFlashcardSummary.gradedCount, 3, "Flashcard summary should count only graded session cards");
+  assertEqual(mixedFlashcardSummary.ungradedCount, 1, "Flashcard summary should report ungraded cards");
+  assertEqual(mixedFlashcardSummary.counts.remembered, 2, "Remembered count should match graded cards");
+  assertEqual(mixedFlashcardSummary.counts.not_sure, 1, "Not sure count should match graded cards");
+  assertEqual(mixedFlashcardSummary.counts.didnt_remember, 0, "Didn't remember count should ignore cards outside the session");
+  assertEqual(mixedFlashcardSummary.percents.remembered, 67, "Remembered percent should be rounded from graded cards");
+  assertEqual(mixedFlashcardSummary.percents.not_sure, 33, "Not sure percent should be rounded from graded cards");
+  assertEqual(mixedFlashcardSummary.percents.didnt_remember, 0, "Didn't remember percent should be 0 when not graded in session");
+
+  const ungradedFlashcardSummary = calcVocabFlashcardResultSummary(["a", "b"], {});
+  assertEqual(ungradedFlashcardSummary.gradedCount, 0, "Ungraded sessions should report zero graded cards");
+  assertEqual(ungradedFlashcardSummary.ungradedCount, 2, "Ungraded sessions should report all cards as ungraded");
+  assertEqual(ungradedFlashcardSummary.percents.remembered, 0, "Ungraded sessions should show 0% remembered");
+  assertEqual(ungradedFlashcardSummary.percents.not_sure, 0, "Ungraded sessions should show 0% not sure");
+  assertEqual(ungradedFlashcardSummary.percents.didnt_remember, 0, "Ungraded sessions should show 0% didn't remember");
+
+  const scopedFlashcardSummary = calcVocabFlashcardResultSummary(
+    ["in-session"],
+    {
+      "in-session": "didnt_remember",
+      "out-of-session": "remembered",
+    },
+  );
+  assertEqual(scopedFlashcardSummary.gradedCount, 1, "Only in-session cards should contribute to graded count");
+  assertEqual(scopedFlashcardSummary.counts.remembered, 0, "Out-of-session remembered grades should be ignored");
+  assertEqual(scopedFlashcardSummary.counts.didnt_remember, 1, "In-session grades should still be counted");
+  assertEqual(scopedFlashcardSummary.ungradedCount, 0, "Fully graded in-session sets should have no ungraded cards");
 
   const firstGrammarUpdate = updateGrammarBestAndCompletion(
     {},
