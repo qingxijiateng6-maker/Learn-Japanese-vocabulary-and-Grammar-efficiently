@@ -59,7 +59,7 @@ export default async function VocabularySessionModePage({
         <h2 className="page-title">Mode Select</h2>
         <p className="page-subtitle">
           {session
-            ? `This session has ${session.items.length} vocabulary cards. Flashcards support grading and completion tracking.`
+            ? `This session has ${session.items.length} vocabulary cards. Flashcards support grading and completion tracking, and Quiz uses four English choices for each Japanese word.`
             : "Content preparing. This session is not available yet."}
         </p>
         <div className="button-row">

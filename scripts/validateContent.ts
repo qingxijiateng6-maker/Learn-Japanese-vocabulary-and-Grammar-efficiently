@@ -1,4 +1,6 @@
-import { loadA2GrammarSessions, loadA2VocabularySessions } from "../src/content/loaders";
+import a2GrammarJson from "../src/content/a2/grammar.json";
+import a2VocabularyJson from "../src/content/a2/vocab.json";
+import { parseGrammarJson, parseVocabularyJson } from "../src/content/loaders";
 
 type Mode = "validate" | "stats";
 
@@ -9,10 +11,8 @@ function getModeFromArgs(argv: string[]): Mode {
 async function main() {
   const mode = getModeFromArgs(process.argv.slice(2));
 
-  const [vocabResult, grammarResult] = await Promise.all([
-    loadA2VocabularySessions(),
-    loadA2GrammarSessions(),
-  ]);
+  const vocabResult = parseVocabularyJson(a2VocabularyJson);
+  const grammarResult = parseGrammarJson(a2GrammarJson);
 
   const vocabItemCount = vocabResult.sessions.reduce(
     (count, session) => count + session.items.length,
