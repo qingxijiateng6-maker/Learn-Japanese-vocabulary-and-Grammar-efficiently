@@ -54,13 +54,13 @@ export default async function VocabularyQuizPage({
     <PageScaffold
       className="page-main"
       title={`Vocabulary • ${routeData.level} • ${label} • Session ${sessionNumber} • Quiz`}
-      description="Multiple-choice quiz using curated prompts when available, with hidden target words."
+      description="Multiple-choice quiz that shows a Japanese word and asks for the correct English meaning."
     >
       <StudyTimerMount />
       <section className="page-card">
         <p className="muted-note">
           {session
-            ? `Quiz uses ${session.items.length} session cards and distractors from the same ${routeData.level} level.`
+            ? `Quiz uses ${session.items.length} Japanese vocabulary prompts from this session.`
             : "Content preparing. Quiz questions and scoring UI will be added in a later task."}
         </p>
         {routeData.warnings.length > 0 ? (

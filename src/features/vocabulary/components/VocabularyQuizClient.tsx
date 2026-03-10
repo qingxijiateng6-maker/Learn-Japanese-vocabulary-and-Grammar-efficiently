@@ -18,12 +18,19 @@ type VocabularyQuizClientProps = {
   levelItems: VocabularyItem[];
 };
 
+type VocabularyQuizMode = "jpToEnglish" | "clozeJP";
+
 type QuizQuestion = {
   item: VocabularyItem;
-  promptJP: string;
+  mode: VocabularyQuizMode;
+  promptLabel: string;
+  promptText: string;
   choices: string[];
   correctIndex: number;
+  answerText: string;
 };
+
+const ACTIVE_QUIZ_MODE: VocabularyQuizMode = "jpToEnglish";
 
 function shuffle<T>(items: T[]): T[] {
   const next = [...items];
@@ -32,6 +39,38 @@ function shuffle<T>(items: T[]): T[] {
     [next[i], next[j]] = [next[j], next[i]];
   }
   return next;
+}
+
+function shuffleChoices(
+  choices: string[],
+  correctIndex: number,
+): Pick<QuizQuestion, "choices" | "correctIndex"> {
+  const shuffled = shuffle(
+    choices.map((choice, index) => ({
+      choice,
+      isCorrect: index === correctIndex,
+    })),
+  );
+
+  return {
+    choices: shuffled.map((entry) => entry.choice),
+    correctIndex: shuffled.findIndex((entry) => entry.isCorrect),
+  };
+}
+
+function formatJapanesePrompt(item: VocabularyItem): string {
+  const reading = item.readingKana.trim();
+  const word = item.wordJP.trim();
+
+  if (!reading) {
+    return word;
+  }
+
+  if (!word || reading === word) {
+    return reading;
+  }
+
+  return `${reading} | ${word}`;
 }
 
 function buildBlankedExample(exampleJP: string, wordJP: string): string {
@@ -46,15 +85,15 @@ function buildBlankedExample(exampleJP: string, wordJP: string): string {
   return `${exampleJP} (Target: ____ )`;
 }
 
-function buildPromptJP(item: VocabularyItem): string {
-  const sourcePrompt = item.quiz?.clozeJP;
+function buildClozePrompt(item: VocabularyItem): string {
+  const sourcePrompt = item.quiz?.clozeJP?.promptJP;
 
   if (sourcePrompt && sourcePrompt.includes("___")) {
     return sourcePrompt;
   }
 
   if (sourcePrompt) {
-    return buildBlankedExample(sourcePrompt, item.quiz?.answerJP ?? item.wordJP);
+    return buildBlankedExample(sourcePrompt, item.quiz?.clozeJP?.answerJP ?? item.wordJP);
   }
 
   return buildBlankedExample(item.exampleJP, item.wordJP);
@@ -97,51 +136,110 @@ function renderExampleENWithBold(exampleEN: string, meaningEN: string) {
   );
 }
 
-function buildQuestions(sessionItems: VocabularyItem[], levelItems: VocabularyItem[]): QuizQuestion[] {
+function buildFallbackJapaneseChoices(
+  item: VocabularyItem,
+  levelItems: VocabularyItem[],
+): Pick<QuizQuestion, "choices" | "correctIndex"> {
+  const distractorPool = levelItems
+    .filter((candidate) => candidate.id !== item.id && candidate.wordJP !== item.wordJP)
+    .map((candidate) => candidate.wordJP);
+  const uniqueDistractors = Array.from(new Set(distractorPool));
+  const selectedDistractors = shuffle(uniqueDistractors).slice(0, 3);
+  const fallbackPool = ["時間", "場所", "勉強", "友だち", "予定", "旅行"];
+
+  for (const fallback of fallbackPool) {
+    if (fallback !== item.wordJP && !selectedDistractors.includes(fallback)) {
+      selectedDistractors.push(fallback);
+    }
+    if (selectedDistractors.length === 3) {
+      break;
+    }
+  }
+
+  return shuffleChoices([item.wordJP, ...selectedDistractors.slice(0, 3)], 0);
+}
+
+function buildFallbackEnglishChoices(
+  item: VocabularyItem,
+  levelItems: VocabularyItem[],
+): Pick<QuizQuestion, "choices" | "correctIndex"> {
+  const distractorPool = levelItems
+    .filter((candidate) => candidate.id !== item.id && candidate.meaningEN !== item.meaningEN)
+    .map((candidate) => candidate.meaningEN);
+  const uniqueDistractors = Array.from(new Set(distractorPool));
+  const selectedDistractors = shuffle(uniqueDistractors).slice(0, 3);
+  const fallbackPool = ["time", "place", "study", "friend", "plan", "trip"];
+
+  for (const fallback of fallbackPool) {
+    if (fallback !== item.meaningEN && !selectedDistractors.includes(fallback)) {
+      selectedDistractors.push(fallback);
+    }
+    if (selectedDistractors.length === 3) {
+      break;
+    }
+  }
+
+  return shuffleChoices([item.meaningEN, ...selectedDistractors.slice(0, 3)], 0);
+}
+
+function buildJpToEnglishQuestion(
+  item: VocabularyItem,
+  levelItems: VocabularyItem[],
+): QuizQuestion {
+  const jpToEnglish = item.quiz?.jpToEnglish;
+  const shuffled =
+    jpToEnglish !== undefined
+      ? shuffleChoices([...jpToEnglish.choicesEN], jpToEnglish.correctOptionIndex)
+      : buildFallbackEnglishChoices(item, levelItems);
+
+  return {
+    item,
+    mode: "jpToEnglish",
+    promptLabel: "Word (JP)",
+    promptText: formatJapanesePrompt(item),
+    choices: shuffled.choices,
+    correctIndex: shuffled.correctIndex,
+    answerText: jpToEnglish?.answerEN ?? item.meaningEN,
+  };
+}
+
+function buildClozeQuestion(item: VocabularyItem, levelItems: VocabularyItem[]): QuizQuestion {
+  const clozeJP = item.quiz?.clozeJP;
+  const shuffled =
+    clozeJP !== undefined
+      ? {
+          choices: [...clozeJP.choicesJP],
+          correctIndex: clozeJP.correctOptionIndex,
+        }
+      : buildFallbackJapaneseChoices(item, levelItems);
+
+  return {
+    item,
+    mode: "clozeJP",
+    promptLabel: "Prompt (JP)",
+    promptText: buildClozePrompt(item),
+    choices: shuffled.choices,
+    correctIndex: shuffled.correctIndex,
+    answerText: clozeJP?.answerJP ?? item.wordJP,
+  };
+}
+
+const quizQuestionBuilders: Record<
+  VocabularyQuizMode,
+  (item: VocabularyItem, levelItems: VocabularyItem[]) => QuizQuestion
+> = {
+  jpToEnglish: buildJpToEnglishQuestion,
+  clozeJP: buildClozeQuestion,
+};
+
+function buildQuestions(
+  sessionItems: VocabularyItem[],
+  levelItems: VocabularyItem[],
+  quizMode: VocabularyQuizMode,
+): QuizQuestion[] {
   const uniqueLevelItems = Array.from(new Map(levelItems.map((item) => [item.id, item])).values());
 
-  return sessionItems.map((item) => {
-    if (item.quiz) {
-      return {
-        item,
-        promptJP: buildPromptJP(item),
-        choices: [...item.quiz.choicesJP],
-        correctIndex: item.quiz.correctOptionIndex,
-      };
-    }
-
-    const distractorPool = uniqueLevelItems
-      .filter((candidate) => candidate.id !== item.id && candidate.wordJP !== item.wordJP)
-      .map((candidate) => candidate.wordJP);
-    const uniqueDistractors = Array.from(new Set(distractorPool));
-
-    const selectedDistractors = shuffle(uniqueDistractors).slice(0, 3);
-
-    if (selectedDistractors.length < 3) {
-      const fallbackPool = ["時間", "場所", "勉強", "友だち", "予定", "旅行"];
-      for (const fallback of fallbackPool) {
-        if (
-          fallback !== item.wordJP &&
-          !selectedDistractors.includes(fallback)
-        ) {
-          selectedDistractors.push(fallback);
-        }
-        if (selectedDistractors.length === 3) {
-          break;
-        }
-      }
-    }
-
-    const choices = shuffle([item.wordJP, ...selectedDistractors.slice(0, 3)]);
-    const correctIndex = choices.findIndex((choice) => choice === item.wordJP);
-
-    return {
-      item,
-      promptJP: buildPromptJP(item),
-      choices,
-      correctIndex,
-    };
-  });
+  return sessionItems.map((item) => quizQuestionBuilders[quizMode](item, uniqueLevelItems));
 }
 
 export function VocabularyQuizClient({
@@ -153,6 +251,7 @@ export function VocabularyQuizClient({
 }: VocabularyQuizClientProps) {
   const progressRepo = useProgressRepo();
   const [isSavingAttempt, startSavingAttempt] = useTransition();
+  const [attemptVersion, setAttemptVersion] = useState(0);
   const [questionIndex, setQuestionIndex] = useState(0);
   const [selectedIndexByQuestion, setSelectedIndexByQuestion] = useState<Record<number, number>>({});
   const [revealedByQuestion, setRevealedByQuestion] = useState<Record<number, boolean>>({});
@@ -160,8 +259,8 @@ export function VocabularyQuizClient({
 
   const sessionKey = buildVocabularySessionKey(level, partOfSpeech, sessionNumber);
   const questions = useMemo(
-    () => buildQuestions(sessionItems, levelItems),
-    [levelItems, sessionItems],
+    () => buildQuestions(sessionItems, levelItems, ACTIVE_QUIZ_MODE),
+    [attemptVersion, levelItems, sessionItems],
   );
 
   const currentQuestion = questions[questionIndex] ?? null;
@@ -235,6 +334,7 @@ export function VocabularyQuizClient({
     setSelectedIndexByQuestion({});
     setRevealedByQuestion({});
     setAttemptSaved(false);
+    setAttemptVersion((previous) => previous + 1);
   };
 
   if (questions.length === 0) {
@@ -255,8 +355,8 @@ export function VocabularyQuizClient({
         </p>
       </div>
       <p className="page-subtitle">
-        Fill the blank using the best Japanese word. Quiz attempts are saved, but quiz completion
-        does not affect flashcards session completion.
+        Choose the best English meaning for each Japanese word. Quiz attempts are saved, but quiz
+        completion does not affect flashcards session completion.
       </p>
 
       {isQuizFinished ? (
@@ -285,8 +385,10 @@ export function VocabularyQuizClient({
           </div>
 
           <div className="flashcard-face">
-            <p className="flashcard-label">Prompt (JP)</p>
-            <p className="flashcard-example">{currentQuestion.promptJP}</p>
+            <p className="flashcard-label">{currentQuestion.promptLabel}</p>
+            <p className="flashcard-example vocabulary-quiz__prompt">
+              {currentQuestion.promptText}
+            </p>
           </div>
 
           <div className="quiz-choices">
@@ -347,18 +449,7 @@ export function VocabularyQuizClient({
               <p className="flashcard-label">Explanation</p>
               <p className="flashcard-example">
                 {selectedIndex === currentQuestion.correctIndex ? "Correct. " : "Incorrect. "}
-                The correct answer is <strong>{currentQuestion.item.wordJP}</strong>
-                {currentQuestion.item.readingKana
-                  ? ` (${currentQuestion.item.readingKana})`
-                  : ""}
-                .
-              </p>
-              <p className="flashcard-example">
-                <strong>Sentence meaning:</strong>{" "}
-                {renderExampleENWithBold(
-                  currentQuestion.item.exampleEN,
-                  currentQuestion.item.meaningEN,
-                )}
+                The correct answer is <strong>{currentQuestion.answerText}</strong>.
               </p>
             </div>
           ) : null}

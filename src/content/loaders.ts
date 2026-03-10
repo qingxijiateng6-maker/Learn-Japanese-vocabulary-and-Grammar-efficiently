@@ -1,11 +1,15 @@
-import { cache } from "react";
+import { cache as reactCache } from "react";
 import a2GrammarJson from "@/content/a2/grammar.json";
 import a2VocabularyJson from "@/content/a2/vocab.json";
 import {
   type GrammarSessionJsonV1,
   GrammarJsonV1Schema,
   type LocalizedExample,
+  type VocabularyClozeQuizModeJsonV2,
+  type VocabularyJpToEnglishQuizModeJsonV2,
+  type VocabularyLegacyQuizJsonV1,
   type VocabularyPartOfSpeech,
+  type VocabularyQuizJsonV1,
   type VocabularyJsonV1Item,
   VocabularyJsonV1Schema,
 } from "@/content/schema";
@@ -21,8 +25,14 @@ export type SafeLoadResult<T> = {
   warnings: LoaderWarning[];
 };
 
-export type VocabularyItem = Omit<VocabularyJsonV1Item, "examples"> & {
+export type VocabularyQuiz = {
+  clozeJP?: VocabularyClozeQuizModeJsonV2;
+  jpToEnglish?: VocabularyJpToEnglishQuizModeJsonV2;
+};
+
+export type VocabularyItem = Omit<VocabularyJsonV1Item, "examples" | "quiz"> & {
   examples: LocalizedExample[];
+  quiz?: VocabularyQuiz;
 };
 
 export type VocabularySession = {
@@ -48,6 +58,38 @@ export type VocabularyLevelGroup = {
 };
 
 export type GrammarSession = GrammarSessionJsonV1;
+
+function withOptionalCache<T extends (...args: never[]) => unknown>(fn: T): T {
+  return (typeof reactCache === "function" ? reactCache(fn) : fn) as T;
+}
+
+function isLegacyVocabularyQuiz(
+  quiz: VocabularyQuizJsonV1,
+): quiz is VocabularyLegacyQuizJsonV1 {
+  return typeof quiz.clozeJP === "string";
+}
+
+function normalizeVocabularyQuiz(quiz: VocabularyQuizJsonV1 | undefined): VocabularyQuiz | undefined {
+  if (!quiz) {
+    return undefined;
+  }
+
+  if (isLegacyVocabularyQuiz(quiz)) {
+    return {
+      clozeJP: {
+        promptJP: quiz.clozeJP,
+        choicesJP: quiz.choicesJP,
+        answerJP: quiz.answerJP,
+        correctOptionIndex: quiz.correctOptionIndex,
+      },
+    };
+  }
+
+  return {
+    clozeJP: quiz.clozeJP ? { ...quiz.clozeJP } : undefined,
+    jpToEnglish: quiz.jpToEnglish ? { ...quiz.jpToEnglish } : undefined,
+  };
+}
 
 function groupVocabularyByPartOfSpeechAndSession(
   items: VocabularyItem[],
@@ -126,10 +168,11 @@ function normalizeVocabularyItem(item: VocabularyJsonV1Item): VocabularyItem {
   return {
     ...item,
     examples: item.examples && item.examples.length > 0 ? item.examples : [fallbackExample],
+    quiz: normalizeVocabularyQuiz(item.quiz),
   };
 }
 
-function parseVocabularyJson(json: unknown): SafeLoadResult<VocabularySession> {
+export function parseVocabularyJson(json: unknown): SafeLoadResult<VocabularySession> {
   const parsed = VocabularyJsonV1Schema.safeParse(json);
   if (!parsed.success) {
     return {
@@ -155,7 +198,7 @@ function parseVocabularyJson(json: unknown): SafeLoadResult<VocabularySession> {
   };
 }
 
-function parseGrammarJson(json: unknown): SafeLoadResult<GrammarSession> {
+export function parseGrammarJson(json: unknown): SafeLoadResult<GrammarSession> {
   const parsed = GrammarJsonV1Schema.safeParse(json);
   if (!parsed.success) {
     return {
@@ -183,11 +226,11 @@ function parseGrammarJson(json: unknown): SafeLoadResult<GrammarSession> {
   };
 }
 
-export const loadA2VocabularySessions = cache(
+export const loadA2VocabularySessions = withOptionalCache(
   async (): Promise<SafeLoadResult<VocabularySession>> => parseVocabularyJson(a2VocabularyJson),
 );
 
-export const loadA2VocabularyLevelGroup = cache(async (): Promise<{
+export const loadA2VocabularyLevelGroup = withOptionalCache(async (): Promise<{
   level: VocabularyLevelGroup | null;
   sessions: VocabularySession[];
   warnings: LoaderWarning[];
@@ -202,7 +245,7 @@ export const loadA2VocabularyLevelGroup = cache(async (): Promise<{
   };
 });
 
-export const loadA2GrammarSessions = cache(
+export const loadA2GrammarSessions = withOptionalCache(
   async (): Promise<SafeLoadResult<GrammarSession>> => parseGrammarJson(a2GrammarJson),
 );
 

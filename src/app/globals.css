@@ -765,6 +765,14 @@ button {
   font-weight: 700;
 }
 
+.vocabulary-quiz__prompt {
+  margin: 0;
+  color: var(--text-strong);
+  font-size: clamp(2rem, 4.6vw, 2.85rem);
+  line-height: 1.2;
+  font-weight: 800;
+}
+
 .flashcard-meaning {
   margin: 0;
   color: var(--text-strong);
