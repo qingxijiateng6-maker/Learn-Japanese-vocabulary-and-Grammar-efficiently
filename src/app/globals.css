@@ -412,6 +412,7 @@ button {
 .progress-grid,
 .history-grid,
 .home-nav-grid,
+.compact-nav-grid,
 .level-grid,
 .grammar-example-grid,
 .flashcard-panel,
@@ -459,6 +460,7 @@ button {
 .level-card--interactive,
 .grammar-session-link,
 .home-nav-button,
+.compact-nav-button,
 .button-link,
 .site-nav__link,
 .chip-button,
@@ -471,6 +473,7 @@ button {
 .level-card--interactive,
 .grammar-session-link,
 .home-nav-button,
+.compact-nav-button,
 .button-link,
 .site-nav__link,
 .chip-button,
@@ -490,6 +493,8 @@ button {
 .grammar-session-link:focus-visible,
 .home-nav-button:hover,
 .home-nav-button:focus-visible,
+.compact-nav-button:hover,
+.compact-nav-button:focus-visible,
 .button-link:hover,
 .button-link:focus-visible,
 .site-nav__link:hover,
@@ -569,6 +574,7 @@ button {
 
 .button-link,
 .home-nav-button,
+.compact-nav-button,
 .chip-button {
   display: inline-flex;
   align-items: center;
@@ -582,6 +588,48 @@ button {
   padding: 0.72rem 1rem;
   color: var(--text-strong);
   font-weight: 600;
+}
+
+.nav-button__content {
+  display: inline-flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.nav-button__label {
+  display: inline-flex;
+  align-items: center;
+  min-width: 0;
+  white-space: nowrap;
+}
+
+.nav-button__icon {
+  flex: 0 0 auto;
+  object-fit: contain;
+}
+
+.compact-nav-section {
+  padding: 0.85rem;
+}
+
+.compact-nav-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.55rem;
+}
+
+.compact-nav-button {
+  min-width: 0;
+  min-height: 44px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 0.5rem 0.25rem;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.04);
+  color: var(--text-strong);
+  font-size: clamp(0.54rem, 1.85vw, 0.8rem);
+  font-weight: 600;
+  line-height: 1.15;
+  text-align: center;
 }
 
 .button-link:disabled,
@@ -941,6 +989,8 @@ button {
   letter-spacing: 0.01em;
   background: rgba(255, 255, 255, 0.94);
   box-shadow: 0 16px 32px rgba(15, 23, 42, 0.04);
+  justify-content: flex-start;
+  padding: 0.85rem 1rem;
 }
 
 .home-nav-button--home,
@@ -948,6 +998,34 @@ button {
 .home-nav-button--grammar,
 .home-nav-button--history {
   color: var(--text-strong);
+}
+
+.home-nav-button .nav-button__content {
+  width: 100%;
+  gap: 0.8rem;
+}
+
+.home-nav-button .nav-button__label {
+  font-size: 1.02rem;
+}
+
+.nav-button__icon--home {
+  width: 3.1rem;
+  height: 3.1rem;
+}
+
+.compact-nav-button .nav-button__content {
+  justify-content: center;
+  gap: 0.22rem;
+}
+
+.compact-nav-button .nav-button__label {
+  letter-spacing: -0.02em;
+}
+
+.nav-button__icon--compact {
+  width: clamp(0.82rem, 3.6vw, 1.35rem);
+  height: clamp(0.82rem, 3.6vw, 1.35rem);
 }
 
 .level-card {
