@@ -9,6 +9,7 @@ import { getVocabularyPartOfSpeechLabel } from "@/domain/vocabulary/meta";
 import type { VocabularyPartOfSpeech } from "@/content/schema";
 import { useProgressRepo } from "@/repo/progressRepoContext";
 import type { UserProgress, VocabQuizAttempt } from "@/repo/progressRepo";
+import { BottomPageNav } from "@/shared/components/BottomPageNav";
 
 type HistorySessionMeta = {
   level: string;
@@ -268,6 +269,7 @@ export function HistoryDashboard({
           </div>
         )}
       </section>
+      <BottomPageNav />
     </main>
   );
 }

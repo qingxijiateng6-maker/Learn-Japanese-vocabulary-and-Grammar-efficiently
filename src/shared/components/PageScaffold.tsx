@@ -1,4 +1,5 @@
-import type { ReactNode } from 'react';
+import type { ReactNode } from "react";
+import { BottomPageNav } from "@/shared/components/BottomPageNav";
 
 type PageScaffoldProps = {
   title?: ReactNode;
@@ -27,6 +28,7 @@ export function PageScaffold({
         </section>
       ) : null}
       {children}
+      <BottomPageNav />
     </main>
   );
 }

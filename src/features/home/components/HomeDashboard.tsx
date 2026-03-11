@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useMemo, useState, useTransition } from "react";
 import { useProgressRepo } from "@/repo/progressRepoContext";
 import type { UserProgress } from "@/repo/progressRepo";
@@ -10,6 +9,7 @@ import {
   calcWeeklyTimeSeconds,
   getWeekRange,
 } from "@/domain/progress/calc";
+import { PageNavLinks } from "@/shared/components/PageNavLinks";
 
 type HomeDashboardProps = {
   availableVocabSessionKeys: string[];
@@ -223,20 +223,7 @@ export function HomeDashboard({
       </section>
 
       <section className="page-card">
-        <div className="home-nav-grid" aria-label="Quick navigation">
-          <Link className="home-nav-button home-nav-button--home" href="/">
-            Home
-          </Link>
-          <Link className="home-nav-button home-nav-button--vocabulary" href="/vocabulary">
-            Vocabulary
-          </Link>
-          <Link className="home-nav-button home-nav-button--grammar" href="/grammar">
-            Grammar
-          </Link>
-          <Link className="home-nav-button home-nav-button--history" href="/history">
-            History
-          </Link>
-        </div>
+        <PageNavLinks variant="home" ariaLabel="Quick navigation" />
       </section>
     </main>
   );
