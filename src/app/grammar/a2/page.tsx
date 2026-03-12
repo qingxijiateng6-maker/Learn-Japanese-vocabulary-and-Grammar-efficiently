@@ -7,7 +7,7 @@ export default async function GrammarA2SessionsPage() {
   const { sessions, warnings } = await loadA2GrammarSessions();
 
   return (
-    <PageScaffold className="page-main">
+    <PageScaffold className="page-main grammar-page" backdropVariant="grammar">
       <section className="page-card">
         <p className="flashcard-label">Grammar Level</p>
         <h1 className="page-title">Grammar • A2</h1>

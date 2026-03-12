@@ -3,12 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "typecheck": "tsc --noEmit",
-    "content:validate": "tsx scripts/validateContent.ts",
-    "content:stats": "tsx scripts/validateContent.ts --stats"
+    "dev": "node -e \"const path=require('path');require(path.join(path.dirname(process.env.npm_package_json),'scripts','bin-runner.cjs'))\" next dev",
+    "build": "node -e \"const path=require('path');require(path.join(path.dirname(process.env.npm_package_json),'scripts','bin-runner.cjs'))\" next build",
+    "start": "node -e \"const path=require('path');require(path.join(path.dirname(process.env.npm_package_json),'scripts','bin-runner.cjs'))\" next start",
+    "typecheck": "node -e \"const path=require('path');require(path.join(path.dirname(process.env.npm_package_json),'scripts','bin-runner.cjs'))\" tsc --noEmit",
+    "content:validate": "node -e \"const path=require('path');require(path.join(path.dirname(process.env.npm_package_json),'scripts','bin-runner.cjs'))\" tsx scripts/validateContent.ts",
+    "content:stats": "node -e \"const path=require('path');require(path.join(path.dirname(process.env.npm_package_json),'scripts','bin-runner.cjs'))\" tsx scripts/validateContent.ts --stats"
   },
   "dependencies": {
     "firebase": "^12.9.0",

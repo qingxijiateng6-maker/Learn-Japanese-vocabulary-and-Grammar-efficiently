@@ -9,12 +9,14 @@ export function SiteHeader() {
   const pathname = usePathname();
   const isHome = pathname === "/";
   const isVocabulary = pathname.startsWith("/vocabulary");
+  const isGrammar = pathname.startsWith("/grammar");
   const isSignedOutHome = isHome && !user;
   const shouldShowHeaderAuth = Boolean(user) || !isSignedOutHome;
   const headerClassName = [
     "site-header",
     isHome ? "site-header--home" : "",
     isVocabulary ? "site-header--vocabulary" : "",
+    isGrammar ? "site-header--grammar" : "",
   ]
     .filter(Boolean)
     .join(" ");

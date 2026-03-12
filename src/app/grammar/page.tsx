@@ -4,7 +4,7 @@ import { CEFR_LEVELS } from "@/shared/config/cefrLevels";
 
 export default function GrammarLevelsPage() {
   return (
-    <PageScaffold className="page-main">
+    <PageScaffold className="page-main grammar-page" backdropVariant="grammar">
       <section className="page-card">
         <p className="flashcard-label">Grammar Path</p>
         <h1 className="page-title">Grammar</h1>

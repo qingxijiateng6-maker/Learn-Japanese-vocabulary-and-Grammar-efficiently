@@ -7,6 +7,7 @@ type PageScaffoldProps = {
   description?: ReactNode;
   children?: ReactNode;
   className?: string;
+  backdropVariant?: "grammar";
 };
 
 export function PageScaffold({
@@ -15,11 +16,15 @@ export function PageScaffold({
   description,
   children,
   className,
+  backdropVariant,
 }: PageScaffoldProps) {
   const hasHero = Boolean(title || subtitle || description);
 
   return (
     <main className={className}>
+      {backdropVariant ? (
+        <div className={`page-backdrop page-backdrop--${backdropVariant}`} aria-hidden="true" />
+      ) : null}
       {hasHero ? (
         <section className="page-hero">
           {subtitle ? <p className="page-hero__subtitle">{subtitle}</p> : null}

@@ -1741,6 +1741,125 @@ button {
   line-height: 1.15;
 }
 
+.site-header--grammar {
+  border-bottom-color: rgba(122, 161, 130, 0.18);
+  background: rgba(245, 250, 244, 0.2);
+  box-shadow: 0 10px 28px rgba(87, 122, 93, 0.04);
+  backdrop-filter: blur(12px);
+}
+
+.site-header--grammar .site-header__brand,
+.site-header--grammar .google-signin-button,
+.site-header--grammar .site-nav__link,
+.site-header--grammar .auth-user,
+.site-header--grammar .auth-config-hint {
+  border-color: rgba(122, 161, 130, 0.14);
+  background: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 10px 24px rgba(87, 122, 93, 0.05);
+}
+
+.grammar-page {
+  position: relative;
+  isolation: isolate;
+}
+
+.grammar-page > :not(.page-backdrop) {
+  position: relative;
+  z-index: 1;
+}
+
+.page-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.page-backdrop--grammar {
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(248, 252, 247, 0.22) 0%,
+      rgba(248, 252, 247, 0.12) 36%,
+      rgba(248, 252, 247, 0.04) 56%,
+      rgba(248, 252, 247, 0.01) 68%,
+      rgba(248, 252, 247, 0) 100%
+    ),
+    url("/images/ChatGPT Image 2026年3月12日 18_26_08.png");
+  background-color: #eef7ef;
+  background-position: center top, center top;
+  background-repeat: no-repeat;
+  background-size: cover, cover;
+}
+
+.grammar-page .page-card,
+.grammar-page .page-hero,
+.grammar-page .level-card,
+.grammar-page .grammar-session-link,
+.grammar-page .topic-card,
+.grammar-page .flashcard-face,
+.grammar-page .quiz-explanation,
+.grammar-page .grammar-example-card,
+.grammar-page .compact-nav-button {
+  border-color: rgba(122, 161, 130, 0.08);
+  background: rgba(255, 255, 255, 0.02);
+  box-shadow: 0 14px 32px rgba(87, 122, 93, 0.05);
+  backdrop-filter: blur(12px);
+}
+
+.grammar-page > .page-card:first-child,
+.grammar-page .page-hero,
+.grammar-page .grammar-session-hero {
+  background: rgba(255, 255, 255, 0.01);
+}
+
+.grammar-page .page-card::before,
+.grammar-page .page-hero::before,
+.grammar-page .level-card::before,
+.grammar-page .grammar-session-link::before,
+.grammar-page .topic-card::before,
+.grammar-page .flashcard-face::before,
+.grammar-page .quiz-explanation::before,
+.grammar-page .grammar-example-card::before {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.72) 0%,
+    rgba(255, 255, 255, 0.48) 26%,
+    rgba(255, 255, 255, 0.18) 44%,
+    rgba(255, 255, 255, 0.03) 58%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+.grammar-page .button-link,
+.grammar-page .quiz-choice,
+.grammar-page .compact-nav-button,
+.grammar-page .grammar-session-hero__meta span,
+.grammar-page .grammar-doc__body code,
+.grammar-page .status-badge,
+.grammar-page .level-card__cta,
+.grammar-page .level-card__badge {
+  border-color: rgba(122, 161, 130, 0.18);
+  background: rgba(255, 255, 255, 0.26);
+  box-shadow: 0 10px 24px rgba(87, 122, 93, 0.08);
+}
+
+.grammar-page .button-link--primary,
+.grammar-page .quiz-choice--selected {
+  border-color: rgba(107, 155, 116, 0.32);
+  background: rgba(241, 252, 242, 0.6);
+}
+
+.grammar-page .quiz-choice--correct {
+  border-color: rgba(40, 167, 94, 0.72);
+  background: linear-gradient(180deg, rgba(244, 255, 247, 0.84) 0%, rgba(214, 255, 227, 0.82) 100%);
+}
+
+.grammar-page .quiz-choice--wrong {
+  border-color: rgba(220, 38, 38, 0.62);
+  background: linear-gradient(180deg, rgba(255, 246, 247, 0.86) 0%, rgba(255, 219, 224, 0.8) 100%);
+}
+
 @media (min-width: 640px) {
   .home-goal__controls {
     grid-template-columns: minmax(220px, 276px) minmax(240px, 392px);
@@ -1819,6 +1938,10 @@ button {
   .home-nav-card__image {
     width: 60px;
     height: 60px;
+  }
+
+  .page-backdrop--grammar {
+    background-position: center top, 72% top;
   }
 }
 
