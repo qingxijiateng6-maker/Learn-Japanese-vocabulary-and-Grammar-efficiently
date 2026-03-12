@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useMemo, useState, useTransition } from "react";
+import { GoogleSignInButton, useGoogleAuth } from "@/auth/googleAuth";
 import { useProgressRepo } from "@/repo/progressRepoContext";
 import type { UserProgress } from "@/repo/progressRepo";
 import {
@@ -78,6 +79,7 @@ export function HomeDashboard({
   availableVocabSessionKeys,
   availableGrammarSessionKeys,
 }: HomeDashboardProps) {
+  const { user, isConfigured, configError } = useGoogleAuth();
   const progressRepo = useProgressRepo();
   const [progress, setProgress] = useState<UserProgress | null>(null);
   const [goalInput, setGoalInput] = useState("");
@@ -175,6 +177,25 @@ export function HomeDashboard({
 
   return (
     <main className="home-page">
+      {!user ? (
+        <section className="home-auth" aria-label="Authentication">
+          <GoogleSignInButton
+            className="home-auth__button"
+            label="Googleでログイン"
+            loadingLabel="ログイン状態を確認中..."
+            signingInLabel="Googleでログイン中..."
+            fallbackLabel="Firebase設定が必要です"
+          />
+          {configError ? (
+            <span className="auth-config-hint home-auth__hint" title={configError}>
+              {isConfigured
+                ? `Googleログインエラー: ${configError}`
+                : `Googleログイン未設定: ${configError}`}
+            </span>
+          ) : null}
+        </section>
+      ) : null}
+
       <section className="home-panel home-panel--hero">
         <div className="home-panel__content">
           <h1 className="home-page__title">Home</h1>

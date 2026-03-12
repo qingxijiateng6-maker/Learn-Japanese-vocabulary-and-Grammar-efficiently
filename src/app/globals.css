@@ -1260,22 +1260,6 @@ button {
   font-weight: 700;
 }
 
-.site-header__inner--home-signed-out {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 0.9rem;
-}
-
-.auth-controls--home-signed-out {
-  justify-content: flex-start;
-  gap: 0.9rem;
-}
-
-.auth-controls--home-signed-out .google-signin-button {
-  min-width: 214px;
-}
-
 .home-page {
   position: relative;
   width: 100%;
@@ -1284,6 +1268,29 @@ button {
   padding: 0.9rem clamp(1rem, 3vw, 2.25rem) 1.35rem;
   display: grid;
   gap: 0.9rem;
+}
+
+.home-auth {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.65rem;
+}
+
+.home-auth__button {
+  min-height: 44px;
+  max-width: 100%;
+  padding: 0.58rem 1rem;
+  border-color: rgba(188, 199, 213, 0.44);
+  background: rgba(255, 255, 255, 0.76);
+  box-shadow: 0 10px 24px rgba(148, 163, 184, 0.08);
+  color: #13263f;
+  font-size: 0.88rem;
+}
+
+.home-auth__hint {
+  max-width: min(100%, 520px);
 }
 
 .home-page::before {
@@ -1620,13 +1627,8 @@ button {
 }
 
 @media (max-width: 639px) {
-  .site-header__inner--home-signed-out {
-    align-items: stretch;
-  }
-
-  .auth-controls--home-signed-out .google-signin-button {
+  .home-auth__button {
     width: 100%;
-    min-width: 0;
   }
 
   .home-page {

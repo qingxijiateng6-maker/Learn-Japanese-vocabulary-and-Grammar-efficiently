@@ -34,6 +34,14 @@ type GoogleAuthContextValue = {
 };
 const GoogleAuthContext = createContext<GoogleAuthContextValue | null>(null);
 
+type GoogleSignInButtonProps = {
+  className?: string;
+  label?: string;
+  loadingLabel?: string;
+  signingInLabel?: string;
+  fallbackLabel?: string;
+};
+
 function mapFirebaseUser(user: User): GoogleAuthUser {
   return {
     id: user.uid,
@@ -136,23 +144,37 @@ export function useGoogleAuth(): GoogleAuthContextValue {
   return value;
 }
 
-export function GoogleSignInButton() {
+function withOptionalClassName(baseClassName: string, className?: string): string {
+  return className ? `${baseClassName} ${className}` : baseClassName;
+}
+
+export function GoogleSignInButton({
+  className,
+  label = "Sign in with Google",
+  loadingLabel = "Checking session...",
+  signingInLabel = "Signing in...",
+  fallbackLabel = "Set Firebase env vars",
+}: GoogleSignInButtonProps = {}) {
   const { isConfigured, isLoading, isSigningIn, signIn } = useGoogleAuth();
 
   if (!isConfigured) {
-    return <span className="google-signin-fallback">Set Firebase env vars</span>;
+    return (
+      <span className={withOptionalClassName("google-signin-fallback", className)}>
+        {fallbackLabel}
+      </span>
+    );
   }
 
   return (
     <button
       type="button"
-      className="google-signin-button"
+      className={withOptionalClassName("google-signin-button", className)}
       onClick={() => {
         void signIn();
       }}
       disabled={isLoading || isSigningIn}
     >
-      {isLoading ? "Checking session..." : isSigningIn ? "Signing in..." : "Sign in with Google"}
+      {isLoading ? loadingLabel : isSigningIn ? signingInLabel : label}
     </button>
   );
 }
