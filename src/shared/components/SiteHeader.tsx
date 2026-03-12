@@ -1,18 +1,31 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { GoogleSignInButton, useGoogleAuth } from "@/auth/googleAuth";
 
 export function SiteHeader() {
   const { user, signOut, isConfigured, configError } = useGoogleAuth();
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+  const isSignedOutHome = isHome && !user;
 
   return (
-    <header className="site-header">
-      <div className="site-header__inner">
+    <header className={`site-header${isHome ? " site-header--home" : ""}`}>
+      <div
+        className={`site-header__inner${
+          isSignedOutHome ? " site-header__inner--home-signed-out" : ""
+        }`}
+      >
         <Link href="/" className="site-header__brand">
           Japanese Learning App
         </Link>
-        <div className="auth-controls" aria-label="Authentication">
+        <div
+          className={`auth-controls${
+            isSignedOutHome ? " auth-controls--home-signed-out" : ""
+          }`}
+          aria-label="Authentication"
+        >
           {user ? (
             <>
               <div className="auth-user">
