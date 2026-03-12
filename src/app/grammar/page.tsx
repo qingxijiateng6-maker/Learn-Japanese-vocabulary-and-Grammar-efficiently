@@ -4,8 +4,8 @@ import { CEFR_LEVELS } from "@/shared/config/cefrLevels";
 
 export default function GrammarLevelsPage() {
   return (
-    <PageScaffold className="page-main grammar-page" backdropVariant="grammar">
-      <section className="page-card">
+    <PageScaffold className="page-main grammar-page grammar-page--overview" backdropVariant="grammar">
+      <section className="page-card grammar-panel grammar-panel--hero">
         <p className="flashcard-label">Grammar Path</p>
         <h1 className="page-title">Grammar</h1>
         <p className="page-subtitle">
@@ -14,7 +14,7 @@ export default function GrammarLevelsPage() {
         </p>
       </section>
 
-      <section className="page-card">
+      <section className="page-card grammar-panel grammar-panel--selection">
         <div className="stack-row">
           <h2 className="page-title">Available levels</h2>
           <span className="muted-note">A2 is open now</span>
@@ -24,7 +24,7 @@ export default function GrammarLevelsPage() {
             level.available ? (
               <Link
                 key={level.code}
-                className="level-card level-card--interactive"
+                className="level-card level-card--interactive grammar-selection-card"
                 href={`/grammar/${level.code.toLowerCase()}`}
               >
                 <p className="level-card__eyebrow">Grammar Level</p>
@@ -36,7 +36,10 @@ export default function GrammarLevelsPage() {
                 </div>
               </Link>
             ) : (
-              <article key={level.code} className="level-card level-card--disabled">
+              <article
+                key={level.code}
+                className="level-card level-card--disabled grammar-selection-card grammar-selection-card--disabled"
+              >
                 <p className="level-card__eyebrow">Grammar Level</p>
                 <h3 className="level-card__title">{level.label}</h3>
                 <p className="level-card__body">{level.description}</p>

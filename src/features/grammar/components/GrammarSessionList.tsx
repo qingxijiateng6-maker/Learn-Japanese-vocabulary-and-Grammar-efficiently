@@ -37,7 +37,7 @@ export function GrammarSessionList({ sessions, warning }: GrammarSessionListProp
 
   if (sessions.length === 0) {
     return (
-      <section className="page-card">
+      <section className="page-card grammar-panel grammar-panel--selection">
         <h2 className="page-title">A2 Sessions</h2>
         <p className="page-subtitle">
           Content preparing. No valid grammar sessions are available yet.
@@ -48,7 +48,7 @@ export function GrammarSessionList({ sessions, warning }: GrammarSessionListProp
   }
 
   return (
-    <section className="page-card">
+    <section className="page-card grammar-panel grammar-panel--selection">
       <h2 className="page-title">A2 Sessions</h2>
       <div className="grammar-session-list">
         {sessions.map((session) => {
@@ -61,7 +61,7 @@ export function GrammarSessionList({ sessions, warning }: GrammarSessionListProp
           return (
             <Link
               key={session.sessionNumber}
-              className="grammar-session-link"
+              className="grammar-session-link grammar-selection-card"
               href={`/grammar/a2/session/${session.sessionNumber}`}
             >
               <div className="stack-row">

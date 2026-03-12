@@ -24,9 +24,9 @@ export default async function GrammarSessionPage({ params }: GrammarSessionPageP
   const questionCount = session?.questions.length ?? 0;
 
   return (
-    <PageScaffold className="page-main grammar-page" backdropVariant="grammar">
+    <PageScaffold className="page-main grammar-page grammar-page--session" backdropVariant="grammar">
       <StudyTimerMount />
-      <section className="page-card grammar-session-hero">
+      <section className="page-card grammar-panel grammar-panel--hero grammar-session-hero">
         <p className="flashcard-label">Grammar • A2 • Session {sessionNumber}</p>
         <h1 className="grammar-session-hero__title">
           {session?.sessionTitle ?? `session${sessionNumber}`}
@@ -41,7 +41,7 @@ export default async function GrammarSessionPage({ params }: GrammarSessionPageP
           <span>{questionCount} practice question{questionCount === 1 ? "" : "s"}</span>
         </div>
       </section>
-      <section className="page-card">
+      <section className="page-card grammar-panel grammar-panel--document">
         <div className="stack-row">
           <h2 className="page-title">Explanation</h2>
           <span className="muted-note">Read before practice</span>

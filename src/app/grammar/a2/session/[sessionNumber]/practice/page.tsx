@@ -23,9 +23,9 @@ export default async function GrammarPracticePage({ params }: GrammarPracticePag
   const questionCount = session?.questions.length ?? 0;
 
   return (
-    <PageScaffold className="page-main grammar-page" backdropVariant="grammar">
+    <PageScaffold className="page-main grammar-page grammar-page--session" backdropVariant="grammar">
       <StudyTimerMount />
-      <section className="page-card grammar-session-hero">
+      <section className="page-card grammar-panel grammar-panel--hero grammar-session-hero">
         <p className="flashcard-label">Grammar • A2 • Session {sessionNumber}</p>
         <h1 className="grammar-session-hero__title">
           {session?.sessionTitle ?? `session${sessionNumber}`}
@@ -39,7 +39,7 @@ export default async function GrammarPracticePage({ params }: GrammarPracticePag
           <span>Best score decides completion</span>
         </div>
       </section>
-      <section className="page-card">
+      <section className="page-card grammar-panel grammar-panel--support">
         <p className="muted-note">
           {session
             ? `${questionCount} question${questionCount === 1 ? "" : "s"} loaded for this session. Completion requires 80%+ (Best score).`

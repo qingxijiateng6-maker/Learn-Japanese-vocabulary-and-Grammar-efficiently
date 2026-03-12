@@ -7,8 +7,8 @@ export default async function GrammarA2SessionsPage() {
   const { sessions, warnings } = await loadA2GrammarSessions();
 
   return (
-    <PageScaffold className="page-main grammar-page" backdropVariant="grammar">
-      <section className="page-card">
+    <PageScaffold className="page-main grammar-page grammar-page--overview" backdropVariant="grammar">
+      <section className="page-card grammar-panel grammar-panel--hero">
         <p className="flashcard-label">Grammar Level</p>
         <h1 className="page-title">Grammar • A2</h1>
         <p className="page-subtitle">
@@ -24,7 +24,7 @@ export default async function GrammarA2SessionsPage() {
         }))}
         warning={warnings[0]}
       />
-      <section className="page-card">
+      <section className="page-card grammar-panel grammar-panel--support">
         <h2 className="page-title">Study flow</h2>
         <p className="muted-note">
           Open a session, read the explanation, then use practice to answer one question at a time
