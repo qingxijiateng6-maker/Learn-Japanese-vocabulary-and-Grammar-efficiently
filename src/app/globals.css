@@ -1260,6 +1260,160 @@ button {
   font-weight: 700;
 }
 
+.site-header--vocabulary {
+  border-bottom-color: rgba(196, 208, 221, 0.2);
+  background: rgba(248, 251, 255, 0.18);
+  box-shadow: 0 10px 26px rgba(111, 132, 154, 0.1);
+  backdrop-filter: blur(12px) saturate(1.12);
+}
+
+.site-header--vocabulary .site-header__inner {
+  max-width: 1280px;
+  padding: 1rem clamp(1rem, 3vw, 2rem) 0.85rem;
+}
+
+.site-header--vocabulary .site-header__brand,
+.site-header--vocabulary .google-signin-button,
+.site-header--vocabulary .site-nav__link {
+  border-color: rgba(196, 208, 221, 0.3);
+  background: rgba(255, 255, 255, 0.34);
+  box-shadow: 0 10px 24px rgba(111, 132, 154, 0.08);
+  color: #13263f;
+}
+
+.site-header--vocabulary .auth-user {
+  border-color: rgba(196, 208, 221, 0.3);
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 10px 24px rgba(111, 132, 154, 0.08);
+}
+
+.site-header--vocabulary .auth-user__avatar--fallback {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.vocabulary-shell {
+  position: relative;
+  z-index: 0;
+}
+
+.vocabulary-shell::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(180deg, rgba(246, 249, 255, 0.38) 0%, rgba(246, 249, 255, 0.14) 34%, rgba(246, 249, 255, 0.32) 100%),
+    linear-gradient(115deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.18) 32%, rgba(255, 255, 255, 0.08) 56%, rgba(255, 255, 255, 0.3) 100%),
+    url("/images/Vocabulary.png");
+  background-color: #dde7ef;
+  background-position: center top, center top, center top;
+  background-repeat: no-repeat;
+  background-size: cover, cover, cover;
+}
+
+.vocabulary-shell .page-main {
+  max-width: 1280px;
+}
+
+.vocabulary-shell .page-hero,
+.vocabulary-shell .page-card {
+  border-color: rgba(196, 208, 221, 0.26);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 14px 34px rgba(111, 132, 154, 0.08);
+  backdrop-filter: blur(14px) saturate(1.08);
+}
+
+.vocabulary-shell .page-main > .page-card:first-child {
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 16px 34px rgba(111, 132, 154, 0.08);
+}
+
+.vocabulary-shell .page-hero {
+  border-color: rgba(196, 208, 221, 0.1);
+  background: rgba(255, 255, 255, 0.025);
+  box-shadow: 0 10px 24px rgba(111, 132, 154, 0.045);
+  backdrop-filter: blur(5px) saturate(1.02);
+}
+
+.vocabulary-shell .page-hero::before,
+.vocabulary-shell .page-card::before,
+.vocabulary-shell .selection-card::before,
+.vocabulary-shell .level-card::before,
+.vocabulary-shell .grammar-session-link::before,
+.vocabulary-shell .topic-card::before,
+.vocabulary-shell .history-level-card::before,
+.vocabulary-shell .toggle-item::before,
+.vocabulary-shell .flashcard-face::before,
+.vocabulary-shell .quiz-explanation::before,
+.vocabulary-shell .grammar-example-card::before {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.16) 0%,
+    rgba(255, 255, 255, 0.05) 38%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+.vocabulary-shell .page-hero::before {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.045) 0%,
+    rgba(255, 255, 255, 0.01) 42%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+.vocabulary-shell .selection-card,
+.vocabulary-shell .level-card,
+.vocabulary-shell .grammar-session-link,
+.vocabulary-shell .history-level-card,
+.vocabulary-shell .topic-card,
+.vocabulary-shell .toggle-item,
+.vocabulary-shell .flashcard-face,
+.vocabulary-shell .quiz-explanation,
+.vocabulary-shell .grammar-example-card,
+.vocabulary-shell .placeholder-list li,
+.vocabulary-shell .history-table-wrap {
+  border-color: rgba(196, 208, 221, 0.28);
+  background: rgba(255, 255, 255, 0.22);
+  box-shadow: 0 14px 30px rgba(111, 132, 154, 0.08);
+  backdrop-filter: blur(12px) saturate(1.08);
+}
+
+.vocabulary-shell .button-link,
+.vocabulary-shell .chip-button,
+.vocabulary-shell .quiz-choice,
+.vocabulary-shell .goal-form__input,
+.vocabulary-shell .compact-nav-button,
+.vocabulary-shell .progress-bar,
+.vocabulary-shell .flashcard-flip-button,
+.vocabulary-shell .status-badge,
+.vocabulary-shell .level-card__cta,
+.vocabulary-shell .level-card__badge,
+.vocabulary-shell .grammar-session-hero__meta span,
+.vocabulary-shell .grammar-doc__body code {
+  border-color: rgba(196, 208, 221, 0.3);
+  background: rgba(255, 255, 255, 0.34);
+  box-shadow: 0 12px 24px rgba(111, 132, 154, 0.08);
+  backdrop-filter: blur(12px) saturate(1.08);
+}
+
+.vocabulary-shell .button-link--primary,
+.vocabulary-shell .chip-button--active,
+.vocabulary-shell .quiz-choice--selected,
+.vocabulary-shell .flashcard-face--back .flashcard-flip-button {
+  background: rgba(255, 255, 255, 0.42);
+}
+
+.vocabulary-shell .progress-bar {
+  box-shadow: none;
+}
+
+.vocabulary-shell .history-table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
 .home-page {
   position: relative;
   width: 100%;
@@ -1629,6 +1783,14 @@ button {
 @media (max-width: 639px) {
   .home-auth__button {
     width: 100%;
+  }
+
+  .site-header--vocabulary .site-header__inner {
+    padding-top: 0.95rem;
+  }
+
+  .vocabulary-shell::before {
+    background-position: center top, center top, 62% top;
   }
 
   .home-page {

@@ -8,11 +8,19 @@ export function SiteHeader() {
   const { user, signOut, isConfigured, configError } = useGoogleAuth();
   const pathname = usePathname();
   const isHome = pathname === "/";
+  const isVocabulary = pathname.startsWith("/vocabulary");
   const isSignedOutHome = isHome && !user;
   const shouldShowHeaderAuth = Boolean(user) || !isSignedOutHome;
+  const headerClassName = [
+    "site-header",
+    isHome ? "site-header--home" : "",
+    isVocabulary ? "site-header--vocabulary" : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
 
   return (
-    <header className={`site-header${isHome ? " site-header--home" : ""}`}>
+    <header className={headerClassName}>
       <div className="site-header__inner">
         <Link href="/" className="site-header__brand">
           Japanese Learning App
