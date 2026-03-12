@@ -177,97 +177,145 @@ export function HistoryDashboard({
   }, [grammarSessionsByLevel, progress, vocabSessionsByLevel]);
 
   return (
-    <main className="page-main">
-      <section className="page-card">
-        <h1 className="page-title">History</h1>
-        <p className="page-subtitle">
-          Review your session completion, grammar best scores, and vocabulary quiz results.
-        </p>
-        <p className="muted-note">
-          Vocabulary quiz accuracy shows the <strong>latest attempt</strong> per session.
-        </p>
-        {loadError ? <p className="muted-note">{loadError}</p> : null}
-        {warnings.length > 0 ? <p className="muted-note">Warning: {warnings[0]}</p> : null}
-      </section>
-
-      <section className="page-card">
-        <h2 className="page-title">Per-Level Progress</h2>
-        <div className="history-grid">
-          {perLevelProgress.map((entry) => (
-            <article key={entry.level} className="history-level-card">
-              <h3 className="topic-card__title">{entry.level}</h3>
-              {entry.available ? (
-                <>
-                  <p className="muted-note">
-                    Vocabulary: {entry.vocabPercent}% ({entry.vocabCounts})
-                  </p>
-                  <div className="progress-bar" aria-hidden="true">
-                    <div className="progress-bar__fill" style={{ width: `${entry.vocabPercent}%` }} />
-                  </div>
-                  <p className="muted-note">
-                    Grammar: {entry.grammarPercent}% ({entry.grammarCounts})
-                  </p>
-                  <div className="progress-bar" aria-hidden="true">
-                    <div
-                      className="progress-bar__fill"
-                      style={{ width: `${entry.grammarPercent}%` }}
-                    />
-                  </div>
-                </>
-              ) : (
-                <p className="muted-note">Coming soon for MVP.</p>
-              )}
-            </article>
-          ))}
+    <main className="page-main history-page">
+      <section className="page-card history-card history-card--hero">
+        <div className="history-card__content">
+          <p className="history-page__eyebrow">Study Archive</p>
+          <h1 className="page-title history-page__title">History</h1>
+          <p className="page-subtitle history-page__subtitle">
+            Review your session completion, grammar best scores, and vocabulary quiz results.
+          </p>
+          <div className="history-page__notes">
+            <p className="muted-note history-page__note">
+              Vocabulary quiz accuracy shows the <strong>latest attempt</strong> per session.
+            </p>
+            {loadError ? (
+              <p className="muted-note history-page__note history-page__note--alert">
+                {loadError}
+              </p>
+            ) : null}
+            {warnings.length > 0 ? (
+              <p className="muted-note history-page__note history-page__note--alert">
+                Warning: {warnings[0]}
+              </p>
+            ) : null}
+          </div>
         </div>
       </section>
 
-      <section className="page-card">
-        <h2 className="page-title">Per-Session History</h2>
-        {rows.length === 0 ? (
-          <p className="muted-note">No session history available yet. Start studying to see records.</p>
-        ) : (
-          <div className="history-table-wrap">
-            <table className="history-table">
-              <thead>
-                <tr>
-                  <th>Type</th>
-                  <th>Level</th>
-                  <th>Part of speech</th>
-                  <th>Session</th>
-                  <th>Completed</th>
-                  <th>Grammar Best</th>
-                  <th>Vocab Quiz (Latest)</th>
-                </tr>
-              </thead>
-              <tbody>
-                {rows.map((row) => (
-                  <tr key={row.id}>
-                    <td>{row.type}</td>
-                    <td>{row.level}</td>
-                    <td>{row.type === "Vocabulary" ? row.partOfSpeechLabel ?? "-" : "-"}</td>
-                    <td>{row.sessionNumber}</td>
-                    <td>{row.completed ? "Yes" : "No"}</td>
-                    <td>
-                      {row.type === "Grammar"
-                        ? typeof row.grammarBestScore === "number"
-                          ? `${Math.round(row.grammarBestScore)}%`
-                          : "-"
-                        : "-"}
-                    </td>
-                    <td>
-                      {row.type === "Vocabulary"
-                        ? typeof row.vocabQuizAccuracyLatest === "number"
-                          ? `${Math.round(row.vocabQuizAccuracyLatest)}%`
-                          : "-"
-                        : "-"}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+      <section className="page-card history-card history-card--summary">
+        <div className="history-card__content">
+          <h2 className="page-title">Per-Level Progress</h2>
+          <p className="muted-note history-section__intro">
+            Completion status across the currently available vocabulary and grammar tracks.
+          </p>
+          <div className="history-grid history-grid--levels">
+            {perLevelProgress.map((entry) => (
+              <article key={entry.level} className="history-level-card">
+                <h3 className="topic-card__title">{entry.level}</h3>
+                {entry.available ? (
+                  <>
+                    <div className="history-level-card__metric">
+                      <div className="history-level-card__metric-head">
+                        <span className="history-level-card__label">Vocabulary</span>
+                        <strong className="history-level-card__value">{entry.vocabPercent}%</strong>
+                      </div>
+                      <p className="muted-note">{entry.vocabCounts} sessions completed</p>
+                      <div className="progress-bar" aria-hidden="true">
+                        <div
+                          className="progress-bar__fill"
+                          style={{ width: `${entry.vocabPercent}%` }}
+                        />
+                      </div>
+                    </div>
+                    <div className="history-level-card__metric">
+                      <div className="history-level-card__metric-head">
+                        <span className="history-level-card__label">Grammar</span>
+                        <strong className="history-level-card__value">
+                          {entry.grammarPercent}%
+                        </strong>
+                      </div>
+                      <p className="muted-note">{entry.grammarCounts} sessions completed</p>
+                      <div className="progress-bar" aria-hidden="true">
+                        <div
+                          className="progress-bar__fill"
+                          style={{ width: `${entry.grammarPercent}%` }}
+                        />
+                      </div>
+                    </div>
+                  </>
+                ) : (
+                  <p className="muted-note">Coming soon for MVP.</p>
+                )}
+              </article>
+            ))}
           </div>
-        )}
+        </div>
+      </section>
+
+      <section className="page-card history-card history-card--table">
+        <div className="history-card__content history-card__content--wide">
+          <div className="history-table-head">
+            <h2 className="page-title">Per-Session History</h2>
+            <p className="muted-note history-section__intro">
+              Completion, best scores, and the latest quiz results for every loaded session.
+            </p>
+          </div>
+          {rows.length === 0 ? (
+            <p className="muted-note history-empty-state">
+              No session history available yet. Start studying to see records.
+            </p>
+          ) : (
+            <div className="history-table-wrap">
+              <table className="history-table">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Level</th>
+                    <th>Part of speech</th>
+                    <th>Session</th>
+                    <th>Completed</th>
+                    <th>Grammar Best</th>
+                    <th>Vocab Quiz (Latest)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {rows.map((row) => (
+                    <tr key={row.id}>
+                      <td>{row.type}</td>
+                      <td>{row.level}</td>
+                      <td>{row.type === "Vocabulary" ? row.partOfSpeechLabel ?? "-" : "-"}</td>
+                      <td>{row.sessionNumber}</td>
+                      <td>
+                        <span
+                          className={`history-pill ${
+                            row.completed ? "history-pill--complete" : "history-pill--pending"
+                          }`}
+                        >
+                          {row.completed ? "Yes" : "No"}
+                        </span>
+                      </td>
+                      <td>
+                        {row.type === "Grammar"
+                          ? typeof row.grammarBestScore === "number"
+                            ? `${Math.round(row.grammarBestScore)}%`
+                            : "-"
+                          : "-"}
+                      </td>
+                      <td>
+                        {row.type === "Vocabulary"
+                          ? typeof row.vocabQuizAccuracyLatest === "number"
+                            ? `${Math.round(row.vocabQuizAccuracyLatest)}%`
+                            : "-"
+                          : "-"}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
+        </div>
       </section>
       <BottomPageNav />
     </main>
