@@ -181,7 +181,7 @@ export function HomeDashboard({
         <section className="home-auth" aria-label="Authentication">
           <GoogleSignInButton
             className="home-auth__button"
-            label="Googleでログイン"
+            label="Sign in with Google"
             loadingLabel="ログイン状態を確認中..."
             signingInLabel="Googleでログイン中..."
             fallbackLabel="Firebase設定が必要です"
