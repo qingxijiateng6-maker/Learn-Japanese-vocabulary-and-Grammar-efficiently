@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { isGrammarSessionCompleted } from "@/domain/progress/calc";
+import { buildGrammarSessionKey, getGrammarSessionHref } from "@/domain/grammar/meta";
 import { useProgressRepo } from "@/repo/progressRepoContext";
 import type { UserProgress } from "@/repo/progressRepo";
 
@@ -14,11 +15,12 @@ type GrammarSessionListItem = {
 };
 
 type GrammarSessionListProps = {
+  level: string;
   sessions: GrammarSessionListItem[];
   warning?: string;
 };
 
-export function GrammarSessionList({ sessions, warning }: GrammarSessionListProps) {
+export function GrammarSessionList({ level, sessions, warning }: GrammarSessionListProps) {
   const progressRepo = useProgressRepo();
   const [progress, setProgress] = useState<UserProgress | null>(null);
 
@@ -38,7 +40,7 @@ export function GrammarSessionList({ sessions, warning }: GrammarSessionListProp
   if (sessions.length === 0) {
     return (
       <section className="page-card grammar-panel grammar-panel--selection">
-        <h2 className="page-title">A2 Sessions</h2>
+        <h2 className="page-title">{level} Sessions</h2>
         <p className="page-subtitle">
           Content preparing. No valid grammar sessions are available yet.
         </p>
@@ -49,10 +51,10 @@ export function GrammarSessionList({ sessions, warning }: GrammarSessionListProp
 
   return (
     <section className="page-card grammar-panel grammar-panel--selection">
-      <h2 className="page-title">A2 Sessions</h2>
+      <h2 className="page-title">{level} Sessions</h2>
       <div className="grammar-session-list">
         {sessions.map((session) => {
-          const sessionKey = `A2:GRAMMAR:${session.sessionNumber}`;
+          const sessionKey = buildGrammarSessionKey(level, session.sessionNumber);
           const bestScore = progress?.grammarBestScoreBySession[sessionKey];
           const completed = progress
             ? isGrammarSessionCompleted(progress.grammarSessionCompletion, sessionKey)
@@ -62,7 +64,7 @@ export function GrammarSessionList({ sessions, warning }: GrammarSessionListProp
             <Link
               key={session.sessionNumber}
               className="grammar-session-link grammar-selection-card"
-              href={`/grammar/a2/session/${session.sessionNumber}`}
+              href={getGrammarSessionHref(level, session.sessionNumber)}
             >
               <div className="stack-row">
                 <strong className="grammar-session-link__title">{session.sessionTitle}</strong>

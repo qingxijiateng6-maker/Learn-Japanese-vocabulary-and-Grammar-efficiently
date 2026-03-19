@@ -1,0 +1,2898 @@
+[
+  {
+    "level": "B1",
+    "sessionNumber": 1,
+    "sessionTitle": "session1(引用)",
+    "topics": [
+      {
+        "id": "b1-g-s1-topic-1",
+        "title": "引用",
+        "explanationMarkdown": "In Japanese, **quotation** is expressed mainly with the particle **と** (to), which marks the content of what someone says, thinks, hears, or reports. This system is essential because Japanese often embeds entire sentences inside larger sentences using this structure.\n### 1. Basic quotation with と言う\nThe most common pattern is:\n**Sentence (plain form) + と言う**\nThis corresponds to English “say that…”\n* 彼は「行く」と言いました。\n*He said, “I will go.”*\n* 彼は行くと言いました。\n*He said that he will go.*\nJapanese does not require quotation marks in spoken language; the particle **と** clearly marks the quoted content.\n### 2. Plain form before と\nBefore **と**, the sentence must be in the **plain form (普通形)**:\n* 明日雨が降ると言いました。\n* 彼は学生だと言っています。\nThis applies to verbs, adjectives, and nouns. For nouns and な-adjectives, **だ** appears before と.\n### 3. Verbs used with quotation\nQuotation is not limited to “say.” Common verbs include:\n* **思う** (to think)\n* 明日は忙しいと思います。\n*I think I will be busy tomorrow.*\n* **聞く** (to hear/ask)\n* 彼が来ると聞きました。\n*I heard that he will come.*\n* **知る** (to know)\n* 彼は学生だと知っています。\n*I know that he is a student.*\nThese verbs take a quoted clause marked by **と**.\n### 4. Informal speech\nIn casual speech, **と言う** is often shortened:\n* 行くって言った。\n*He said he would go.*\nThe particle **って** functions similarly to **と** in informal contexts.\n### 5. Quoting commands and requests\nWhen quoting commands or requests, Japanese uses:\n**Verb (dictionary form) + ように言う**\n* 先生は早く来るように言いました。\n*The teacher told us to come early.*\n### Key points\n* **と** marks the content of quotation.\n* The quoted sentence uses the **plain form**.\n* Quotation works with many verbs (say, think, hear, know).\n* **って** is the casual equivalent of と.\nMastering quotation allows learners to report speech, express thoughts, and build complex sentences naturally in Japanese.",
+        "examples": [
+          {
+            "jp": "彼は「行く」と言いました。",
+            "en": "He said, “I will go.”"
+          },
+          {
+            "jp": "彼は行くと言いました。",
+            "en": "He said that he will go."
+          },
+          {
+            "jp": "明日は忙しいと思います。",
+            "en": "I think I will be busy tomorrow."
+          },
+          {
+            "jp": "彼が来ると聞きました。",
+            "en": "I heard that he will come."
+          },
+          {
+            "jp": "彼は学生だと知っています。",
+            "en": "I know that he is a student."
+          },
+          {
+            "jp": "行くって言った。",
+            "en": "He said he would go."
+          },
+          {
+            "jp": "先生は早く来るように言いました。",
+            "en": "The teacher told us to come early."
+          }
+        ]
+      }
+    ],
+    "questions": [
+      {
+        "id": "b1-g-s1-q1",
+        "promptJP": "彼は明日（ ）と言いました。",
+        "choices": [
+          "行きます",
+          "行く",
+          "行って",
+          "行った"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s1-q2",
+        "promptJP": "彼女は学生（ ）知っています。",
+        "choices": [
+          "ですと",
+          "ますと",
+          "だったと",
+          "だと"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "b1-g-s1-q3",
+        "promptJP": "明日は雨が降る（ ）思います。",
+        "choices": [
+          "と",
+          "を",
+          "に",
+          "で"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "b1-g-s1-q4",
+        "promptJP": "先生は早く来る（ ）言いました。",
+        "choices": [
+          "と",
+          "って",
+          "ように",
+          "だ"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "b1-g-s1-q5",
+        "promptJP": "彼は来ない（ ）聞きました。",
+        "choices": [
+          "が",
+          "と",
+          "を",
+          "で"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s1-q6",
+        "promptJP": "山田さんは医者（ ）知っています。",
+        "choices": [
+          "だと",
+          "ですと",
+          "ますと",
+          "だ"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "b1-g-s1-q7",
+        "promptJP": "あの人は日本へ行く（ ）言っていました。",
+        "choices": [
+          "を",
+          "に",
+          "で",
+          "と"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "b1-g-s1-q8",
+        "promptJP": "この映画は面白い（ ）聞きました。",
+        "choices": [
+          "で",
+          "を",
+          "と",
+          "に"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "b1-g-s1-q9",
+        "promptJP": "母は「早く帰る」（ ）言いました。",
+        "choices": [
+          "と",
+          "に",
+          "を",
+          "が"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "b1-g-s1-q10",
+        "promptJP": "先生は静かにする（ ）注意しました。",
+        "choices": [
+          "と",
+          "って",
+          "だ",
+          "ように"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "b1-g-s1-q11",
+        "promptJP": "彼は「明日休む」（ ）言いました。",
+        "choices": [
+          "に",
+          "と",
+          "を",
+          "で"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s1-q12",
+        "promptJP": "私は彼が来る（ ）思っています。",
+        "choices": [
+          "を",
+          "に",
+          "と",
+          "が"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "b1-g-s1-q13",
+        "promptJP": "彼女は今日休み（ ）知っています。",
+        "choices": [
+          "だと",
+          "ですと",
+          "ますと",
+          "だ"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "b1-g-s1-q14",
+        "promptJP": "友だちは来週会う（ ）言いました。",
+        "choices": [
+          "に",
+          "を",
+          "で",
+          "と"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "b1-g-s1-q15",
+        "promptJP": "その店は高い（ ）聞きました。",
+        "choices": [
+          "を",
+          "と",
+          "に",
+          "で"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s1-q16",
+        "promptJP": "彼は英語が話せる（ ）知っています。",
+        "choices": [
+          "を",
+          "に",
+          "と",
+          "で"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "b1-g-s1-q17",
+        "promptJP": "先生は宿題をする（ ）言いました。",
+        "choices": [
+          "ように",
+          "と",
+          "を",
+          "で"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "b1-g-s1-q18",
+        "promptJP": "父は「早く寝る」（ ）言いました。",
+        "choices": [
+          "を",
+          "に",
+          "で",
+          "と"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "b1-g-s1-q19",
+        "promptJP": "明日試験がある（ ）思います。",
+        "choices": [
+          "を",
+          "と",
+          "に",
+          "で"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s1-q20",
+        "promptJP": "彼女は学生だ（ ）聞きました。",
+        "choices": [
+          "と",
+          "に",
+          "を",
+          "が"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "b1-g-s1-q21",
+        "promptJP": "山田さんは来ない（ ）知っています。",
+        "choices": [
+          "を",
+          "に",
+          "と",
+          "で"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "b1-g-s1-q22",
+        "promptJP": "先生はこの本を読む（ ）勧めました。",
+        "choices": [
+          "と",
+          "ように",
+          "を",
+          "で"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s1-q23",
+        "promptJP": "彼は「行かない」（ ）答えました。",
+        "choices": [
+          "に",
+          "を",
+          "で",
+          "と"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "b1-g-s1-q24",
+        "promptJP": "あの人は医者だ（ ）思います。",
+        "choices": [
+          "と",
+          "に",
+          "を",
+          "で"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "b1-g-s1-q25",
+        "promptJP": "彼女は日本語が上手だ（ ）知っています。",
+        "choices": [
+          "を",
+          "に",
+          "と",
+          "で"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "b1-g-s1-q26",
+        "promptJP": "父は早く帰る（ ）約束しました。",
+        "choices": [
+          "を",
+          "と",
+          "に",
+          "で"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s1-q27",
+        "promptJP": "先生は静かにする（ ）言いました。",
+        "choices": [
+          "と",
+          "に",
+          "を",
+          "ように"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "b1-g-s1-q28",
+        "promptJP": "私は明日暇だ（ ）思います。",
+        "choices": [
+          "と",
+          "に",
+          "を",
+          "で"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "b1-g-s1-q29",
+        "promptJP": "彼は来る（ ）聞きました。",
+        "choices": [
+          "を",
+          "に",
+          "と",
+          "で"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "b1-g-s1-q30",
+        "promptJP": "その子は学生だ（ ）言っていました。",
+        "choices": [
+          "を",
+          "と",
+          "に",
+          "で"
+        ],
+        "correctIndex": 1
+      }
+    ]
+  },
+  {
+    "level": "B1",
+    "sessionNumber": 2,
+    "sessionTitle": "session2(受身)",
+    "topics": [
+      {
+        "id": "b1-g-s2-topic-1",
+        "title": "受身",
+        "explanationMarkdown": "In Japanese, the **passive form (受身, ukemi)** is used to shift focus from the doer of an action to the receiver, similar to English passive constructions (“be + past participle”). However, Japanese passives have broader uses and slightly different nuances.\n### 1. Basic formation\nThe passive is formed by changing the verb ending:\n* **Group 1 (u-verbs)**: change the final -u to -a + れる\n書く → 書かれる (*to be written*)\n* **Group 2 (ru-verbs)**: replace る with られる\n食べる → 食べられる (*to be eaten*)\n* **Irregular verbs**:\nする → される\n来る → 来られる\n### 2. Basic usage: direct passive\nThe most straightforward use corresponds to English passive voice:\n* 先生が学生をほめた。\n→ 学生は先生にほめられた。\n*The student was praised by the teacher.*\nHere, the subject becomes the receiver of the action, and the agent is marked by **に**.\n### 3. Indirect (adversative) passive\nJapanese also uses passive to express that someone is affected negatively by an action, even if they are not the direct object:\n* 雨に降られた。\n*I was affected by rain (it rained on me).*\nThis “adversative passive” often implies inconvenience, annoyance, or lack of control.\n### 4. Omission of the agent\nThe doer (agent) is often omitted if it is unknown, obvious, or irrelevant:\n* この本は世界中で読まれている。\n*This book is read around the world.*\nThis use is common in formal writing, news, and general statements.\n### 5. Differences from English\nJapanese passive is not always used just to “sound formal” or avoid naming the agent. It can express:\n* focus on the affected person\n* emotional impact (especially negative)\n* politeness or indirectness\n### 6. Important distinction\nThe form **〜られる** can also indicate **potential (can do)** or **respect (honorific)**. Context determines the meaning:\n* 食べられる\n*can eat / is eaten / (honorific) eats*\nUnderstanding passive constructions is essential because they appear frequently in both spoken and written Japanese, especially in narratives and formal contexts.",
+        "examples": [
+          {
+            "jp": "雨に降られた。",
+            "en": "I was affected by rain (it rained on me)."
+          },
+          {
+            "jp": "この本は世界中で読まれている。",
+            "en": "This book is read around the world."
+          },
+          {
+            "jp": "食べられる",
+            "en": "can eat / is eaten / (honorific) eats"
+          }
+        ]
+      }
+    ],
+    "questions": [
+      {
+        "id": "b1-g-s2-q1",
+        "promptJP": "私は先生にほめ（ ）。",
+        "choices": [
+          "た",
+          "られた",
+          "れた",
+          "て"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s2-q2",
+        "promptJP": "この本は多くの人に読まれ（ ）。",
+        "choices": [
+          "る",
+          "ている",
+          "られる",
+          "られている"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s2-q3",
+        "promptJP": "私は犬にかま（ ）。",
+        "choices": [
+          "れた",
+          "られた",
+          "た",
+          "ている"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "b1-g-s2-q4",
+        "promptJP": "彼は先生にしから（ ）。",
+        "choices": [
+          "た",
+          "れた",
+          "られた",
+          "て"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "b1-g-s2-q5",
+        "promptJP": "この歌は世界中で聞かれ（ ）。",
+        "choices": [
+          "る",
+          "ている",
+          "れる",
+          "られている"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s2-q6",
+        "promptJP": "私は友だちにパーティーに呼ば（ ）。",
+        "choices": [
+          "れた",
+          "られた",
+          "た",
+          "て"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "b1-g-s2-q7",
+        "promptJP": "彼は上司に仕事を任せられ（ ）。",
+        "choices": [
+          "た",
+          "れた",
+          "られた",
+          "て"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "b1-g-s2-q8",
+        "promptJP": "私は雨に降ら（ ）。",
+        "choices": [
+          "れた",
+          "られた",
+          "た",
+          "ている"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "b1-g-s2-q9",
+        "promptJP": "この橋は去年建てられ（ ）。",
+        "choices": [
+          "る",
+          "た",
+          "られる",
+          "ている"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s2-q10",
+        "promptJP": "彼はみんなに笑わ（ ）。",
+        "choices": [
+          "れた",
+          "られた",
+          "た",
+          "て"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "b1-g-s2-q11",
+        "promptJP": "私は先生に名前を呼ば（ ）。",
+        "choices": [
+          "れた",
+          "られた",
+          "た",
+          "て"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "b1-g-s2-q12",
+        "promptJP": "この映画は多くの人に見られ（ ）。",
+        "choices": [
+          "る",
+          "ている",
+          "られる",
+          "られている"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s2-q13",
+        "promptJP": "彼は友だちに秘密を知ら（ ）。",
+        "choices": [
+          "れた",
+          "られた",
+          "た",
+          "て"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "b1-g-s2-q14",
+        "promptJP": "私は母に早く起こさ（ ）。",
+        "choices": [
+          "れた",
+          "られた",
+          "た",
+          "て"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "b1-g-s2-q15",
+        "promptJP": "この町は観光客に訪れられ（ ）。",
+        "choices": [
+          "る",
+          "ている",
+          "られる",
+          "られている"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s2-q16",
+        "promptJP": "私は上司に仕事を頼ま（ ）。",
+        "choices": [
+          "れた",
+          "られた",
+          "た",
+          "て"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "b1-g-s2-q17",
+        "promptJP": "彼は先生にほめられ（ ）。",
+        "choices": [
+          "る",
+          "た",
+          "られる",
+          "ている"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s2-q18",
+        "promptJP": "私は犬にほえられ（ ）。",
+        "choices": [
+          "る",
+          "た",
+          "られる",
+          "ている"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s2-q19",
+        "promptJP": "この建物は有名な建築家に設計され（ ）。",
+        "choices": [
+          "る",
+          "た",
+          "られる",
+          "ている"
+        ],
+        "correctIndex": 1
+      },
+    {
+      "id": "b1-g-s2-q20",
+      "promptJP": "この店のケーキは毎朝職人に（ ）ています。",
+      "choices": [
+        "作られ",
+        "作らせ",
+        "作り",
+        "作る"
+      ],
+      "correctIndex": 0
+    },
+      {
+        "id": "b1-g-s2-q21",
+        "promptJP": "彼は子どもに泣か（ ）。",
+        "choices": [
+          "れた",
+          "られた",
+          "た",
+          "て"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "b1-g-s2-q22",
+        "promptJP": "この本は多くの言語に翻訳され（ ）。",
+        "choices": [
+          "る",
+          "た",
+          "られる",
+          "ている"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "b1-g-s2-q23",
+        "promptJP": "私は弟にケーキを食べられ（ ）。",
+        "choices": [
+          "る",
+          "た",
+          "られる",
+          "ている"
+        ],
+        "correctIndex": 1
+      },
+    {
+      "id": "b1-g-s2-q24",
+      "promptJP": "彼は先生に質問をさ（ ）。",
+      "choices": [
+        "れました",
+        "せました",
+        "させました",
+        "られました"
+      ],
+      "correctIndex": 0
+    },
+      {
+        "id": "b1-g-s2-q25",
+        "promptJP": "この料理は多くの人に愛され（ ）。",
+        "choices": [
+          "る",
+          "た",
+          "られる",
+          "ている"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "b1-g-s2-q26",
+        "promptJP": "私は隣の人に夜遅くまで音楽を流さ（ ）。",
+        "choices": [
+          "れた",
+          "られた",
+          "た",
+          "て"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "b1-g-s2-q27",
+        "promptJP": "彼は友だちにうそをつか（ ）。",
+        "choices": [
+          "れた",
+          "られた",
+          "た",
+          "て"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "b1-g-s2-q28",
+        "promptJP": "この橋は多くの人に使われ（ ）。",
+        "choices": [
+          "る",
+          "た",
+          "られる",
+          "ている"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s2-q29",
+        "promptJP": "私は先生に作文を直され（ ）。",
+        "choices": [
+          "る",
+          "た",
+          "られる",
+          "ている"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s2-q30",
+        "promptJP": "彼は母にほめられ（ ）。",
+        "choices": [
+          "る",
+          "た",
+          "られる",
+          "ている"
+        ],
+        "correctIndex": 1
+      }
+    ]
+  },
+  {
+    "level": "B1",
+    "sessionNumber": 3,
+    "sessionTitle": "session3(使役)",
+    "topics": [
+      {
+        "id": "b1-g-s3-topic-1",
+        "title": "使役",
+        "explanationMarkdown": "In Japanese, the **causative form (使役, shieki)** expresses the idea that someone **makes or lets another person do something**. It corresponds to English patterns like *“make someone do…”* or *“let someone do…”*, but Japanese uses a single grammatical form for both meanings; the exact nuance depends on context.\n### 1. Formation\nCausative forms are created by modifying the verb:\n* **Group 1 (u-verbs)**: change the final -u to -a + せる\n書く → 書かせる (*make/let write*)\n* **Group 2 (ru-verbs)**: replace る with させる\n食べる → 食べさせる (*make/let eat*)\n* **Irregular verbs**:\nする → させる\n来る → 来させる\n### 2. Basic sentence pattern\nThere are two main patterns depending on the verb type:\n**Transitive verb (with an object):**\n* A は B に C を V-させる\n先生は学生に宿題をさせた。\n*The teacher made the students do homework.*\n**Intransitive verb (no object):**\n* A は B を V-させる\n母は子どもを早く寝させた。\n*The mother made the child go to bed early.*\nThe particle choice (**に** vs **を**) reflects whether the verb already has a direct object.\n### 3. “Make” vs “Let”\nJapanese does not clearly distinguish between *forcing* and *permitting* in the verb form itself:\n* 子どもに遊ばせた。\n*I made/let the child play.*\nContext determines whether the action is forced or allowed.\n### 4. Causative-passive (brief note)\nThe causative can combine with the passive to express being forced:\n* 学生は先生に宿題をさせられた。\n*The student was made to do homework.*\n### 5. Politeness and nuance\nCausative forms can also express politeness or humility:\n* 少し考えさせてください。\n*Please let me think for a moment.*\nThis usage softens requests by asking for permission.\n### Key points\n* One form covers both *make* and *let*.\n* Particle choice depends on verb type.\n* Widely used in instructions, parenting, workplace contexts, and polite requests.\nMastering the causative helps learners describe control, permission, and obligation more naturally in Japanese.",
+        "examples": [
+          {
+            "jp": "子どもに遊ばせた。",
+            "en": "I made/let the child play."
+          },
+          {
+            "jp": "学生は先生に宿題をさせられた。",
+            "en": "The student was made to do homework."
+          },
+          {
+            "jp": "少し考えさせてください。",
+            "en": "Please let me think for a moment."
+          }
+        ]
+      }
+    ],
+    "questions": [
+      {
+        "id": "b1-g-s3-q1",
+        "promptJP": "先生は学生（ ）宿題をさせた。",
+        "choices": [
+          "を",
+          "が",
+          "に",
+          "で"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "b1-g-s3-q2",
+        "promptJP": "母は子ども（ ）早く寝させた。",
+        "choices": [
+          "に",
+          "を",
+          "が",
+          "で"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s3-q3",
+        "promptJP": "彼は先生に日本語を勉強（ ）。",
+        "choices": [
+          "させた",
+          "させられた",
+          "せる",
+          "される"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "b1-g-s3-q4",
+        "promptJP": "先生は学生に作文を（ ）。",
+        "choices": [
+          "書いた",
+          "書かれる",
+          "書かせた",
+          "せる"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "b1-g-s3-q5",
+        "promptJP": "少し考え（ ）ください。",
+        "choices": [
+          "して",
+          "させる",
+          "られて",
+          "させて"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "b1-g-s3-q6",
+        "promptJP": "母は子どもに野菜を（ ）。",
+        "choices": [
+          "食べる",
+          "食べられた",
+          "食べさせる",
+          "させた"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "b1-g-s3-q7",
+        "promptJP": "父は私に車を運転（ ）。",
+        "choices": [
+          "させた",
+          "した",
+          "される",
+          "する"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "b1-g-s3-q8",
+        "promptJP": "先生は学生を静かに（ ）。",
+        "choices": [
+          "した",
+          "された",
+          "させられた",
+          "させた"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "b1-g-s3-q9",
+        "promptJP": "会社は社員（ ）残業させた。",
+        "choices": [
+          "を",
+          "に",
+          "が",
+          "で"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "b1-g-s3-q10",
+        "promptJP": "彼女は友だちを家に（ ）。",
+        "choices": [
+          "来る",
+          "来た",
+          "来させた",
+          "来られた"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "b1-g-s3-q11",
+        "promptJP": "私は先生に日本語を勉強（ ）。",
+        "choices": [
+          "させた",
+          "させられた",
+          "する",
+          "される"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s3-q12",
+        "promptJP": "部長は私にその書類を署名（ ）。",
+        "choices": [
+          "した",
+          "される",
+          "させた",
+          "さる"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "b1-g-s3-q13",
+        "promptJP": "母は子ども（ ）部屋を片づけさせた。",
+        "choices": [
+          "が",
+          "で",
+          "に",
+          "を"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "b1-g-s3-q14",
+        "promptJP": "先生は学生（ ）質問を考えさせた。",
+        "choices": [
+          "が",
+          "に",
+          "を",
+          "で"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s3-q15",
+        "promptJP": "少し待たせて（ ）か。",
+        "choices": [
+          "もらえます",
+          "ください",
+          "もらう",
+          "いる"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "b1-g-s3-q16",
+        "promptJP": "父は私（ ）車を洗わせた。",
+        "choices": [
+          "を",
+          "に",
+          "が",
+          "で"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s3-q17",
+        "promptJP": "先生は彼にもう一度言（ ）。",
+        "choices": [
+          "わせた",
+          "った",
+          "う",
+          "って"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "b1-g-s3-q18",
+        "promptJP": "彼は上司に残業（ ）。",
+        "choices": [
+          "した",
+          "させる",
+          "させられた",
+          "される"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "b1-g-s3-q19",
+        "promptJP": "先生は学生に漢字を百回書かせ（ ）。",
+        "choices": [
+          "る",
+          "た",
+          "ない",
+          "て"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s3-q20",
+        "promptJP": "親は子どもを自由に遊ばせ（ ）。",
+        "choices": [
+          "る",
+          "た",
+          "ない",
+          "て"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s3-q21",
+        "promptJP": "先生は学生に漢字を何度も（ ）。",
+        "choices": [
+          "書いた",
+          "書かれる",
+          "書かせた",
+          "書く"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "b1-g-s3-q22",
+        "promptJP": "私は母に料理を作ら（ ）。",
+        "choices": [
+          "せた",
+          "された",
+          "せる",
+          "する"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "b1-g-s3-q23",
+        "promptJP": "先生は学生に意見を言わせ（ ）。",
+        "choices": [
+          "れれる",
+          "ない",
+          "た",
+          "て"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "b1-g-s3-q24",
+        "promptJP": "彼は弟に宿題をやらせ（ ）。",
+        "choices": [
+          "られる",
+          "する",
+          "た",
+          "いる"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "b1-g-s3-q25",
+        "promptJP": "子どもにもっと野菜を食べ（ ）ほしい。",
+        "choices": [
+          "されたい",
+          "したい",
+          "食べたい",
+          "させて"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "b1-g-s3-q26",
+        "promptJP": "今日は少し休ませて（ ）。",
+        "choices": [
+          "ください",
+          "くれる",
+          "する",
+          "いる"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "b1-g-s3-q27",
+        "promptJP": "父は私に部屋を片づけ（ ）。",
+        "choices": [
+          "した",
+          "させた",
+          "される",
+          "る"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s3-q28",
+        "promptJP": "会社は新人に電話を取らせ（ ）。",
+        "choices": [
+          "た",
+          "る",
+          "ない",
+          "て"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s3-q29",
+        "promptJP": "この仕事は学生に手伝わせ（ ）。",
+        "choices": [
+          "ます",
+          "た",
+          "られる",
+          "ない"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s3-q30",
+        "promptJP": "母は子どもに早く寝させ（ ）。",
+        "choices": [
+          "た",
+          "いる",
+          "ない",
+          "て"
+        ],
+        "correctIndex": 0
+      }
+    ]
+  },
+  {
+    "level": "B1",
+    "sessionNumber": 4,
+    "sessionTitle": "session4(様態・推量)",
+    "topics": [
+      {
+        "id": "b1-g-s4-topic-1",
+        "title": "様態・推量",
+        "explanationMarkdown": "In Japanese, two closely related expressions—**〜そうです (appearance)** and **〜でしょう／だろう (probability)**—are used to express **judgment without certainty**, but they differ in the **type of evidence** behind the statement.\n### 1. 〜そうです (appearance)\nThe form **〜そうです** is used when you make a judgment based on **direct sensory evidence**, especially visual information. It corresponds to English expressions like *“looks like…”* or *“seems…”*.\n**Formation:**\n* Verb stem + そうです\n雨が降りそうです。\n*It looks like it will rain.*\n* い-adjective: remove い + そうです\nおいしそうです。 (*It looks delicious.*)\n* な-adjective: stem + そうです\n元気そうです。 (*He looks energetic.*)\n**Restrictions:**\n* This form does not attach directly to **nouns**.\n* Negative forms require special structures (e.g., 来なさそうです).\nThe key point is that the speaker is making an **immediate judgment from what they observe**.\n---\n### 2. でしょう / だろう (probability)\n**でしょう** (polite) and **だろう** (plain) express a **prediction or assumption** based on **reasoning, knowledge, or indirect evidence**, not just what is seen. They correspond to English *“probably”* or *“I think … will…”*.\n**Formation:**\nAttach to the **plain form**:\n* 明日は雨が降るでしょう。\n*It will probably rain tomorrow.*\n* 彼は来ないだろう。\n*He probably won’t come.*\n**Usage:**\n* Making predictions\n* Expressing uncertainty politely\n* Asking for confirmation (rising intonation):\nこれは正しいでしょう？ (*This is correct, right?*)\n---\n### Key contrast\n* 雨が降りそうです → based on what you **see now** (dark clouds)\n* 雨が降るでしょう → based on **knowledge or reasoning** (forecast, experience)\n---\n### Summary\n* **〜そうです**: immediate, sensory-based appearance\n* **でしょう／だろう**: logical or probabilistic judgment\nUnderstanding this distinction helps learners express subtle differences in certainty and evidence, which is an important part of natural Japanese communication.",
+        "examples": [
+          {
+            "jp": "明日は雨が降るでしょう。",
+            "en": "It will probably rain tomorrow."
+          },
+          {
+            "jp": "彼は来ないだろう。",
+            "en": "He probably won’t come."
+          }
+        ]
+      }
+    ],
+    "questions": [
+      {
+        "id": "b1-g-s4-q1",
+        "promptJP": "そのケーキはおいし（ ）。",
+        "choices": [
+          "だろう",
+          "でしょう",
+          "そうです",
+          "みたいです"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "b1-g-s4-q2",
+        "promptJP": "明日は雨が降り（ ）と思います。",
+        "choices": [
+          "でしょう",
+          "そうだ",
+          "みたいです",
+          "だろう"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s4-q3",
+        "promptJP": "この花はきれい（ ）。",
+        "choices": [
+          "そう",
+          "そうです",
+          "だろう",
+          "みたいです"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "b1-g-s4-q4",
+        "promptJP": "彼は今日は来ない（ ）。",
+        "choices": [
+          "ろう",
+          "そう",
+          "しょう",
+          "みたいです"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "b1-g-s4-q5",
+        "promptJP": "空が暗いので、雨が降り（ ）。",
+        "choices": [
+          "だろう",
+          "そうです",
+          "でしょう",
+          "みたいです"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s4-q6",
+        "promptJP": "この部屋は静か（ ）。",
+        "choices": [
+          "でしょう",
+          "だろう",
+          "そうです",
+          "みたいです"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "b1-g-s4-q7",
+        "promptJP": "彼女は明日休む（ ）。",
+        "choices": [
+          "しょう",
+          "です",
+          "られる",
+          "みたいです"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "b1-g-s4-q8",
+        "promptJP": "その映画は面白い（ ）。",
+        "choices": [
+          "そうです",
+          "かろう",
+          "する",
+          "しょう"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "b1-g-s4-q9",
+        "promptJP": "彼はとても疲れている（ ）と思います。",
+        "choices": [
+          "だろう",
+          "そうです",
+          "でしょう",
+          "みたいです"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "b1-g-s4-q10",
+        "promptJP": "明日は雪が降る（ ）と思います。",
+        "choices": [
+          "×",
+          "でしょう",
+          "そうです",
+          "みたいです"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "b1-g-s4-q11",
+        "promptJP": "その店は高い（ ）。",
+        "choices": [
+          "だろう",
+          "そう",
+          "れる",
+          "しょう"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "b1-g-s4-q12",
+        "promptJP": "この料理は少し辛そう（ ）。",
+        "choices": [
+          "です",
+          "だろう",
+          "でしょう",
+          "みたいです"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "b1-g-s4-q13",
+        "promptJP": "彼は明日来る（ ）と思います。",
+        "choices": [
+          "でしょう",
+          "だろう",
+          "そうです",
+          "みたいです"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s4-q14",
+        "promptJP": "明日の試験は難しい（ ）。",
+        "choices": [
+          "そう",
+          "だろう",
+          "たい",
+          "でしょう"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s4-q15",
+        "promptJP": "この人は先生だ（ ）。",
+        "choices": [
+          "でしょう",
+          "そうです",
+          "だろう",
+          "みたいです"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s4-q16",
+        "promptJP": "空が黒いから、雨が降り（ ）。",
+        "choices": [
+          "そうです",
+          "でしょう",
+          "だろう",
+          "みたいです"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "b1-g-s4-q17",
+        "promptJP": "彼女は来る（ ）か。",
+        "choices": [
+          "だろう",
+          "そうです",
+          "みたいです",
+          "でしょう"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "b1-g-s4-q18",
+        "promptJP": "その子は眠そう（ ）。",
+        "choices": [
+          "だろう",
+          "でしょう",
+          "そうです",
+          "みたいです"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s4-q19",
+        "promptJP": "明日は暑い（ ）と思います。",
+        "choices": [
+          "だろう",
+          "そうです",
+          "でしょう",
+          "みたいです"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "b1-g-s4-q20",
+        "promptJP": "この道は危なそう（ ）。",
+        "choices": [
+          "しょう",
+          "だ",
+          "そうです",
+          "みたいです"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s4-q21",
+        "promptJP": "彼はたぶん来る（ ）。",
+        "choices": [
+          "です",
+          "られるです",
+          "みたいです",
+          "ですか"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "b1-g-s4-q22",
+        "promptJP": "このケーキは甘くておいしそう（ ）。",
+        "choices": [
+          "です",
+          "かろう",
+          "ろう",
+          "みたいです"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "b1-g-s4-q23",
+        "promptJP": "明日は雨が降る（ ）。",
+        "choices": [
+          "しょう",
+          "ろう",
+          "そうです",
+          "です"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "b1-g-s4-q24",
+        "promptJP": "彼は今日は来ない（ ）と思います。",
+        "choices": [
+          "でしょう",
+          "みたいです",
+          "そうです",
+          "×"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "b1-g-s4-q25",
+        "promptJP": "この花は赤くてきれい（ ）。",
+        "choices": [
+          "そうです",
+          "だろう",
+          "しょう",
+          "みたいです"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s4-q26",
+        "promptJP": "明日は台風が来る（ ）。",
+        "choices": [
+          "そうです",
+          "られる",
+          "かろう",
+          "です"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "b1-g-s4-q27",
+        "promptJP": "彼はとても元気（ ）。",
+        "choices": [
+          "かろう",
+          "する",
+          "そうで",
+          "みたいです"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "b1-g-s4-q28",
+        "promptJP": "この計画はうまくいく（ ）と思います。",
+        "choices": [
+          "でしょう",
+          "そうです",
+          "みたいです",
+          "だろう"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "b1-g-s4-q29",
+        "promptJP": "この店は人が多くて、にぎやか（ ）。",
+        "choices": [
+          "でしょう",
+          "そうです",
+          "だろう",
+          "みたいです"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "b1-g-s4-q30",
+        "promptJP": "彼はあまり眠っていないので、眠そう（ ）。",
+        "choices": [
+          "です",
+          "だろう",
+          "する",
+          "みたいです"
+        ],
+        "correctIndex": 0
+      }
+    ]
+  },
+  {
+    "level": "B1",
+    "sessionNumber": 5,
+    "sessionTitle": "session5(可能・自発)",
+    "topics": [
+      {
+        "id": "b1-g-s5-topic-1",
+        "title": "可能・自発",
+        "explanationMarkdown": "In Japanese, the forms often grouped as **potential (可能)** and **spontaneous (自発)** share the same morphology but differ in meaning. Both are commonly expressed with verb endings such as **〜(ら)れる** and, for many verbs, **〜える**. Understanding the distinction is important because context determines which interpretation is intended.\n### 1. Potential (ability / possibility)\nThe **potential form** expresses what someone **can do** or what is **possible**. It corresponds to English “can” or “be able to.”\n**Formation:**\n* **Group 1 (u-verbs)**: change the final -u to -e + る\n書く → 書ける (*can write*)\n* **Group 2 (ru-verbs)**: replace る with られる (often shortened to れる in speech)\n食べる → 食べられる / 食べれる (*can eat*)\n* **Irregular verbs**:\nする → できる\n来る → 来られる\n**Examples:**\n* 日本語が話せます。\n*I can speak Japanese.*\n* この漢字は読めません。\n*I can’t read this kanji.*\nIn many cases, the object marker **を** changes to **が** in potential sentences.\n### 2. Spontaneous (unintentional / natural occurrence)\nThe **spontaneous form** expresses actions or feelings that **occur naturally or involuntarily**, without conscious intention. It is often translated as “come to mind,” “be remembered,” or “cannot help but…”\nThis use is more common with verbs related to cognition, emotion, and perception.\n**Examples:**\n* 昔のことが思い出される。\n*Old memories come back to me.*\n* 彼のことが考えられる。\n*I find myself thinking about him.*\nHere, the subject does not actively control the action; it happens naturally.\n### 3. Overlap and context\nBecause both meanings use similar forms (especially **〜られる**), context is crucial:\n* この本は読める。 (*I can read this book* — potential)\n* この歌が思い出される。 (*This song comes to mind* — spontaneous)\n### Key points\n* Same form, different meanings: ability vs involuntary occurrence\n* Potential is frequent in everyday speech\n* Spontaneous is more limited to certain verbs and contexts\nRecognizing the difference depends on the verb type and whether the action is **intentional (possible)** or **unintentional (spontaneous)**.",
+        "examples": [
+          {
+            "jp": "日本語が話せます。",
+            "en": "I can speak Japanese."
+          },
+          {
+            "jp": "この漢字は読めません。",
+            "en": "I can’t read this kanji."
+          },
+          {
+            "jp": "昔のことが思い出される。",
+            "en": "Old memories come back to me."
+          },
+          {
+            "jp": "彼のことが考えられる。",
+            "en": "I find myself thinking about him."
+          }
+        ]
+      }
+    ],
+    "questions": [
+      {
+        "id": "b1-g-s5-q1",
+        "promptJP": "私は日本語が（ ）。",
+        "choices": [
+          "話す",
+          "話せる",
+          "話される",
+          "話した"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s5-q2",
+        "promptJP": "この漢字は読（ ）。",
+        "choices": [
+          "む",
+          "める",
+          "まれる",
+          "んだ"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s5-q3",
+        "promptJP": "彼はピアノが弾（ ）。",
+        "choices": [
+          "く",
+          "ける",
+          "かれる",
+          "いた"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s5-q4",
+        "promptJP": "私はまだ漢字が書（ ）。",
+        "choices": [
+          "く",
+          "けない",
+          "かれる",
+          "いた"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s5-q5",
+        "promptJP": "この問題は簡単に解（ ）。",
+        "choices": [
+          "く",
+          "ける",
+          "かれる",
+          "いた"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s5-q6",
+        "promptJP": "ここから富士山が見（ ）。",
+        "choices": [
+          "る",
+          "える",
+          "られる",
+          "た"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s5-q7",
+        "promptJP": "この店ではカードが使（ ）。",
+        "choices": [
+          "う",
+          "える",
+          "われる",
+          "った"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s5-q8",
+        "promptJP": "私は泳ぐことができ（ ）。",
+        "choices": [
+          "る",
+          "った",
+          "られる",
+          "れる"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "b1-g-s5-q9",
+        "promptJP": "その音楽を聞くと、昔のことが思い出さ（ ）。",
+        "choices": [
+          "れる",
+          "せる",
+          "れた",
+          "した"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "b1-g-s5-q10",
+        "promptJP": "彼のことがよく思い出さ（ ）。",
+        "choices": [
+          "る",
+          "られる",
+          "れる",
+          "た"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "b1-g-s5-q11",
+        "promptJP": "この写真を見ると、子どものころが思い出さ（ ）。",
+        "choices": [
+          "れる",
+          "せる",
+          "れた",
+          "した"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "b1-g-s5-q12",
+        "promptJP": "私はその字が読（ ）。",
+        "choices": [
+          "む",
+          "める",
+          "まれる",
+          "んだ"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s5-q13",
+        "promptJP": "この川では魚が釣（ ）。",
+        "choices": [
+          "る",
+          "れる",
+          "られる",
+          "った"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s5-q14",
+        "promptJP": "私は明日早く起き（ ）。",
+        "choices": [
+          "る",
+          "られる",
+          "れる",
+          "た"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "b1-g-s5-q15",
+        "promptJP": "彼はまだ日本語が話（ ）。",
+        "choices": [
+          "す",
+          "せる",
+          "される",
+          "した"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s5-q16",
+        "promptJP": "この料理はだれでも作（ ）。",
+        "choices": [
+          "る",
+          "れる",
+          "られる",
+          "った"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s5-q17",
+        "promptJP": "その歌を聞くと、涙が出（ ）。",
+        "choices": [
+          "る",
+          "られる",
+          "れる",
+          "た"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "b1-g-s5-q18",
+        "promptJP": "私はこの本が理解（ ）。",
+        "choices": [
+          "する",
+          "できる",
+          "される",
+          "した"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s5-q19",
+        "promptJP": "ここでは写真を撮（ ）。",
+        "choices": [
+          "る",
+          "れる",
+          "られる",
+          "った"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s5-q20",
+        "promptJP": "彼の話はよく理解（ ）。",
+        "choices": [
+          "する",
+          "できる",
+          "される",
+          "した"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s5-q21",
+        "promptJP": "このボタンを押すと、ドアが開（ ）。",
+        "choices": [
+          "く",
+          "ける",
+          "かれる",
+          "いた"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "b1-g-s5-q22",
+        "promptJP": "私はフランス語が話（ ）。",
+        "choices": [
+          "す",
+          "せる",
+          "される",
+          "した"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s5-q23",
+        "promptJP": "この本は一日で読（ ）。",
+        "choices": [
+          "む",
+          "める",
+          "まれる",
+          "んだ"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s5-q24",
+        "promptJP": "彼は重い荷物が持（ ）。",
+        "choices": [
+          "つ",
+          "てる",
+          "たれる",
+          "った"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s5-q25",
+        "promptJP": "この問題はだれでも解（ ）。",
+        "choices": [
+          "く",
+          "ける",
+          "かれる",
+          "いた"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s5-q26",
+        "promptJP": "その話を聞したら笑わ（ ）。",
+        "choices": [
+          "れる",
+          "せる",
+          "れた",
+          "した"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "b1-g-s5-q27",
+        "promptJP": "私は漢字が読（ ）。",
+        "choices": [
+          "む",
+          "めない",
+          "まれる",
+          "んだ"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s5-q28",
+        "promptJP": "この部屋ではタバコが吸（ ）。",
+        "choices": [
+          "う",
+          "える",
+          "われる",
+          "った"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s5-q29",
+        "promptJP": "彼は英語が理解（ ）。",
+        "choices": [
+          "する",
+          "できない",
+          "される",
+          "した"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s5-q30",
+        "promptJP": "その景色を見ると、感動が覚えら（ ）。",
+        "choices": [
+          "れる",
+          "せる",
+          "れた",
+          "した"
+        ],
+        "correctIndex": 0
+      }
+    ]
+  },
+  {
+    "level": "B1",
+    "sessionNumber": 6,
+    "sessionTitle": "session6(逆接・対比)",
+    "topics": [
+      {
+        "id": "b1-g-s6-topic-1",
+        "title": "逆接・対比",
+        "explanationMarkdown": "In Japanese, expressions of **contrast and concession**—often called 逆接・対比—allow speakers to connect ideas that are **unexpected, opposed, or contrasted**. Common forms include **〜が**, **〜けれど（も）**, **〜のに**, and **〜ても**. Each has a slightly different nuance.\n### 1. 〜が / 〜けれど（も） (contrast, neutral)\nThese are the most common ways to connect two clauses with a mild contrast, similar to English “but,” “although,” or “though.”\n* 日本語は難しい**ですが**、面白いです。\n*Japanese is difficult, but interesting.*\n* 行きたい**けれども**、時間がありません。\n*I want to go, but I don’t have time.*\nThey are relatively neutral and are widely used in both spoken and written language. **けれど（も）** is slightly more casual than **が**.\n### 2. 〜のに (unexpected contrast)\n**〜のに** expresses a stronger sense of contradiction or disappointment, often implying that the result is **unexpected or contrary to what should happen**.\n* 一生懸命勉強した**のに**、試験に落ちた。\n*Even though I studied hard, I failed the exam.*\nThis form often carries an emotional tone such as frustration or regret.\n### 3. 〜ても (concessive “even if”)\n**〜ても** means “even if” or “even though,” and is used to show that the result does not change regardless of the condition.\n* 雨が降っ**ても**、行きます。\n*Even if it rains, I will go.*\nIt emphasizes that the outcome is **independent of the condition**.\n### 4. Contrastive は (topic contrast)\nJapanese can also express contrast simply by using **は** to highlight a difference:\n* コーヒーは飲みますが、お茶は飲みません。\n*I drink coffee, but I don’t drink tea.*\n### Key differences\n* **が / けれど**: neutral contrast\n* **のに**: unexpected or emotional contrast\n* **ても**: “even if,” no change in outcome\nUnderstanding these forms helps learners express nuanced relationships between ideas and communicate more naturally in Japanese.",
+        "examples": [
+          {
+            "jp": "日本語は難しい**ですが**、面白いです。",
+            "en": "Japanese is difficult, but interesting."
+          },
+          {
+            "jp": "行きたい**けれども**、時間がありません。",
+            "en": "I want to go, but I don’t have time."
+          },
+          {
+            "jp": "一生懸命勉強した**のに**、試験に落ちた。",
+            "en": "Even though I studied hard, I failed the exam."
+          },
+          {
+            "jp": "雨が降っ**ても**、行きます。",
+            "en": "Even if it rains, I will go."
+          },
+          {
+            "jp": "コーヒーは飲みますが、お茶は飲みません。",
+            "en": "I drink coffee, but I don’t drink tea."
+          }
+        ]
+      }
+    ],
+    "questions": [
+      {
+        "id": "b1-g-s6-q1",
+        "promptJP": "日本語は難しい（ ）、面白いです。",
+        "choices": [
+          "が",
+          "のに",
+          "ても",
+          "けれども"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "b1-g-s6-q2",
+        "promptJP": "行きたい（ ）、時間がありません。",
+        "choices": [
+          "ても",
+          "のに",
+          "しかし",
+          "ければ"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s6-q3",
+        "promptJP": "一生懸命勉強した（ ）、試験に落ちた。",
+        "choices": [
+          "けれども",
+          "のに",
+          "ても",
+          "が"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s6-q4",
+        "promptJP": "雨が降っ（ ）、行きます。",
+        "choices": [
+          "が",
+          "のに",
+          "ても",
+          "けれども"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "b1-g-s6-q5",
+        "promptJP": "コーヒーは飲みます（ ）、お茶は飲みません。",
+        "choices": [
+          "が",
+          "のに",
+          "ても",
+          "けれども"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "b1-g-s6-q6",
+        "promptJP": "この本は難しい（ ）、おもしろいです。",
+        "choices": [
+          "ても",
+          "のに",
+          "が",
+          "けれども"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "b1-g-s6-q7",
+        "promptJP": "雨が降っ（ ）、試合はします。",
+        "choices": [
+          "のに",
+          "ても",
+          "けれども",
+          "が"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s6-q8",
+        "promptJP": "忙しく（ ）、手伝ってください。",
+        "choices": [
+          "けれども",
+          "のに",
+          "ても",
+          "が"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "b1-g-s6-q9",
+        "promptJP": "彼は学生です（ ）、アルバイトをしています。",
+        "choices": [
+          "も",
+          "のに",
+          "が",
+          "ても"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "b1-g-s6-q10",
+        "promptJP": "高く（ ）、買いました。",
+        "choices": [
+          "が",
+          "のに",
+          "ても",
+          "けれども"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "b1-g-s6-q11",
+        "promptJP": "彼女は若い（ ）、しっかりしています。",
+        "choices": [
+          "が",
+          "のに",
+          "ても",
+          "けれども"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s6-q12",
+        "promptJP": "何度説明し（ ）、彼は分かりません。",
+        "choices": [
+          "が",
+          "のに",
+          "ても",
+          "けれども"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "b1-g-s6-q13",
+        "promptJP": "早く起きた（ ）、遅刻した。",
+        "choices": [
+          "が",
+          "ので",
+          "ても",
+          "ども"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "b1-g-s6-q14",
+        "promptJP": "この部屋は狭い（ ）、静かです。",
+        "choices": [
+          "ので",
+          "のに",
+          "ても",
+          "が"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "b1-g-s6-q15",
+        "promptJP": "風邪をひいた（ ）、学校へ行きました。",
+        "choices": [
+          "ので",
+          "から",
+          "ても",
+          "けれども"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "b1-g-s6-q16",
+        "promptJP": "彼は疲れている（ ）、残業しました。",
+        "choices": [
+          "のが",
+          "のに",
+          "ので",
+          "たら"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s6-q17",
+        "promptJP": "雨が降っ（ ）、出発します。",
+        "choices": [
+          "ても",
+          "のに",
+          "が",
+          "けれども"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "b1-g-s6-q18",
+        "promptJP": "安い（ ）、よく売れています。",
+        "choices": [
+          "が",
+          "ので",
+          "ても",
+          "けれども"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s6-q19",
+        "promptJP": "勉強した（ ）、あまり覚えていません。",
+        "choices": [
+          "ので",
+          "のに",
+          "ても",
+          "たら"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s6-q20",
+        "promptJP": "彼は忙しい（ ）、来てくれました。",
+        "choices": [
+          "けれども",
+          "のに",
+          "ても",
+          "が"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s6-q21",
+        "promptJP": "このカメラは軽い（ ）、性能がいいです。",
+        "choices": [
+          "から",
+          "のに",
+          "ても",
+          "ども"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s6-q22",
+        "promptJP": "雨が降っ（ ）、外で遊びます。",
+        "choices": [
+          "ても",
+          "のに",
+          "が",
+          "けれども"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "b1-g-s6-q23",
+        "promptJP": "その映画は長い（ ）、退屈ではありません。",
+        "choices": [
+          "とも",
+          "ので",
+          "ても",
+          "けれども"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "b1-g-s6-q24",
+        "promptJP": "寒い（ ）、窓を開けて寝ました。",
+        "choices": [
+          "から",
+          "のに",
+          "ても",
+          "も"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s6-q25",
+        "promptJP": "彼は子どもです（ ）、とても賢いです。",
+        "choices": [
+          "が",
+          "のに",
+          "ても",
+          "ので"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "b1-g-s6-q26",
+        "promptJP": "何を言っ（ ）、彼は聞きません。",
+        "choices": [
+          "が",
+          "のに",
+          "ても",
+          "けれども"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "b1-g-s6-q27",
+        "promptJP": "高かった（ ）、買いませんでした。",
+        "choices": [
+          "が",
+          "ので",
+          "ても",
+          "けれども"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s6-q28",
+        "promptJP": "彼女は病気です（ ）、会社へ行きました。",
+        "choices": [
+          "が",
+          "のに",
+          "ても",
+          "ども"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "b1-g-s6-q29",
+        "promptJP": "いくら待っ（ ）、彼は来ません。",
+        "choices": [
+          "が",
+          "のに",
+          "ても",
+          "けれども"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "b1-g-s6-q30",
+        "promptJP": "その店は高い（ ）、お客さんが多いです。",
+        "choices": [
+          "が",
+          "のに",
+          "ても",
+          "ので"
+        ],
+        "correctIndex": 1
+      }
+    ]
+  },
+  {
+    "level": "B1",
+    "sessionNumber": 7,
+    "sessionTitle": "session7(連結・文章化)",
+    "topics": [
+      {
+        "id": "b1-g-s7-topic-1",
+        "title": "連結・文章化",
+        "explanationMarkdown": "In Japanese, **sentence connection and text formation (連結・文章化)** are essential for building longer, natural discourse. Unlike English, which often uses conjunctions like “and,” “because,” or “but,” Japanese frequently links clauses through **verb forms and particles**, creating a smoother flow.\n### 1. The て-form (linking actions)\nThe **て-form** is the most common way to connect actions in sequence or combination. It can correspond to “and,” “then,” or “after.”\n* 朝ごはんを食べて、学校へ行きます。\n*I eat breakfast and go to school.*\nThe order of actions is usually chronological. The subject is typically shared across clauses.\n### 2. Clause connectors (conjunctions)\nJapanese also uses specific connectors to show logical relationships:\n* **から / ので** (reason)\n雨が降っているので、出かけません。\n* **が / けれど** (contrast)\n行きたいけれど、時間がありません。\n* **そして / それから** (sequence)\n勉強しました。そして、寝ました。\nThese are closer to English conjunctions and help structure longer discourse.\n### 3. Nominalization and embedding\nJapanese often turns clauses into nouns using **こと** or **の**, allowing them to function inside larger sentences:\n* 日本語を勉強することは大切です。\n*Studying Japanese is important.*\nThis is important for forming complex sentences and abstract statements.\n### 4. Relative clauses (pre-noun modification)\nJapanese connects information by placing clauses **before nouns**, without relative pronouns:\n* 昨日買った本\n*the book (that I) bought yesterday*\nThis structure is very common in written and spoken Japanese.\n### 5. Avoiding repetition\nJapanese tends to omit repeated subjects and relies on context. Connection is achieved through **form rather than explicit pronouns**, which can feel different from English.\n### Key points\n* The **て-form** links actions smoothly\n* Particles and connectors express logical relations\n* Clauses can be embedded or placed before nouns\n* Subject omission is common in connected discourse\nMastering these strategies allows learners to move from short sentences to more natural, cohesive Japanese communication.",
+        "examples": [
+          {
+            "jp": "朝ごはんを食べて、学校へ行きます。",
+            "en": "I eat breakfast and go to school."
+          },
+          {
+            "jp": "日本語を勉強することは大切です。",
+            "en": "Studying Japanese is important."
+          },
+          {
+            "jp": "昨日買った本",
+            "en": "the book (that I) bought yesterday"
+          }
+        ]
+      }
+    ],
+    "questions": [
+      {
+        "id": "b1-g-s7-q1",
+        "promptJP": "朝ごはんを食べ（ ）、学校へ行きます。",
+        "choices": [
+          "て",
+          "た",
+          "る",
+          "ない"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "b1-g-s7-q2",
+        "promptJP": "今日は忙しい（ ）、明日電話します。",
+        "choices": [
+          "けれども",
+          "から",
+          "が",
+          "ので"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "b1-g-s7-q3",
+        "promptJP": "行きたい（ ）、時間がありません。",
+        "choices": [
+          "から",
+          "けれども",
+          "ので",
+          "と"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s7-q4",
+        "promptJP": "雨が降っ（ ）、試合は中止です。",
+        "choices": [
+          "た",
+          "て",
+          "たら",
+          "る"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "b1-g-s7-q5",
+        "promptJP": "日本語を勉強する（ ）が大切です。",
+        "choices": [
+          "こと",
+          "の",
+          "と",
+          "から"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "b1-g-s7-q6",
+        "promptJP": "彼が来ない（ ）、会議を始めます。",
+        "choices": [
+          "たら",
+          "ので",
+          "が",
+          "なら"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s7-q7",
+        "promptJP": "昨日買った（ ）を読みました。",
+        "choices": [
+          "の",
+          "本",
+          "人",
+          "こと"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s7-q8",
+        "promptJP": "先生は「静かにして」（ ）言いました。",
+        "choices": [
+          "と",
+          "に",
+          "から",
+          "を"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "b1-g-s7-q9",
+        "promptJP": "英語も話せます。（ ）、日本語も話せます。",
+        "choices": [
+          "そして",
+          "しかし",
+          "でも",
+          "だから"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "b1-g-s7-q10",
+        "promptJP": "まずごはんを食べます。（ ）、宿題をします。",
+        "choices": [
+          "から",
+          "ので",
+          "が",
+          "それから"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "b1-g-s7-q11",
+        "promptJP": "何か質問があれ（ ）、聞いてください。",
+        "choices": [
+          "たら",
+          "ば",
+          "と",
+          "なら"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s7-q12",
+        "promptJP": "私は日本語を勉強する（ ）好きです。",
+        "choices": [
+          "こと",
+          "のが",
+          "と",
+          "の"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s7-q13",
+        "promptJP": "疲れている（ ）、早く寝たほうがいいです。",
+        "choices": [
+          "から",
+          "が",
+          "けれども",
+          "ので"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "b1-g-s7-q14",
+        "promptJP": "彼は来る（ ）聞きました。",
+        "choices": [
+          "に",
+          "を",
+          "で",
+          "と"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "b1-g-s7-q15",
+        "promptJP": "雨が降った（ ）、試合は中止になりました。",
+        "choices": [
+          "て",
+          "たら",
+          "ので",
+          "る"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "b1-g-s7-q16",
+        "promptJP": "昨日会った（ ）は先生です。",
+        "choices": [
+          "本",
+          "こと",
+          "人",
+          "の"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "b1-g-s7-q17",
+        "promptJP": "彼は忙しい（ ）、会いに来ませんでした。",
+        "choices": [
+          "ので",
+          "から",
+          "けれども",
+          "が"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "b1-g-s7-q18",
+        "promptJP": "仕事が終わっ（ ）、友だちに会います。",
+        "choices": [
+          "て",
+          "た",
+          "る",
+          "たら"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "b1-g-s7-q19",
+        "promptJP": "その話は本当（ ）と思います。",
+        "choices": [
+          "です",
+          "だ",
+          "ます",
+          "でした"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s7-q20",
+        "promptJP": "彼女は学生（ ）、アルバイトをしています。",
+        "choices": [
+          "だが",
+          "で",
+          "が",
+          "なら"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "b1-g-s7-q21",
+        "promptJP": "彼が来る（ ）を待っています。",
+        "choices": [
+          "の",
+          "こと",
+          "と",
+          "まで"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "b1-g-s7-q22",
+        "promptJP": "私は昨日映画を見（ ）、感想を書きました。",
+        "choices": [
+          "た",
+          "る",
+          "ない",
+          "て"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "b1-g-s7-q23",
+        "promptJP": "その店は高い（ ）、お客さんが多いです。",
+        "choices": [
+          "から",
+          "のに",
+          "ので",
+          "と"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s7-q24",
+        "promptJP": "彼は英語が話せる、（ ）、日本語も話せます。",
+        "choices": [
+          "から",
+          "しかし",
+          "そして",
+          "でも"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "b1-g-s7-q25",
+        "promptJP": "子どものころに読んだ（ ）が忘れられません。",
+        "choices": [
+          "本",
+          "人",
+          "こと",
+          "の"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "b1-g-s7-q26",
+        "promptJP": "雨が降っている（ ）、出かけません。",
+        "choices": [
+          "から",
+          "けれども",
+          "が",
+          "ので"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "b1-g-s7-q27",
+        "promptJP": "彼女は来ない（ ）、会議を始めます。",
+        "choices": [
+          "たら",
+          "けれども",
+          "ので",
+          "なら"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "b1-g-s7-q28",
+        "promptJP": "その話を聞い（ ）、びっくりしました。",
+        "choices": [
+          "ると",
+          "と",
+          "たら",
+          "ので"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "b1-g-s7-q29",
+        "promptJP": "今日は日曜日です。（ ）、銀行は休みです。",
+        "choices": [
+          "だから",
+          "そして",
+          "しかし",
+          "でも"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "b1-g-s7-q30",
+        "promptJP": "彼は来る（ ）思います。",
+        "choices": [
+          "で",
+          "を",
+          "に",
+          "と"
+        ],
+        "correctIndex": 3
+      }
+    ]
+  },
+  {
+    "level": "B1",
+    "sessionNumber": 8,
+    "sessionTitle": "session8(限定・追加)",
+    "topics": [
+      {
+        "id": "b1-g-s8-topic-1",
+        "title": "限定・追加",
+        "explanationMarkdown": "In Japanese, expressions of **limitation and addition**—often grouped as 限定・追加—help speakers specify **scope, restriction, and inclusion**. Key forms include **だけ**, **しか〜ない**, **も**, **ばかり**, and **だけでなく…も**. These are essential for precise and natural communication.\n### 1. だけ (only, just)\nThe particle **だけ** limits something to a specific amount or scope, similar to English “only” or “just.”\n* 水だけ飲みます。\n*I drink only water.*\nIt can attach to nouns, verbs (plain form), and other elements.\n* 見るだけです。 (*I only watch.*)\n### 2. しか〜ない (nothing but, only with negative)\n**しか** must be used with a **negative verb** and emphasizes that the amount is **very small or insufficient**.\n* 水しか飲みません。\n*I drink nothing but water.*\nCompared to **だけ**, **しか〜ない** often carries a stronger or more restrictive nuance.\n### 3. も (also, even)\nThe particle **も** adds information, similar to “also,” “too,” or sometimes “even.”\n* 私も行きます。\n*I will go too.*\nIt replaces particles like は or が in many contexts.\n### 4. ばかり (nothing but, too much of one thing)\n**ばかり** indicates that something happens excessively or repeatedly, often with a slightly negative tone:\n* 甘いものばかり食べています。\n*I eat nothing but sweets.*\nIt can also suggest imbalance.\n### 5. だけでなく…も (not only… but also)\nThis structure expresses addition across two elements:\n* 日本語だけでなく、英語も話せます。\n*I can speak not only Japanese but also English.*\n### Key contrasts\n* **だけ**: neutral limitation\n* **しか〜ない**: strong restriction with negative nuance\n* **も**: addition or inclusion\n* **ばかり**: excessive or biased repetition\n* **だけでなく…も**: structured addition\nMastering these expressions allows learners to control how much information is included or excluded, which is crucial for accurate and nuanced Japanese communication.",
+        "examples": [
+          {
+            "jp": "水だけ飲みます。",
+            "en": "I drink only water."
+          },
+          {
+            "jp": "水しか飲みません。",
+            "en": "I drink nothing but water."
+          },
+          {
+            "jp": "私も行きます。",
+            "en": "I will go too."
+          },
+          {
+            "jp": "甘いものばかり食べています。",
+            "en": "I eat nothing but sweets."
+          },
+          {
+            "jp": "日本語だけでなく、英語も話せます。",
+            "en": "I can speak not only Japanese but also English."
+          }
+        ]
+      }
+    ],
+    "questions": [
+      {
+        "id": "b1-g-s8-q1",
+        "promptJP": "水（ ）飲みます。",
+        "choices": [
+          "しか",
+          "だけでなく",
+          "けれども",
+          "ばかり"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "b1-g-s8-q2",
+        "promptJP": "私（ ）行きます。",
+        "choices": [
+          "しか",
+          "×",
+          "も",
+          "ばかり"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "b1-g-s8-q3",
+        "promptJP": "甘いもの（ ）食べています。",
+        "choices": [
+          "もで",
+          "て",
+          "ばかり",
+          "しか"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "b1-g-s8-q4",
+        "promptJP": "日本語（ ）英語も話せます。",
+        "choices": [
+          "だけでなく",
+          "しか",
+          "ばかり",
+          "だけ"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "b1-g-s8-q5",
+        "promptJP": "彼はコーヒー（ ）飲みません。",
+        "choices": [
+          "だけでなく",
+          "から",
+          "しか",
+          "ばかり"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "b1-g-s8-q6",
+        "promptJP": "今日は野菜（ ）食べました。",
+        "choices": [
+          "しか",
+          "だけ",
+          "ので",
+          "けれども"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s8-q7",
+        "promptJP": "私（ ）行きます。",
+        "choices": [
+          "も",
+          "しか",
+          "けれども",
+          "ばかり"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "b1-g-s8-q8",
+        "promptJP": "彼はゲーム（ ）しています。",
+        "choices": [
+          "しか",
+          "だけど",
+          "ばかり",
+          "なので"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "b1-g-s8-q9",
+        "promptJP": "この店では水（ ）売っています。",
+        "choices": [
+          "だけでなく",
+          "しか",
+          "ばかり",
+          "だけ"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "b1-g-s8-q10",
+        "promptJP": "私は日本語（ ）勉強しています。",
+        "choices": [
+          "だけれども",
+          "も",
+          "しか",
+          "ので"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s8-q11",
+        "promptJP": "あの人は仕事（ ）しています。",
+        "choices": [
+          "も",
+          "しか",
+          "ばかり",
+          "だけれども"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "b1-g-s8-q12",
+        "promptJP": "彼女は果物（ ）食べません。",
+        "choices": [
+          "しか",
+          "なので",
+          "だたら",
+          "ばかり"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "b1-g-s8-q13",
+        "promptJP": "日本語（ ）中国語も勉強しています。",
+        "choices": [
+          "ばかり",
+          "だけでなく",
+          "しか",
+          "も"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s8-q14",
+        "promptJP": "子どもはお菓子（ ）食べています。",
+        "choices": [
+          "しか",
+          "だけ",
+          "ばかり",
+          "だけでなく"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "b1-g-s8-q15",
+        "promptJP": "彼は朝ごはん（ ）食べていません。",
+        "choices": [
+          "しか",
+          "だけ",
+          "も",
+          "ばかり"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "b1-g-s8-q16",
+        "promptJP": "私（ ）行きますよ。",
+        "choices": [
+          "も",
+          "しか",
+          "だけ",
+          "ばかり"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "b1-g-s8-q17",
+        "promptJP": "この学校では英語（ ）日本語も教えます。",
+        "choices": [
+          "も",
+          "だけでなく",
+          "しか",
+          "ばかり"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s8-q18",
+        "promptJP": "彼は毎日ラーメン（ ）食べています。",
+        "choices": [
+          "も",
+          "しか",
+          "ばかり",
+          "だけでなく"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "b1-g-s8-q19",
+        "promptJP": "私は水（ ）飲みません。",
+        "choices": [
+          "なので",
+          "だけれども",
+          "しか",
+          "ばかり"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "b1-g-s8-q20",
+        "promptJP": "この部屋には机（ ）あります。",
+        "choices": [
+          "しか",
+          "だけ",
+          "も",
+          "たら"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "b1-g-s8-q21",
+        "promptJP": "彼女は映画（ ）見ています。",
+        "choices": [
+          "しか",
+          "だけでなく",
+          "ばかり",
+          "たら"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "b1-g-s8-q22",
+        "promptJP": "先生は学生に（ ）話しました。",
+        "choices": [
+          "しか",
+          "だけ",
+          "も",
+          "ばかり"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s8-q23",
+        "promptJP": "私はコーヒー（ ）飲みます。",
+        "choices": [
+          "しか",
+          "だけれども",
+          "×",
+          "ばかり"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "b1-g-s8-q24",
+        "promptJP": "この道では車（ ）通れます。",
+        "choices": [
+          "だけでなく",
+          "しか",
+          "ばかり",
+          "だけ"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "b1-g-s8-q25",
+        "promptJP": "彼はテレビ（ ）見ません。",
+        "choices": [
+          "×",
+          "しか",
+          "だけ",
+          "ばかり"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "b1-g-s8-q26",
+        "promptJP": "日本語（ ）英語も話せます。",
+        "choices": [
+          "だけでなく",
+          "も",
+          "しか",
+          "ばかり"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "b1-g-s8-q27",
+        "promptJP": "私は本（ ）読んでいます。",
+        "choices": [
+          "だけでなく",
+          "しか",
+          "たら",
+          "ばかり"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "id": "b1-g-s8-q28",
+        "promptJP": "彼はサラダ（ ）食べません。",
+        "choices": [
+          "しか",
+          "×",
+          "だけれども",
+          "ばかり"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "b1-g-s8-q29",
+        "promptJP": "この店ではコーヒー（ ）売っています。",
+        "choices": [
+          "だけれども",
+          "しか",
+          "も",
+          "×"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "b1-g-s8-q30",
+        "promptJP": "彼女は勉強（ ）しています。",
+        "choices": [
+          "しか",
+          "×",
+          "ばかり",
+          "だけれども"
+        ],
+        "correctIndex": 2
+      }
+    ]
+  }
+]

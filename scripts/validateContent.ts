@@ -1,5 +1,6 @@
 import a2GrammarJson from "../src/content/a2/grammar.json";
 import a2VocabularyJson from "../src/content/a2/vocab.json";
+import b1GrammarJson from "../src/content/b1/grammar.json";
 import { parseGrammarJson, parseVocabularyJson } from "../src/content/loaders";
 
 type Mode = "validate" | "stats";
@@ -12,29 +13,39 @@ async function main() {
   const mode = getModeFromArgs(process.argv.slice(2));
 
   const vocabResult = parseVocabularyJson(a2VocabularyJson);
-  const grammarResult = parseGrammarJson(a2GrammarJson);
+  const a2GrammarResult = parseGrammarJson(a2GrammarJson, "src/content/a2/grammar.json");
+  const b1GrammarResult = parseGrammarJson(b1GrammarJson, "src/content/b1/grammar.json");
 
   const vocabItemCount = vocabResult.sessions.reduce(
     (count, session) => count + session.items.length,
     0,
   );
   const vocabSessionCount = vocabResult.sessions.length;
-  const grammarSessionCount = grammarResult.sessions.length;
-  const grammarQuestionsPerSession = grammarResult.sessions.map((session) => ({
+  const grammarSessions = [...a2GrammarResult.sessions, ...b1GrammarResult.sessions].sort(
+    (a, b) => {
+      if (a.level !== b.level) {
+        return a.level.localeCompare(b.level);
+      }
+      return a.sessionNumber - b.sessionNumber;
+    },
+  );
+  const grammarSessionCount = grammarSessions.length;
+  const grammarQuestionsPerSession = grammarSessions.map((session) => ({
+    level: session.level,
     sessionNumber: session.sessionNumber,
     sessionTitle: session.sessionTitle,
     questionCount: session.questions.length,
     topicCount: session.topics.length,
   }));
 
-  const warnings = [...vocabResult.warnings, ...grammarResult.warnings];
+  const warnings = [...vocabResult.warnings, ...a2GrammarResult.warnings, ...b1GrammarResult.warnings];
   const hasWarnings = warnings.length > 0;
 
   console.log("Content JSON Summary");
   console.log("====================");
-  console.log(`Vocabulary items: ${vocabItemCount}`);
-  console.log(`Vocabulary sessions: ${vocabSessionCount}`);
-  console.log(`Grammar sessions: ${grammarSessionCount}`);
+    console.log(`Vocabulary items: ${vocabItemCount}`);
+    console.log(`Vocabulary sessions: ${vocabSessionCount}`);
+    console.log(`Grammar sessions: ${grammarSessionCount}`);
 
   if (grammarQuestionsPerSession.length === 0) {
     console.log("Grammar questions per session: none");
@@ -42,7 +53,7 @@ async function main() {
     console.log("Grammar questions per session:");
     for (const entry of grammarQuestionsPerSession) {
       console.log(
-        `- Session ${entry.sessionNumber}: ${entry.questionCount} questions across ${entry.topicCount} topic(s) | ${entry.sessionTitle}`,
+        `- ${entry.level} Session ${entry.sessionNumber}: ${entry.questionCount} questions across ${entry.topicCount} topic(s) | ${entry.sessionTitle}`,
       );
     }
   }

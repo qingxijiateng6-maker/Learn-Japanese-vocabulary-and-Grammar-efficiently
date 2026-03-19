@@ -1,22 +1,22 @@
 import Link from "next/link";
-import { loadA2GrammarSessions } from "@/content/loaders";
+import { loadB1GrammarSessions } from "@/content/loaders";
 import { GrammarSessionList } from "@/features/grammar/components/GrammarSessionList";
 import { PageScaffold } from "@/shared/components/PageScaffold";
 
-export default async function GrammarA2SessionsPage() {
-  const { sessions, warnings } = await loadA2GrammarSessions();
+export default async function GrammarB1SessionsPage() {
+  const { sessions, warnings } = await loadB1GrammarSessions();
 
   return (
     <PageScaffold className="page-main grammar-page grammar-page--overview" backdropVariant="grammar">
       <section className="page-card grammar-panel grammar-panel--hero">
         <p className="flashcard-label">Grammar Level</p>
-        <h1 className="page-title">Grammar • A2</h1>
+        <h1 className="page-title">Grammar • B1</h1>
         <p className="page-subtitle">
           Start with the explanation page for each session, then move to 4-choice practice.
         </p>
       </section>
       <GrammarSessionList
-        level="A2"
+        level="B1"
         sessions={sessions.map((session) => ({
           sessionNumber: session.sessionNumber,
           sessionTitle: session.sessionTitle,

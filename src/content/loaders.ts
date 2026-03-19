@@ -1,6 +1,7 @@
 import { cache as reactCache } from "react";
 import a2GrammarJson from "@/content/a2/grammar.json";
 import a2VocabularyJson from "@/content/a2/vocab.json";
+import b1GrammarJson from "@/content/b1/grammar.json";
 import {
   type GrammarSessionJsonV1,
   GrammarJsonV1Schema,
@@ -58,6 +59,19 @@ export type VocabularyLevelGroup = {
 };
 
 export type GrammarSession = GrammarSessionJsonV1;
+
+const GRAMMAR_CONTENT_BY_LEVEL = {
+  A2: {
+    json: a2GrammarJson,
+    sourcePath: "src/content/a2/grammar.json",
+  },
+  B1: {
+    json: b1GrammarJson,
+    sourcePath: "src/content/b1/grammar.json",
+  },
+} as const;
+
+type GrammarContentLevel = keyof typeof GRAMMAR_CONTENT_BY_LEVEL;
 
 function withOptionalCache<T extends (...args: never[]) => unknown>(fn: T): T {
   return (typeof reactCache === "function" ? reactCache(fn) : fn) as T;
@@ -198,13 +212,21 @@ export function parseVocabularyJson(json: unknown): SafeLoadResult<VocabularySes
   };
 }
 
-export function parseGrammarJson(json: unknown): SafeLoadResult<GrammarSession> {
+function normalizeGrammarContentLevel(level: string): GrammarContentLevel | null {
+  const normalized = level.toUpperCase();
+  return normalized === "A2" || normalized === "B1" ? normalized : null;
+}
+
+export function parseGrammarJson(
+  json: unknown,
+  sourcePath = "src/content/a2/grammar.json",
+): SafeLoadResult<GrammarSession> {
   const parsed = GrammarJsonV1Schema.safeParse(json);
   if (!parsed.success) {
     return {
       sessions: [],
       warnings: [
-        `Invalid grammar JSON (src/content/a2/grammar.json): ${parsed.error.issues
+        `Invalid grammar JSON (${sourcePath}): ${parsed.error.issues
           .slice(0, 3)
           .map((issue) => issue.path.join(".") || "root")
           .join(", ")}`,
@@ -224,6 +246,19 @@ export function parseGrammarJson(json: unknown): SafeLoadResult<GrammarSession> 
     sessions,
     warnings: [],
   };
+}
+
+export function loadGrammarSessionsForLevel(level: string): SafeLoadResult<GrammarSession> {
+  const normalized = normalizeGrammarContentLevel(level);
+  if (!normalized) {
+    return {
+      sessions: [],
+      warnings: [`Unsupported grammar level: ${level}`],
+    };
+  }
+
+  const source = GRAMMAR_CONTENT_BY_LEVEL[normalized];
+  return parseGrammarJson(source.json, source.sourcePath);
 }
 
 export const loadA2VocabularySessions = withOptionalCache(
@@ -246,7 +281,11 @@ export const loadA2VocabularyLevelGroup = withOptionalCache(async (): Promise<{
 });
 
 export const loadA2GrammarSessions = withOptionalCache(
-  async (): Promise<SafeLoadResult<GrammarSession>> => parseGrammarJson(a2GrammarJson),
+  async (): Promise<SafeLoadResult<GrammarSession>> => loadGrammarSessionsForLevel("A2"),
+);
+
+export const loadB1GrammarSessions = withOptionalCache(
+  async (): Promise<SafeLoadResult<GrammarSession>> => loadGrammarSessionsForLevel("B1"),
 );
 
 

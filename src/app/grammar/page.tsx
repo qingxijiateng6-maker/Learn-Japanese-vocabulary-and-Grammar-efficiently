@@ -10,14 +10,14 @@ export default function GrammarLevelsPage() {
         <h1 className="page-title">Grammar</h1>
         <p className="page-subtitle">
           Choose a CEFR level, then open a session to read the explanation before moving to
-          practice.
+          practice. A2 and B1 are available now.
         </p>
       </section>
 
       <section className="page-card grammar-panel grammar-panel--selection">
         <div className="stack-row">
           <h2 className="page-title">Available levels</h2>
-          <span className="muted-note">A2 is open now</span>
+          <span className="muted-note">A2 and B1 are open now</span>
         </div>
         <div className="level-grid">
           {CEFR_LEVELS.map((level) =>

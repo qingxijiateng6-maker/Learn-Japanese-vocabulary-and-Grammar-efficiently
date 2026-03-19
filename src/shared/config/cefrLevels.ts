@@ -11,14 +11,14 @@ export const CEFR_LEVELS: CefrLevelConfig[] = [
   {
     code: "A2",
     label: "A2",
-    description: "Core grammar sessions ready to study now.",
+    description: "Core grammar sessions are ready to study now.",
     available: true,
   },
   {
     code: "B1",
     label: "B1",
-    description: "Intermediate grammar content will be added next.",
-    available: false,
+    description: "Intermediate grammar sessions are ready to study now.",
+    available: true,
   },
   {
     code: "B2",
